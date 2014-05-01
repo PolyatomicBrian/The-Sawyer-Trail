@@ -11,7 +11,7 @@ public class Runner{
     Container pane = f.getContentPane();
     pane.setLayout(new BorderLayout());
     
-    MainMenu objMainMenu = new MainMenu();
+    MainMenu objMainMenu = new MainMenu(); //Stupid mistake. Should make this a GameScreen object (or whatever) and add the MainMenu to that.
     
     pane.add(objMainMenu, BorderLayout.CENTER);
     
