@@ -4,16 +4,19 @@ import java.awt.*;
 public class Runner{
   
   public static void main(String[] args){
+    
     JFrame f = new JFrame();
-    f.setTitle("Trail");
+    f.setTitle("The Sawyer Trail");
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setSize(500,500);
     Container pane = f.getContentPane();
-    pane.setLayout(new BorderLayout());
+    f.setLayout(new BorderLayout());
     
-    MainMenu objMainMenu = new MainMenu();
+    GamePanel gp = new GamePanel();
+    MainMenu mm = new MainMenu(gp);
     
-    pane.add(objMainMenu, BorderLayout.CENTER);
+    gp.add(mm);
+    pane.add(gp, BorderLayout.CENTER);
     
     f.setVisible(true);
     
