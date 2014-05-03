@@ -13,19 +13,22 @@ public class Runner{
     f.setLayout(new BorderLayout());
     
     GamePanel gp = new GamePanel();
-
+    
     MainMenu mm = new MainMenu(gp);
     
     gp.add(mm);
     pane.add(gp, BorderLayout.CENTER);
     
+    
     /*
     //******Below is for testing purposes.
     SupplySelection ss = new SupplySelection(gp,"carrot");
     
-    pane.add(ss, BorderLayout.CENTER);
+    gp.add(ss);
+    pane.add(gp, BorderLayout.CENTER);
     //******Testing purposes end here.
     */
+    
     
     f.setVisible(true);
     

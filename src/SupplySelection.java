@@ -6,10 +6,12 @@ import java.util.*;
 public class SupplySelection extends JPanel{
   
   private GamePanel gp;
+  private SupplySelection ss;
   private String playersName;
   private int numSupplies = 10;
   private int numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers;
   private JLabel lblText = new JLabel("Pick the supplies you want to gather. Items remaining: " + numSupplies);
+  private JLabel lblError = new JLabel("");
   private JButton btnDone = new JButton("Done");
   private ArrayList<JButton> listSupplyButtons = new ArrayList<JButton>();
   private ArrayList<JLabel> listSupplyLabelsNames = new ArrayList<JLabel>();
@@ -22,8 +24,14 @@ public class SupplySelection extends JPanel{
     
     setLayout(null);
     
+    gp = tempgp; //Reference to GamePanel.
+    playersName = tempplayersName;
+    
     lblText.setBounds(35,60,500,20);
     add(lblText);
+    
+    lblError.setBounds(195,400,500,20);
+    add(lblError);
     
     btnDone.setBounds(390,400,80,30);
     btnDone.addActionListener(new SupplyDone());
@@ -46,8 +54,6 @@ public class SupplySelection extends JPanel{
       listSupplyLabelsAmounts.add(new JLabel("0"));
     }
     
-    gp = tempgp; //Reference to GamePanel.
-    playersName = tempplayersName;
     
     //Fuel
     listSupplyButtons.get(0).setBounds(120,150,32,32);
@@ -124,18 +130,24 @@ public class SupplySelection extends JPanel{
         listSupplyButtons.get(i).addActionListener(new MinusButton(i));
       }
     }
+    
+    ss = this;
+    
   }
   
   private class SupplyDone implements ActionListener{
-    
+    //Goes to next frame
     public void actionPerformed(ActionEvent e){
-      
-      //Check if total supplies == 0
-          //Create new object for the next panel and pass over important variables.
-          //Remove this panel from gp, add next panel to gp.
-      //Else
-          //Display message saying something like "Get the rest of your supplies!"
-      
+      if (numSupplies == 0){
+        gp.remove(ss);
+        PostSupplySelectionScene psss = new PostSupplySelectionScene(gp, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers);
+        gp.add(psss);
+        gp.revalidate();
+        gp.repaint();
+      }
+      else{
+        lblError.setText("<html><font color = 'red'>Get the rest of your supplies!</font></html>");
+      }
     }
   }
   
@@ -171,7 +183,7 @@ public class SupplySelection extends JPanel{
         updateDisplay();
       }else{
         
-        //Do something to show that user has run out of total supplies.
+        lblText.setText("<html>Pick the supplies you want to gather. Items remaining:<font color = 'red'> " + numSupplies + "</font></html>");
         
       }
     }
@@ -209,7 +221,7 @@ public class SupplySelection extends JPanel{
         updateDisplay();
       }else{
         
-        //Do something to show that user has max amount of total supplies.
+        lblText.setText("<html>Pick the supplies you want to gather. Items remaining:<font color = 'red'> " + numSupplies + "</font></html>");
         
       }
     }
@@ -223,5 +235,6 @@ public class SupplySelection extends JPanel{
     listSupplyLabelsAmounts.get(4).setText(""+numTires);
     listSupplyLabelsAmounts.get(5).setText(""+numMufflers);
     lblText.setText("Pick the supplies you want to gather. Items remaining: " + numSupplies);
+    lblError.setText("");
   } 
 }
