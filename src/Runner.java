@@ -12,15 +12,20 @@ public class Runner{
     Container pane = f.getContentPane();
     f.setLayout(new BorderLayout());
     
-<<<<<<< HEAD
     GamePanel gp = new GamePanel();
+
     MainMenu mm = new MainMenu(gp);
-=======
-    MainMenu objMainMenu = new MainMenu(); //Stupid mistake. Should make this a GameScreen object (or whatever) and add the MainMenu to that.
->>>>>>> 705e673e8c7bd8de760b248c5890a75970d5fb46
     
     gp.add(mm);
     pane.add(gp, BorderLayout.CENTER);
+    
+    /*
+    //******Below is for testing purposes.
+    SupplySelection ss = new SupplySelection(gp,"carrot");
+    
+    pane.add(ss, BorderLayout.CENTER);
+    //******Testing purposes end here.
+    */
     
     f.setVisible(true);
     
