@@ -140,7 +140,7 @@ public class SupplySelection extends JPanel{
     public void actionPerformed(ActionEvent e){
       if (numSupplies == 0){
         gp.remove(ss);
-        PostSupplySelectionScene psss = new PostSupplySelectionScene(gp, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers);
+        PostSupplySelectionScene psss = new PostSupplySelectionScene(gp, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers, playersName);
         gp.add(psss);
         gp.revalidate();
         gp.repaint();

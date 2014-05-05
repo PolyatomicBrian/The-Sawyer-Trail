@@ -13,21 +13,26 @@ public class Runner{
     f.setLayout(new BorderLayout());
     
     GamePanel gp = new GamePanel();
-    
-    MainMenu mm = new MainMenu(gp);
-    
-    gp.add(mm);
-    pane.add(gp, BorderLayout.CENTER);
+    /*
+     MainMenu mm = new MainMenu(gp);
+     
+     gp.add(mm);
+     pane.add(gp, BorderLayout.CENTER);
+     */
     
     
     /*
-    //******Below is for testing purposes.
-    SupplySelection ss = new SupplySelection(gp,"carrot");
+     //******Below is for testing purposes.
+     SupplySelection ss = new SupplySelection(gp,"carrot");
+     
+     gp.add(ss);
+     pane.add(gp, BorderLayout.CENTER);
+     //******Testing purposes end here.
+     */
     
-    gp.add(ss);
+    OverWorld ow = new OverWorld(gp, "cat-man", 54, 32, 10, 98, 76, 65);
+    gp.add(ow);
     pane.add(gp, BorderLayout.CENTER);
-    //******Testing purposes end here.
-    */
     
     
     f.setVisible(true);
