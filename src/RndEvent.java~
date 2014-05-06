@@ -1,0 +1,11 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class RndEvent extends JPanel{
+  
+  public RndEvent(){
+    
+    
+  }
+  
+}

@@ -30,7 +30,7 @@ public class PostSupplySelectionScene extends JPanel{
     btnOK.setBounds(370,400,80,30);
     add(btnOK);
     
-    lblTimeToGo.setBounds(140,25,500,20);
+    lblTimeToGo.setBounds(145,25,500,20);
     add(lblTimeToGo);
   }
   

@@ -3,14 +3,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class OverWorld extends JPanel{
-  private GamePanel gp;
-  private int numFuel;
-  private int numFood;
-  private int numFlashDrives;
-  private int numMoney;
-  private int numTires;
-  private int numMufflers;
-  private String playersname;
+  GamePanel gp;
+  int numFuel;
+  int numFood;
+  int numFlashDrives;
+  int numMoney;
+  int numTires;
+  int numMufflers;
+  String playersname;
   
   public OverWorld(GamePanel tempgp, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers){
     gp = tempgp;
