@@ -3,7 +3,18 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class OverWorld extends JPanel{
+<<<<<<< HEAD
   GamePanel gp;
+=======
+  private GamePanel gp;
+  private int numFuel;
+  private int numFood;
+  private int numFlashDrives;
+  private int numMoney;
+  private int numTires;
+  private int numMufflers;
+  private String playersname;
+>>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
   
   /*
   //Supplies

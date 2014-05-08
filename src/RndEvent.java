@@ -4,17 +4,24 @@ import java.util.ArrayList;
 
 public class RndEvent extends JPanel{
   
+<<<<<<< HEAD
   private TopOverWorld tow;
   private GamePanel gp;
   private JLabel lblRndMsg = new JLabel("<html><font color = 'white'>Temp</font></html>");
   private ArrayList<JLabel> listRndMsg = new ArrayList<JLabel>();
   private String playersname;
+=======
+  private JLabel lblRndMsg = new JLabel();
+  private ArrayList<JLabel> listRndMsg = new ArrayList<JLabel>();
+  private String name;
+>>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
   private int playerHealth;
   private int varunHealth;
   private int brianHealth;
   private int mrSawyerHealth;
   private int vikrantHealth;
   
+<<<<<<< HEAD
   public RndEvent(GamePanel tempgp, TopOverWorld temptow, String tempplayersname, int tempPlayerHealth, int tempVarunHealth, int tempBrianHealth, int tempMrSawyerHealth, int tempVikrantHealth){
     
     tow = temptow;
@@ -22,12 +29,16 @@ public class RndEvent extends JPanel{
     playersname = tempplayersname;
     
     setLayout(new BorderLayout());
+=======
+  public RndEvent(int tempPlayerHealth, int tempVarunHealth, int tempBrianHealth, int tempMrSawyerHealth, int tempVikrantHealth){
+>>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
     
     playerHealth = tempPlayerHealth;
     varunHealth = tempVarunHealth;
     brianHealth = tempBrianHealth;
     mrSawyerHealth = tempMrSawyerHealth;
     vikrantHealth = tempVikrantHealth;
+<<<<<<< HEAD
     fillArray();
     
     selectRndMsg();
@@ -65,11 +76,22 @@ public class RndEvent extends JPanel{
     listRndMsg.add(lbl10);
     listRndMsg.add(lbl11);
     listRndMsg.add(lbl12);
+=======
+    
+    
+  }
+  
+  public void fillArray(){
+   
+    JLabel lbl1 = new JLabel(name + " died of dysentery.");
+    //JLabel lbl2 = 
+>>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
     
   }
   
   public JLabel selectRndMsg(){
     int numRnd = (int)(listRndMsg.size() * Math.random());
+<<<<<<< HEAD
     lblRndMsg = listRndMsg.get(numRnd);
     return lblRndMsg;
     
@@ -101,6 +123,19 @@ public class RndEvent extends JPanel{
     }
     
     return selectName();
+=======
+    //get message from arraylist
+    return lblRndMsg;
+
+  }
+  
+  public void selectName(){
+   int numRnd = (int)(6 * Math.random());
+   //check if each character's health > 0
+     //if yes, then name can be used
+    //else no.
+    
+>>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
     
   }
   
