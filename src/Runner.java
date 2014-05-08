@@ -13,6 +13,7 @@ public class Runner{
     f.setLayout(new BorderLayout());
     
     GamePanel gp = new GamePanel();
+    
     /*
      MainMenu mm = new MainMenu(gp);
      
@@ -30,10 +31,13 @@ public class Runner{
      //******Testing purposes end here.
      */
     
-    OverWorld ow = new OverWorld(gp, "cat-man", 54, 32, 10, 98, 76, 65);
+    
+    
+    OverWorld ow = new OverWorld(gp);
     gp.add(ow);
     pane.add(gp, BorderLayout.CENTER);
     
+     
     
     f.setVisible(true);
     

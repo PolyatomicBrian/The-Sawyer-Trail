@@ -38,7 +38,7 @@ public class IntroScene extends JPanel{
       count++;
       if (count == 1){
         lblIntro.setBounds(125,25,500,20);
-        lblIntro.setText("It's finally time for Penn State's Hack-A-Thon!");
+        lblIntro.setText("It's finally time for UPenn's Hack-A-Thon!");
       }else if (count == 2){
         lblIntro.setBounds(100,25,500,20);
         lblIntro.setText("You are to journey with the following people to Penn State:");
