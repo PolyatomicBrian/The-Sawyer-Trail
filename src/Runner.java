@@ -32,19 +32,12 @@ public class Runner{
      */
     
     
-<<<<<<< HEAD
     
     OverWorld ow = new OverWorld(gp);
     gp.add(ow);
     pane.add(gp, BorderLayout.CENTER);
     
      
-=======
-    OverWorld ow = new OverWorld(gp, "Player", 54, 32, 10, 98, 76, 65);
-    gp.add(ow);
-    pane.add(gp, BorderLayout.CENTER);
-        
->>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
     
     f.setVisible(true);
     

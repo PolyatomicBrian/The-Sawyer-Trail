@@ -63,11 +63,7 @@ public class BottomOverWorld extends JPanel{
   private JPanel healthPanel = new JPanel();
   private JPanel statsPanel = new JPanel();
   
-<<<<<<< HEAD
   public BottomOverWorld(GamePanel tempgp/*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
-=======
-  public BottomOverWorld(GamePanel tempgp, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers){
->>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
     
     gp = tempgp;
     bow = this;
@@ -200,15 +196,12 @@ public class BottomOverWorld extends JPanel{
     
     remove(statsPanel);
     
-<<<<<<< HEAD
     lblPlayerHealth.setText("<html><font color='green'>"+playerHealth+"</font></html>");
     lblMrSawyerHealth.setText("<html><font color='green'>"+mrSawyerHealth+"</font></html>");
     lblVikrantHealth.setText("<html><font color='green'>"+vikrantHealth+"</font></html>");
     lblVarunHealth.setText("<html><font color='green'>"+varunHealth+"</font></html>");
     lblBrianHealth.setText("<html><font color='green'>"+brianHealth+"</font></html>");
     
-=======
->>>>>>> aeb6e0fb7d937d98e371137a7c47ce57f59f5944
     healthPanel.setLayout(new GridLayout(5,2));
     healthPanel.setPreferredSize(new Dimension(150, getHeight()));
     healthPanel.add(lblPlayerName);
