@@ -9,6 +9,7 @@ public class Runner{
     f.setTitle("The Sawyer Trail");
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setSize(500,500);
+    f.setResizable(false);
     Container pane = f.getContentPane();
     f.setLayout(new BorderLayout());
     

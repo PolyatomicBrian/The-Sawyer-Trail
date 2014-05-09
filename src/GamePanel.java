@@ -13,7 +13,7 @@ public class GamePanel extends JPanel{
   public static int numTires;
   public static int numMufflers;
   
-  public static String playersname = "Mr. Null";
+  
   
   //Health
   public static int healthPlayer = 100;
@@ -21,6 +21,12 @@ public class GamePanel extends JPanel{
   public static int healthVikrant = 100;
   public static int healthVarun = 100;
   public static int healthBrian = 100;
+  
+  
+  //Misc
+  public static String playersname = "Mr. Null";
+  public static int miles;
+  public static boolean isMoving = true;
   
   public GamePanel(){
     

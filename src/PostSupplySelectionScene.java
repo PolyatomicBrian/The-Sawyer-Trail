@@ -23,6 +23,7 @@ public class PostSupplySelectionScene extends JPanel{
     GamePanel.numMoney = tempnumMoney;
     GamePanel.numTires = tempnumTires;
     GamePanel.numMufflers = tempnumMufflers;
+    GamePanel.playersname = playersname;
     
     
     setLayout(null);

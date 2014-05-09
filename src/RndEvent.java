@@ -15,10 +15,10 @@ public class RndEvent extends JPanel{
   private int mrSawyerHealth;
   private int vikrantHealth;
   
-  public RndEvent(GamePanel tempgp, TopOverWorld temptow, String tempplayersname, int tempPlayerHealth, int tempVarunHealth, int tempBrianHealth, int tempMrSawyerHealth, int tempVikrantHealth){
+  public RndEvent(/*GamePanel tempgp, TopOverWorld temptow,*/ String tempplayersname, int tempPlayerHealth, int tempVarunHealth, int tempBrianHealth, int tempMrSawyerHealth, int tempVikrantHealth){
     
-    tow = temptow;
-    gp = tempgp;
+   // tow = temptow;
+   // gp = tempgp;
     playersname = tempplayersname;
     
     setLayout(new BorderLayout());
@@ -30,10 +30,13 @@ public class RndEvent extends JPanel{
     vikrantHealth = tempVikrantHealth;
     fillArray();
     
+    
+    
     selectRndMsg();
     add(lblRndMsg, BorderLayout.NORTH);
-    tow.repaint();
-    gp.repaint();
+    repaint();
+   // tow.repaint();
+  //  gp.repaint();
   }
   
   public void fillArray(){
@@ -52,6 +55,7 @@ public class RndEvent extends JPanel{
     JLabel lbl10 = new JLabel(selectName() + " scratched their arm.");
     JLabel lbl11 = new JLabel(selectName() + " began to pick at a scab on their leg.");
     JLabel lbl12 = new JLabel(selectName() + " tied their shoelaces.");
+    JLabel lbl13 = new JLabel(selectName() + "'s stomach growled.");
     
     listRndMsg.add(lbl1);
     listRndMsg.add(lbl2);
@@ -65,12 +69,15 @@ public class RndEvent extends JPanel{
     listRndMsg.add(lbl10);
     listRndMsg.add(lbl11);
     listRndMsg.add(lbl12);
+    listRndMsg.add(lbl13);
     
   }
   
   public JLabel selectRndMsg(){
     int numRnd = (int)(listRndMsg.size() * Math.random());
     lblRndMsg = listRndMsg.get(numRnd);
+    lblRndMsg.setHorizontalAlignment(SwingConstants.CENTER);
+    lblRndMsg.setVerticalAlignment(SwingConstants.CENTER);
     return lblRndMsg;
     
   }
@@ -103,5 +110,14 @@ public class RndEvent extends JPanel{
     return selectName();
     
   }
+  
+  public int msgWidth(){
+    return lblRndMsg.getWidth();
+  }
+  
+  public int msgHeight(){
+    return lblRndMsg.getHeight();
+  }
+  
   
 }

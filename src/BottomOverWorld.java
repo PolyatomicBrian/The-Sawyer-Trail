@@ -10,6 +10,7 @@ public class BottomOverWorld extends JPanel{
   private JButton btnStop = new JButton("Stop");
   private GamePanel gp;
   private String playersname = GamePanel.playersname;
+  private javax.swing.Timer timer;
   
   //Items
   private int numFuel;
@@ -18,6 +19,7 @@ public class BottomOverWorld extends JPanel{
   private int numMoney;
   private int numTires;
   private int numMufflers;
+  private int numNextLandMark = 200;
   
   
   
@@ -69,6 +71,9 @@ public class BottomOverWorld extends JPanel{
     bow = this;
     playersname = GamePanel.playersname;
     
+    timer = new javax.swing.Timer(200, new TimerListener());
+    timer.start();
+    
     numFuel = GamePanel.numFuel;
     numFood = GamePanel.numFood;
     numFlashDrives = GamePanel.numFlashDrives;
@@ -77,12 +82,12 @@ public class BottomOverWorld extends JPanel{
     numMufflers = GamePanel.numMufflers;
     
     /*
-    playerHealth = GamePanel.healthPlayer;
-    mrSawyerHealth = GamePanel.healthMrSawyer;
-    vikrantHealth = GamePanel.healthVikrant;
-    varunHealth = GamePanel.healthVarun;
-    brianHealth = GamePanel.healthBrian;
-    */
+     playerHealth = GamePanel.healthPlayer;
+     mrSawyerHealth = GamePanel.healthMrSawyer;
+     vikrantHealth = GamePanel.healthVikrant;
+     varunHealth = GamePanel.healthVarun;
+     brianHealth = GamePanel.healthBrian;
+     */
     
     bow = this;
     
@@ -93,6 +98,7 @@ public class BottomOverWorld extends JPanel{
     lblMoneyNum.setText(""+numMoney);
     lblTiresNum.setText(""+numTires);
     lblMufflersNum.setText(""+numMufflers);
+    lblNextLandmarkNum.setText(""+numNextLandMark);
     
     setLayout(new BorderLayout());
     
@@ -154,6 +160,31 @@ public class BottomOverWorld extends JPanel{
     updateHud();
   }
   
+  
+  //Gets distance traveled.
+  private class TimerListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.isMoving){
+        GamePanel.miles++;
+        numNextLandMark--;
+        updateStats();
+      }
+      
+      revalidate();
+      repaint();
+    }
+  }
+  
+  private void updateStats(){
+    lblFuelNum.setText(""+numFuel);
+    lblFoodNum.setText(""+numFood);
+    lblFlashDrivesNum.setText(""+numFlashDrives);
+    lblMoneyNum.setText(""+numMoney);
+    lblTiresNum.setText(""+numTires);
+    lblMufflersNum.setText(""+numMufflers);
+    lblNextLandmarkNum.setText(""+numNextLandMark); 
+  }
+  
   private class HandleBtnHealth implements ActionListener{
     public void actionPerformed(ActionEvent e){
       seeHealth = true;
@@ -181,6 +212,8 @@ public class BottomOverWorld extends JPanel{
     }
   }
   
+  
+  
   private void updateHud(){
     if (seeHealth){
       createHealthPanel();
@@ -189,11 +222,13 @@ public class BottomOverWorld extends JPanel{
     }else if (seeStop){
       //Stop
     }
+    revalidate();
     repaint();
   }
   
   private void createHealthPanel(){
     
+    remove(healthPanel);
     remove(statsPanel);
     
     lblPlayerHealth.setText("<html><font color='green'>"+playerHealth+"</font></html>");
@@ -217,6 +252,7 @@ public class BottomOverWorld extends JPanel{
     
     add(healthPanel, BorderLayout.WEST);
     
+    
     revalidate();
     repaint();
     
@@ -225,17 +261,20 @@ public class BottomOverWorld extends JPanel{
   private void createStatsPanel(){
     
     remove(healthPanel);
+    remove(statsPanel);
     
     statsPanel.setLayout(new GridLayout(7,2));
-    statsPanel.setPreferredSize(new Dimension(220,getHeight()));
+    // statsPanel.setPreferredSize(new Dimension(150,getHeight()+100));
     for (int i = 0; i<listStatsLabels.size(); i++){
       statsPanel.add(listStatsLabels.get(i));
     }
     
     add(statsPanel, BorderLayout.WEST);
     
+    
     revalidate();
     repaint();
     
   }
+  
 }
