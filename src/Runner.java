@@ -15,13 +15,13 @@ public class Runner{
     
     GamePanel gp = new GamePanel();
     
-    /*
+    
      MainMenu mm = new MainMenu(gp);
      
      gp.add(mm);
      pane.add(gp, BorderLayout.CENTER);
-     */
-    
+     
+  
     
     /*
      //******Below is for testing purposes.
@@ -33,11 +33,11 @@ public class Runner{
      */
     
     
-    
+    /*
     OverWorld ow = new OverWorld(gp);
     gp.add(ow);
     pane.add(gp, BorderLayout.CENTER);
-    
+    */
      
     
     f.setVisible(true);
