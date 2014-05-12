@@ -11,12 +11,18 @@ public class Background extends JPanel{
   private int i = 0;
   private ObjBus objBus = new ObjBus();
   private GamePanel gp;
+  private OverWorld ow;
+  private TopOverWorld tow;
+  private BottomOverWorld bow;
   private RndEvent re;
   
-  public Background(GamePanel tempgp){
+  public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow){
     
     setLayout(null);
     
+    tow = temptow;
+    bow = tempbow;
+    ow = tempow;
     gp = tempgp;
     
     imgBackground = new ImageIcon("bkgd.png");
@@ -51,10 +57,9 @@ public class Background extends JPanel{
       if (GamePanel.isMoving){
         i+=6; //Speed of background moving.
         
-        if(GamePanel.miles % 200 == 0){
-          //Go to landmark.
-          //Set miles to zero.
-        }else if(GamePanel.miles % 50 == 0){
+        if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0){
+          gotoLandMark();
+        }else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
           doRandomEvent();
         }
       }
@@ -62,6 +67,21 @@ public class Background extends JPanel{
       revalidate();
       repaint();
     }
+  }
+  
+  public void gotoLandMark(){
+    
+    //fix
+    
+    //GamePanel.miles = 0;
+    //gp.remove(this); //Null pointer exception here : gp.remove(ow);
+    LandMark lm = new LandMark();
+    gp.removeAll();
+    gp.add(lm);
+    gp.revalidate();
+    gp.repaint();
+    timer.stop();
+    timerPause.stop();
   }
   
   private void doRandomEvent(){

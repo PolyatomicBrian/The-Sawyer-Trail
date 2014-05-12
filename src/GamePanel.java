@@ -27,8 +27,11 @@ public class GamePanel extends JPanel{
   public static String playersname = "Mr. Null";
   public static int miles;
   public static boolean isMoving = true;
+  public static GamePanel gp;
   
   public GamePanel(){
+    
+    gp = this;
     
     setLayout(new BorderLayout());
     

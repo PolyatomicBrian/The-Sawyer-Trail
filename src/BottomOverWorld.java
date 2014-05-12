@@ -32,6 +32,8 @@ public class BottomOverWorld extends JPanel{
   
   
   private BottomOverWorld bow;
+  private OverWorld ow;
+  
   private boolean seeHealth = true;
   private boolean seeStats = false;
   private boolean seeStop = false;
@@ -65,8 +67,9 @@ public class BottomOverWorld extends JPanel{
   private JPanel healthPanel = new JPanel();
   private JPanel statsPanel = new JPanel();
   
-  public BottomOverWorld(GamePanel tempgp/*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
+  public BottomOverWorld(OverWorld tempow, GamePanel tempgp /*TopOverWorld temptow*//*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
     
+    ow = tempow;
     gp = tempgp;
     bow = this;
     playersname = GamePanel.playersname;
@@ -276,5 +279,6 @@ public class BottomOverWorld extends JPanel{
     repaint();
     
   }
+
   
 }
