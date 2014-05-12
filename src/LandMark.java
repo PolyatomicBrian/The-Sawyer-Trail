@@ -5,10 +5,13 @@ import java.awt.event.*;
 public class LandMark extends JPanel{
   
   private LandMarkTop lmt = new LandMarkTop();
-  private LandMarkBottom lmb = new LandMarkBottom();
+  private LandMarkBottom lmb;
+  private GamePanel gp;
   
-  public LandMark(){
+  public LandMark(GamePanel tempgp){
     
+    gp = tempgp;
+    lmb = new LandMarkBottom(gp, lmt);
     setLayout(new BorderLayout());
     
     add(lmt, BorderLayout.CENTER);

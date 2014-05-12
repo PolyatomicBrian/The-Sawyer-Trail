@@ -38,6 +38,12 @@ public class Runner{
     gp.add(ow);
     pane.add(gp, BorderLayout.CENTER);
     */
+    
+    /*
+    LandMark lm = new LandMark(gp);
+    gp.add(lm);
+    pane.add(gp, BorderLayout.CENTER);
+    */
      
     
     f.setVisible(true);

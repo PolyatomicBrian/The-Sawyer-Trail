@@ -56,6 +56,7 @@ public class RndEvent extends JPanel{
     JLabel lbl11 = new JLabel(selectName() + " began to pick at a scab on their leg.");
     JLabel lbl12 = new JLabel(selectName() + " tied their shoelaces.");
     JLabel lbl13 = new JLabel(selectName() + "'s stomach growled.");
+    JLabel lbl14 = new JLabel(selectName() + " mentioned something about Bob Saget.");
     
     listRndMsg.add(lbl1);
     listRndMsg.add(lbl2);
@@ -70,6 +71,7 @@ public class RndEvent extends JPanel{
     listRndMsg.add(lbl11);
     listRndMsg.add(lbl12);
     listRndMsg.add(lbl13);
+    listRndMsg.add(lbl14);
     
   }
   

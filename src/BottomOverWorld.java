@@ -19,7 +19,7 @@ public class BottomOverWorld extends JPanel{
   private int numMoney;
   private int numTires;
   private int numMufflers;
-  private int numNextLandMark = 200;
+  public static int numNextLandMark = 200;
   
   
   

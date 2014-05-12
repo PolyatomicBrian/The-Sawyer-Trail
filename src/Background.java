@@ -57,6 +57,7 @@ public class Background extends JPanel{
       if (GamePanel.isMoving){
         i+=6; //Speed of background moving.
         
+        
         if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0){
           gotoLandMark();
         }else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
@@ -75,7 +76,7 @@ public class Background extends JPanel{
     
     //GamePanel.miles = 0;
     //gp.remove(this); //Null pointer exception here : gp.remove(ow);
-    LandMark lm = new LandMark();
+    LandMark lm = new LandMark(gp);
     gp.removeAll();
     gp.add(lm);
     gp.revalidate();
@@ -101,6 +102,7 @@ public class Background extends JPanel{
     public void actionPerformed(ActionEvent e){
       timer.start();
       GamePanel.miles++;
+      BottomOverWorld.numNextLandMark--;
       GamePanel.isMoving = true;
       remove(re);
       revalidate();
