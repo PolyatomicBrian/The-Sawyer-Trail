@@ -28,8 +28,10 @@ public class GamePanel extends JPanel{
   //Misc
   public static String playersname = "Mr. Null";
   public static int miles;
-  public static boolean isMoving = true;
+  public static int totalmiles;
+  public static boolean isMoving = false;
   public static GamePanel gp;
+  public static int landMarksEncountered;
   
   
   public GamePanel(){

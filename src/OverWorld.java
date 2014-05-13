@@ -54,12 +54,6 @@ public class OverWorld extends JPanel{
     ow = this;
   }
   
-  public void paintComponent(Graphics g){
-    super.paintComponent(g); 
-  }
-  
-  
-  //Create method to getHealth?
-  //Create method to setHealth?
+
   
 }

@@ -19,7 +19,7 @@ public class BottomOverWorld extends JPanel{
   private int numMoney;
   private int numTires;
   private int numMufflers;
-  public static int numNextLandMark = 200;
+  private int numNextLandMark = 200;
   
   
   
@@ -38,7 +38,7 @@ public class BottomOverWorld extends JPanel{
   private boolean seeStats = false;
   private boolean seeStop = false;
   private JLabel lblPlayerName = new JLabel(playersname);
-  private JLabel lblMrSawyerName = new JLabel("Mr. Sawyer");
+  private JLabel lblMrSawyerName = new JLabel("Mr. Sawyer        ");
   private JLabel lblVikrantName = new JLabel("Vikrant");
   private JLabel lblVarunName = new JLabel("Varun");
   private JLabel lblBrianName = new JLabel("Brian");
@@ -54,7 +54,7 @@ public class BottomOverWorld extends JPanel{
   private JLabel lblMoneyName = new JLabel("Money: ");
   private JLabel lblTiresName = new JLabel("Tires: ");
   private JLabel lblMufflersName = new JLabel("Mufflers: ");
-  private JLabel lblNextLandmarkName = new JLabel("Next Landmark: ");
+  private JLabel lblNextLandmarkName = new JLabel("Next Landmark:       ");
   private JLabel lblFuelNum = new JLabel();
   private JLabel lblFoodNum = new JLabel();
   private JLabel lblFlashDrivesNum = new JLabel();
@@ -117,7 +117,7 @@ public class BottomOverWorld extends JPanel{
     
     JPanel btnPanel = new JPanel();
     btnPanel.setLayout(new GridLayout(3,1));
-    btnPanel.setPreferredSize(new Dimension(150,getHeight()));
+   // btnPanel.setPreferredSize(new Dimension(150,getHeight()));
     btnPanel.add(btnHealth);
     btnPanel.add(btnStats);
     btnPanel.add(btnStop);
@@ -241,7 +241,6 @@ public class BottomOverWorld extends JPanel{
     lblBrianHealth.setText("<html><font color='green'>"+brianHealth+"</font></html>");
     
     healthPanel.setLayout(new GridLayout(5,2));
-    healthPanel.setPreferredSize(new Dimension(150, getHeight()));
     healthPanel.add(lblPlayerName);
     healthPanel.add(lblPlayerHealth);
     healthPanel.add(lblMrSawyerName);
@@ -267,10 +266,10 @@ public class BottomOverWorld extends JPanel{
     remove(statsPanel);
     
     statsPanel.setLayout(new GridLayout(7,2));
-    // statsPanel.setPreferredSize(new Dimension(150,getHeight()+100));
     for (int i = 0; i<listStatsLabels.size(); i++){
       statsPanel.add(listStatsLabels.get(i));
     }
+    
     
     add(statsPanel, BorderLayout.WEST);
     

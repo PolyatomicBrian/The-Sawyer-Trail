@@ -4,21 +4,68 @@ import java.awt.event.*;
 
 public class LandMarkTop extends JPanel{
   
-  JLabel name1 = new JLabel("<html><font color = 'white'>"+""+GamePanel.playersname+"</font></html>");
-  JLabel name2 = new JLabel("<html><font color = 'white'>"+"Mr. Sawyer"+"</font></html>");
-  JLabel name3 = new JLabel("<html><font color = 'white'>"+"Vikrant"+"</font></html>");
-  JLabel name4 = new JLabel("<html><font color = 'white'>"+"Varun"+"</font></html>");
-  JLabel name5 = new JLabel("<html><font color = 'white'>"+"Brian"+"</font></html>");
+  private GamePanel gp;
+  private OverWorld ow;
   
-  JLabel health1 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
-  JLabel health2 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
-  JLabel health3 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
-  JLabel health4 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
-  JLabel health5 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>");
+  //Party
+  private JLabel name1 = new JLabel("<html><font color = 'white'>"+GamePanel.playersname+"</font></html>");
+  private JLabel name2 = new JLabel("<html><font color = 'white'>Mr. Sawyer</font></html>");
+  private JLabel name3 = new JLabel("<html><font color = 'white'>Vikrant</font></html>");
+  private JLabel name4 = new JLabel("<html><font color = 'white'>Varun</font></html>");
+  private JLabel name5 = new JLabel("<html><font color = 'white'>Brian</font></html>");
   
-  JLabel lblFood = new JLabel("<html><font color = 'white'>Food remaining: "+GamePanel.numFood+"</font></html>");
+  private JLabel health1 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
+  private JLabel health2 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
+  private JLabel health3 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
+  private JLabel health4 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
+  private JLabel health5 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>");
   
-  public LandMarkTop(){
+  private  JLabel lblFood = new JLabel("<html><font color = 'white'>Food remaining: "+GamePanel.numFood+"</font></html>");
+  
+  //Supplies
+  private JLabel lblSupplyFuel = new JLabel("Fuel: " + GamePanel.numFuel);
+  private JLabel lblSupplyFood = new JLabel("Food: " + GamePanel.numFood);
+  private JLabel lblSupplyFlashDrives = new JLabel("Flash Drives: " + GamePanel.numFlashDrives);
+  private JLabel lblSupplyMoney = new JLabel("Money: " + GamePanel.numMoney);
+  private JLabel lblSupplyTires = new JLabel("Tires: " + GamePanel.numTires);
+  private JLabel lblSupplyMufflers = new JLabel("Mufflers: " + GamePanel.numMufflers);
+  
+  //Store
+  private JLabel lblStoreBlank = new JLabel("");
+  private JLabel lblStoreBuy = new JLabel("Buy");
+  private JLabel lblStoreSell = new JLabel("Sell");
+  private JLabel lblStoreYouHave = new JLabel("You Have");
+  
+  private JLabel lblStoreFuel = new JLabel("Fuel: ");
+  private JButton btnBuyFuel = new JButton("$40");
+  private JButton btnSellFuel = new JButton("$20");
+  private JLabel lblStoreFuelYouHave = new JLabel(""+GamePanel.numFuel);
+  
+  private JLabel lblStoreFood = new JLabel("Food: ");
+  private JButton btnBuyFood = new JButton("$20");
+  private JButton btnSellFood = new JButton("$10");
+  private JLabel lblStoreFoodYouHave = new JLabel(""+GamePanel.numFood);
+  
+  private JLabel lblStoreFlashDrives = new JLabel("Flash Drives: ");
+  private JButton btnBuyFlashDrives = new JButton("$50");
+  private JButton btnSellFlashDrives = new JButton("$25");
+  private JLabel lblStoreFlashDrivesYouHave = new JLabel(""+GamePanel.numFlashDrives);
+  
+  private JLabel lblStoreTires = new JLabel("Tires: ");
+  private JButton btnBuyTires = new JButton("$30");
+  private JButton btnSellTires = new JButton("$15");
+  private JLabel lblStoreTiresYouHave = new JLabel(""+GamePanel.numTires);
+  
+  private JLabel lblStoreMufflers = new JLabel("Mufflers: ");
+  private JButton btnBuyMufflers = new JButton("$30");
+  private JButton btnSellMufflers = new JButton("$15");
+  private JLabel lblStoreMufflersYouHave = new JLabel(""+GamePanel.numMufflers);
+  
+  private JLabel lblMoneyYouHave = new JLabel("You have $" + GamePanel.numMoney);
+  
+  public LandMarkTop(GamePanel tempgp){
+    gp = tempgp;
+    
     
     setLayout(null);
     setBackground(Color.BLACK);
@@ -28,12 +75,25 @@ public class LandMarkTop extends JPanel{
   }
   
   public void handleBooleans(){
-    if (GamePanel.isParty)
+    if (GamePanel.isParty){
       createParty();
-    else if (GamePanel.isSupplies)
+      updateTextSupplies();
+      updateTextStore();
+      updateTextParty();
+    }
+    
+    else if (GamePanel.isSupplies){
       createSupplies();
-    else if (GamePanel.isStore)
+      updateTextSupplies();
+      updateTextStore();
+      updateTextParty();
+    }
+    else if (GamePanel.isStore){
       createStore();
+      updateTextSupplies();
+      updateTextStore();
+      updateTextParty();
+    }
   }
   
   public void createParty(){
@@ -79,6 +139,28 @@ public class LandMarkTop extends JPanel{
     resetPanels();
     setBackground(Color.GREEN);
     
+    
+    JButton btnCode = new JButton("Code");
+    btnCode.setBounds(50,75,100,75);
+    btnCode.addActionListener(new HandleBtnCode());
+    add(btnCode);
+    
+    JPanel panelSupplies = new JPanel();
+    panelSupplies.setLayout(new GridLayout(6,1));
+    
+    
+    
+    panelSupplies.add(lblSupplyFuel);
+    panelSupplies.add(lblSupplyFood);
+    panelSupplies.add(lblSupplyFlashDrives);
+    panelSupplies.add(lblSupplyMoney);
+    panelSupplies.add(lblSupplyTires);
+    panelSupplies.add(lblSupplyMufflers);
+    
+    panelSupplies.setBackground(Color.BLUE);
+    panelSupplies.setBounds(300,75,200,250);
+    add(panelSupplies);
+    
     revalidate();
     repaint();
   }
@@ -88,6 +170,61 @@ public class LandMarkTop extends JPanel{
     resetPanels();
     setBackground(Color.YELLOW);
     
+    JPanel panelStore = new JPanel();
+    panelStore.setLayout(new GridLayout(6,4));
+    
+    panelStore.add(lblStoreBlank);
+    panelStore.add(lblStoreBuy);
+    panelStore.add(lblStoreSell);
+    panelStore.add(lblStoreYouHave);
+    
+    btnBuyFuel.addActionListener(new HandleBtnBuyFuel());
+    btnSellFuel.addActionListener(new HandleBtnSellFuel());
+    
+    panelStore.add(lblStoreFuel);
+    panelStore.add(btnBuyFuel);
+    panelStore.add(btnSellFuel);
+    panelStore.add(lblStoreFuelYouHave);
+    
+    btnBuyFood.addActionListener(new HandleBtnBuyFood());
+    btnSellFood.addActionListener(new HandleBtnSellFood());
+    
+    panelStore.add(lblStoreFood);
+    panelStore.add(btnBuyFood);
+    panelStore.add(btnSellFood);
+    panelStore.add(lblStoreFoodYouHave);
+    
+    btnBuyFlashDrives.addActionListener(new HandleBtnBuyFlashDrives());
+    btnSellFlashDrives.addActionListener(new HandleBtnSellFlashDrives());
+    
+    panelStore.add(lblStoreFlashDrives);
+    panelStore.add(btnBuyFlashDrives);
+    panelStore.add(btnSellFlashDrives);
+    panelStore.add(lblStoreFlashDrivesYouHave);
+    
+    btnBuyTires.addActionListener(new HandleBtnBuyTires());
+    btnSellTires.addActionListener(new HandleBtnSellTires());
+    
+    panelStore.add(lblStoreTires);
+    panelStore.add(btnBuyTires);
+    panelStore.add(btnSellTires);
+    panelStore.add(lblStoreTiresYouHave);
+    
+    btnBuyMufflers.addActionListener(new HandleBtnBuyMufflers());
+    btnSellMufflers.addActionListener(new HandleBtnSellMufflers());
+    
+    panelStore.add(lblStoreMufflers);
+    panelStore.add(btnBuyMufflers);
+    panelStore.add(btnSellMufflers);
+    panelStore.add(lblStoreMufflersYouHave);
+    
+    panelStore.setBackground(Color.YELLOW);
+    panelStore.setBounds(75,50,300,300);
+    add(panelStore);
+    
+    lblMoneyYouHave.setBounds(75,20,300,20);
+    add(lblMoneyYouHave);
+    
     revalidate();
     repaint();
   }
@@ -96,76 +233,171 @@ public class LandMarkTop extends JPanel{
     removeAll(); 
   }
   
-  public void updateText(){
+  public void code(){
+    GamePanel.numFlashDrives--;
+    //give random item(s)
+    //0 = fuel
+    //1 = food
+    //2 = fuel (yes, again)
+    //3 = money
+    //4 = tire
+    //5 = muffler
+    
+    int numSelect = (int)(6 * Math.random());
+    int numAmount;
+    if (numSelect == 0 || numSelect == 2 || numSelect == 4 || numSelect == 5){
+      numAmount = (int)(4 * Math.random() + 1);
+    }else{
+      numAmount = (int)(41 * Math.random() + 10);
+    }
+    if (numSelect == 0 || numSelect == 2){
+      GamePanel.numFuel += numAmount;
+    }else if (numSelect == 1){
+      GamePanel.numFood += numAmount;
+    }else if (numSelect == 3){
+      GamePanel.numMoney += numAmount;
+    }else if (numSelect == 4){
+      GamePanel.numTires += numAmount;
+    }else if (numSelect == 5){
+      GamePanel.numMufflers += numAmount;
+    }
+  }
+  
+  
+  public void updateTextSupplies(){
+    lblSupplyFuel.setText("Fuel: " + GamePanel.numFuel);
+    lblSupplyFood.setText("Food: " + GamePanel.numFood);
+    lblSupplyFlashDrives.setText("Flash Drives: " + GamePanel.numFlashDrives);
+    lblSupplyMoney.setText("Money: " + GamePanel.numMoney);
+    lblSupplyTires.setText("Tires: " + GamePanel.numTires);
+    lblSupplyMufflers.setText("Mufflers: " + GamePanel.numMufflers);
+    
+    gp.revalidate();
+    gp.repaint();
+  }
+  
+  
+  public void updateTextParty(){
     lblFood.setText("<html><font color = 'white'>Food remaining: "+GamePanel.numFood+"</font></html>");
-    health1.setText("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
-    health2.setText("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
-    health3.setText("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
-    health4.setText("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
-    health5.setText("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>");
+    health1.setText("<html><font color = 'green'>"+GamePanel.healthPlayer+"</font></html>");
+    health2.setText("<html><font color = 'green'>"+GamePanel.healthMrSawyer+"</font></html>");
+    health3.setText("<html><font color = 'green'>"+GamePanel.healthVikrant+"</font></html>");
+    health4.setText("<html><font color = 'green'>"+GamePanel.healthVarun+"</font></html>");
+    health5.setText("<html><font color = 'green'>"+GamePanel.healthBrian+"</font></html>");
     
     revalidate();
     repaint();
   }
   
+  public void updateTextStore(){
+    lblStoreFuelYouHave.setText(""+GamePanel.numFuel);
+    lblStoreFoodYouHave.setText(""+GamePanel.numFood);
+    lblStoreFlashDrivesYouHave.setText(""+GamePanel.numFlashDrives);
+    lblStoreTiresYouHave.setText(""+GamePanel.numTires);
+    lblStoreMufflersYouHave.setText(""+GamePanel.numMufflers);
+    lblMoneyYouHave.setText("You have $"+GamePanel.numMoney);
+    
+    revalidate();
+    repaint();
+    gp.revalidate();
+    gp.repaint();
+  }
+  
+  private class HandleBtnBuyFuel implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numMoney >= 40){
+        GamePanel.numMoney -= 40;
+        GamePanel.numFuel++;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnSellFuel implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numFuel > 0){
+        GamePanel.numFuel--;
+        GamePanel.numMoney += 20;
+      }
+      updateTextStore();
+    }
+  }
+  
+  private class HandleBtnBuyFood implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numMoney >= 20){
+        GamePanel.numMoney -= 20;
+        GamePanel.numFood += 50;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnSellFood implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numFood >= 50){
+        GamePanel.numFood -= 50;
+        GamePanel.numMoney += 10;
+      }
+      updateTextStore();
+    }
+  }
+  
+  private class HandleBtnBuyFlashDrives implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numMoney >= 50){
+        GamePanel.numMoney -= 50;
+        GamePanel.numFlashDrives++;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnSellFlashDrives implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numFlashDrives > 0){
+        GamePanel.numFlashDrives--;
+        GamePanel.numMoney += 25;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnBuyTires implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numMoney >= 30){
+        GamePanel.numMoney -= 30;
+        GamePanel.numTires++;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnSellTires implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numTires > 0){
+        GamePanel.numTires--;
+        GamePanel.numMoney += 15;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnBuyMufflers implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numMoney >= 30){
+        GamePanel.numMoney -= 30;
+        GamePanel.numMufflers++;
+      }
+      updateTextStore();
+    }
+  }
+  private class HandleBtnSellMufflers implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numMufflers > 0){
+        GamePanel.numMufflers--;
+        GamePanel.numMoney += 15;
+      }
+      updateTextStore();
+    }
+  }
+  
   private class HandleBtnEat implements ActionListener{
     public void actionPerformed(ActionEvent e){
-      /*
-       if (GamePanel.numFood > 0){
-       if (GamePanel.healthPlayer < 100){
-       if (GamePanel.healthPlayer < 95){
-       GamePanel.healthPlayer+=5;
-       GamePanel.numFood-=5;
-       }else{
-       GamePanel.numFood-=100-GamePanel.healthPlayer;
-       GamePanel.healthPlayer+=100-GamePanel.healthPlayer;
-       
-       }
-       }
-       if (GamePanel.healthMrSawyer < 100){
-       if (GamePanel.healthMrSawyer < 95){
-       GamePanel.healthMrSawyer+=5;
-       GamePanel.numFood-=5;
-       }else{
-       GamePanel.numFood-=100-GamePanel.healthMrSawyer;
-       GamePanel.healthMrSawyer+=100-GamePanel.healthMrSawyer;
-       
-       }
-       }
-       if (GamePanel.healthVikrant < 100){
-       if (GamePanel.healthVikrant < 95){
-       GamePanel.healthVikrant+=5;
-       GamePanel.numFood-=5;
-       }else{
-       GamePanel.numFood-=100-GamePanel.healthVikrant;
-       GamePanel.healthVikrant+=100-GamePanel.healthVikrant;
-       
-       }
-       }
-       if (GamePanel.healthVarun < 100){
-       if (GamePanel.healthVarun < 95){
-       GamePanel.healthVarun+=5;
-       GamePanel.numFood-=5;
-       }else{
-       GamePanel.numFood-=100-GamePanel.healthVarun;
-       GamePanel.healthVarun+=100-GamePanel.healthVarun;
-       
-       }
-       }
-       if (GamePanel.healthBrian < 100){
-       if (GamePanel.healthBrian < 95){
-       GamePanel.healthBrian+=5;
-       GamePanel.numFood-=5;
-       }else{
-       GamePanel.numFood-=100-GamePanel.healthBrian;
-       GamePanel.healthBrian+=100-GamePanel.healthBrian;
-       
-       }
-       }
-       }
-       */
-      
-      
       if (GamePanel.healthPlayer < 100 && GamePanel.numFood > 0 && GamePanel.healthPlayer > 0){
         GamePanel.healthPlayer++;
         GamePanel.numFood--;
@@ -188,8 +420,18 @@ public class LandMarkTop extends JPanel{
       }
       
       
-      updateText();
+      updateTextParty();
     }
   }
+  
+  private class HandleBtnCode implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.numFlashDrives > 0){
+        code();
+        updateTextSupplies();
+      }
+    }
+  }
+  
   
 }

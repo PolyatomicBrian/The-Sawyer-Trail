@@ -73,7 +73,7 @@ public class IntroScene extends JPanel{
       timer.stop();
       txtName.setBounds(100,300,300,40);
       is.add(txtName);
-      btnNameEntered.setBounds(105,350,300,40);
+      btnNameEntered.setBounds(100,350,300,40);
       btnNameEntered.addActionListener(new HandleButtonNameEntered());
       is.add(btnNameEntered);
       is.repaint();

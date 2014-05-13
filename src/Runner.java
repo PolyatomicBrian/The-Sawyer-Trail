@@ -24,14 +24,14 @@ public class Runner{
   
     
     /*
-     //******Below is for testing purposes.
+     //****Below is for testing purposes.
      SupplySelection ss = new SupplySelection(gp,"carrot");
      
      gp.add(ss);
      pane.add(gp, BorderLayout.CENTER);
      //******Testing purposes end here.
-     */
-    
+    */
+   
     
     /*
     OverWorld ow = new OverWorld(gp);
@@ -39,7 +39,7 @@ public class Runner{
     pane.add(gp, BorderLayout.CENTER);
     */
     
-    /*
+   /*
     LandMark lm = new LandMark(gp);
     gp.add(lm);
     pane.add(gp, BorderLayout.CENTER);

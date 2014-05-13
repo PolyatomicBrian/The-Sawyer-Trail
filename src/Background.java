@@ -18,6 +18,8 @@ public class Background extends JPanel{
   
   public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow){
     
+    GamePanel.isMoving = true;
+    
     setLayout(null);
     
     tow = temptow;
@@ -77,6 +79,10 @@ public class Background extends JPanel{
     //GamePanel.miles = 0;
     //gp.remove(this); //Null pointer exception here : gp.remove(ow);
     LandMark lm = new LandMark(gp);
+    GamePanel.isMoving = false;
+    GamePanel.totalmiles += GamePanel.miles;
+    GamePanel.miles = 0;
+    GamePanel.landMarksEncountered++;
     gp.removeAll();
     gp.add(lm);
     gp.revalidate();
@@ -102,7 +108,7 @@ public class Background extends JPanel{
     public void actionPerformed(ActionEvent e){
       timer.start();
       GamePanel.miles++;
-      BottomOverWorld.numNextLandMark--;
+   //   BottomOverWorld.numNextLandMark--;
       GamePanel.isMoving = true;
       remove(re);
       revalidate();
