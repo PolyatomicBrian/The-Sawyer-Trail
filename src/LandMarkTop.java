@@ -157,7 +157,7 @@ public class LandMarkTop extends JPanel{
     panelSupplies.add(lblSupplyTires);
     panelSupplies.add(lblSupplyMufflers);
     
-    panelSupplies.setBackground(Color.BLUE);
+    panelSupplies.setBackground(Color.WHITE);
     panelSupplies.setBounds(300,75,200,250);
     add(panelSupplies);
     

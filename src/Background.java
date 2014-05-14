@@ -6,7 +6,7 @@ public class Background extends JPanel{
   
   
   private ImageIcon imgBackground;
-  private javax.swing.Timer timer;
+  public static javax.swing.Timer timer;
   private javax.swing.Timer timerPause;
   private int i = 0;
   private ObjBus objBus = new ObjBus();
@@ -59,13 +59,14 @@ public class Background extends JPanel{
       if (GamePanel.isMoving){
         i+=6; //Speed of background moving.
         
-        
         if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0){
           gotoLandMark();
         }else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
           doRandomEvent();
         }
       }
+      
+      System.out.println(""+GamePanel.miles);
       
       revalidate();
       repaint();
@@ -74,8 +75,6 @@ public class Background extends JPanel{
   
   public void gotoLandMark(){
     
-    //fix
-    
     //GamePanel.miles = 0;
     //gp.remove(this); //Null pointer exception here : gp.remove(ow);
     LandMark lm = new LandMark(gp);
@@ -83,7 +82,10 @@ public class Background extends JPanel{
     GamePanel.totalmiles += GamePanel.miles;
     GamePanel.miles = 0;
     GamePanel.landMarksEncountered++;
-    gp.removeAll();
+    GamePanel.overWorldVisible = false;
+    GamePanel.landMarkVisible = true;
+    //ow.setVisible(false);
+   // gp.removeAll();
     gp.add(lm);
     gp.revalidate();
     gp.repaint();
@@ -108,7 +110,7 @@ public class Background extends JPanel{
     public void actionPerformed(ActionEvent e){
       timer.start();
       GamePanel.miles++;
-   //   BottomOverWorld.numNextLandMark--;
+      BottomOverWorld.numNextLandMark--;
       GamePanel.isMoving = true;
       remove(re);
       revalidate();

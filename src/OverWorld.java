@@ -5,45 +5,15 @@ import java.awt.event.*;
 public class OverWorld extends JPanel{
   private GamePanel gp;
   private OverWorld ow;
-  /*
-   //Supplies
-   int numFuel;
-   int numFood;
-   int numFlashDrives;
-   int numMoney;
-   int numTires;
-   int numMufflers;
-   */
-  
-  //Health
-  private int healthMrSawyer = 100;
-  private int healthVikrant = 100;
-  private int healthBrian = 100;
-  private int healthVarun = 100;
-  private int healthPlayer = 100;
-  
+  private javax.swing.Timer timerCheckVisible;
   private String playersname;
   
   
   public OverWorld(GamePanel tempgp/*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers*/){
     
     gp = tempgp;
-    /*
-     playersname = tempplayersname;
-     numFuel = tempnumFuel;
-     numFood = tempnumFood;
-     numFlashDrives = tempnumFlashDrives;
-     numMoney = tempnumMoney;
-     numTires = tempnumTires;
-     numMufflers = tempnumMufflers;
-     
-     
-     healthMrSawyer = 100;
-     healthVikrant = 100;
-     healthBrian = 100;
-     healthVarun = 100;
-     healthPlayer = 100;
-     */
+    
+    timerCheckVisible = new javax.swing.Timer(75, new TimerListener()); //I hate myself for making this timer...
     
     BottomOverWorld bow = new BottomOverWorld(ow,gp/*, playersname, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers, healthMrSawyer, healthVikrant, healthBrian, healthVarun, healthPlayer*/);
     TopOverWorld tow = new TopOverWorld(ow,gp,bow/*, playersname, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers, healthMrSawyer, healthVikrant, healthBrian, healthVarun, healthPlayer*/);
@@ -52,8 +22,21 @@ public class OverWorld extends JPanel{
     add(tow);
     add(bow);
     ow = this;
+    
+    timerCheckVisible.start();
+    
+    setVisible(true);
   }
   
-
+  //This is bad programming. Yuck.
+  private class TimerListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (GamePanel.overWorldVisible){
+        setVisible(true);
+      }else{
+        setVisible(false);
+      }
+    }
+  }
   
 }

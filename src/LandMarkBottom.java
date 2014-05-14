@@ -11,13 +11,15 @@ public class LandMarkBottom extends JPanel{
   
   private GamePanel gp;
   private LandMarkTop lmt;
-  //private OverWorld ow; 
+
+  private LandMark lm;
   
-  public LandMarkBottom(GamePanel tempgp, LandMarkTop templmt){
+  public LandMarkBottom(GamePanel tempgp, LandMarkTop templmt, LandMark templm){
     
     gp = tempgp;
     lmt = templmt;
-   // ow = tempow;
+
+    lm = templm;
     
     setPreferredSize(new Dimension(500,75));
     setBackground(Color.BLACK);
@@ -95,11 +97,16 @@ public class LandMarkBottom extends JPanel{
   
   private class HandleBtnLeave implements ActionListener{
     public void actionPerformed(ActionEvent e){
-      gp.removeAll();
+      //gp.removeAll();
      // gp.add(ow);
-      OverWorld owE = new OverWorld(gp);
-      gp.add(owE);
-     // BottomOverWorld.numNextLandMark = 200;
+      //OverWorld owE = new OverWorld(gp);
+      //gp.add(owE);
+      BottomOverWorld.numNextLandMark = 200;
+      //ow.setVisible(true);
+      gp.remove(lm);
+      GamePanel.isMoving = true;
+      GamePanel.overWorldVisible = true;
+      Background.timer.start();
       gp.revalidate();
       gp.repaint();
     }
