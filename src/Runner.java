@@ -3,6 +3,9 @@ import java.awt.*;
 
 public class Runner{
   
+  //CURRENT OBJECTIVE:
+  //ADD STUFF TO "WAIT" SECTION IN StoppedTop CLASS!!!
+  
   public static void main(String[] args){
     
     JFrame f = new JFrame();
@@ -21,32 +24,33 @@ public class Runner{
      gp.add(mm);
      pane.add(gp, BorderLayout.CENTER);
      
-  
+    
+    
     
     /*
-     //****Below is for testing purposes.
-     SupplySelection ss = new SupplySelection(gp,"carrot");
-     
-     gp.add(ss);
+    //****Below is for testing purposes.
+    SupplySelection ss = new SupplySelection(gp,"carrot");
+    
+    gp.add(ss);
+    pane.add(gp, BorderLayout.CENTER);
+    */
+    
+    
+    
+    /*
+     OverWorld ow = new OverWorld(gp);
+     gp.add(ow);
      pane.add(gp, BorderLayout.CENTER);
-     //******Testing purposes end here.
-    */
-   
+     */
     
     /*
-    OverWorld ow = new OverWorld(gp);
-    gp.add(ow);
-    pane.add(gp, BorderLayout.CENTER);
-    */
-    
-   /*
-    LandMark lm = new LandMark(gp);
-    gp.add(lm);
-    pane.add(gp, BorderLayout.CENTER);
-    */
-     
+     LandMark lm = new LandMark(gp);
+     gp.add(lm);
+     pane.add(gp, BorderLayout.CENTER);
+     */
     
     f.setVisible(true);
+    
     
   }
 }

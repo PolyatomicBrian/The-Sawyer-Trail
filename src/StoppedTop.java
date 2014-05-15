@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class LandMarkTop extends JPanel{
+public class StoppedTop extends JPanel{
   
   private GamePanel gp;
   private OverWorld ow;
@@ -71,9 +71,9 @@ public class LandMarkTop extends JPanel{
   private JPanel panelStoreAll = new JPanel();
   private JPanel panelStore = new JPanel();
   
-  private JButton btnEat = new JButton("Eat");
+  private JButton btnEat = new JButton("Eat Food");
   
-  public LandMarkTop(GamePanel tempgp){
+  public StoppedTop(GamePanel tempgp){
     gp = tempgp;
     
     
@@ -191,69 +191,7 @@ public class LandMarkTop extends JPanel{
   }
   
   public void createStore(){
-    //Creates Store Panel
-  //  resetPanels();
-    panelStoreAll.setBackground(Color.YELLOW);
-    
-    panelStoreAll.setLayout(null);
-    
-    panelStore.setLayout(new GridLayout(6,4));
-    
-    panelStore.add(lblStoreBlank);
-    panelStore.add(lblStoreBuy);
-    panelStore.add(lblStoreSell);
-    panelStore.add(lblStoreYouHave);
-    
-    btnBuyFuel.addActionListener(new HandleBtnBuyFuel());
-    btnSellFuel.addActionListener(new HandleBtnSellFuel());
-    
-    panelStore.add(lblStoreFuel);
-    panelStore.add(btnBuyFuel);
-    panelStore.add(btnSellFuel);
-    panelStore.add(lblStoreFuelYouHave);
-    
-    btnBuyFood.addActionListener(new HandleBtnBuyFood());
-    btnSellFood.addActionListener(new HandleBtnSellFood());
-    
-    panelStore.add(lblStoreFood);
-    panelStore.add(btnBuyFood);
-    panelStore.add(btnSellFood);
-    panelStore.add(lblStoreFoodYouHave);
-    
-    btnBuyFlashDrives.addActionListener(new HandleBtnBuyFlashDrives());
-    btnSellFlashDrives.addActionListener(new HandleBtnSellFlashDrives());
-    
-    panelStore.add(lblStoreFlashDrives);
-    panelStore.add(btnBuyFlashDrives);
-    panelStore.add(btnSellFlashDrives);
-    panelStore.add(lblStoreFlashDrivesYouHave);
-    
-    btnBuyTires.addActionListener(new HandleBtnBuyTires());
-    btnSellTires.addActionListener(new HandleBtnSellTires());
-    
-    panelStore.add(lblStoreTires);
-    panelStore.add(btnBuyTires);
-    panelStore.add(btnSellTires);
-    panelStore.add(lblStoreTiresYouHave);
-    
-    btnBuyMufflers.addActionListener(new HandleBtnBuyMufflers());
-    btnSellMufflers.addActionListener(new HandleBtnSellMufflers());
-    
-    panelStore.add(lblStoreMufflers);
-    panelStore.add(btnBuyMufflers);
-    panelStore.add(btnSellMufflers);
-    panelStore.add(lblStoreMufflersYouHave);
-    
-    panelStore.setBackground(Color.YELLOW);
-    panelStore.setBounds(75,50,300,300);
-    panelStoreAll.add(panelStore);
-    
-    lblMoneyYouHave.setBounds(75,20,300,20);
-    panelStoreAll.add(lblMoneyYouHave);
-    
-    panelStoreAll.setBounds(0,0,500,425);
-    
-    add(panelStoreAll);
+
     
     revalidate();
     repaint();

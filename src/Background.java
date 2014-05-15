@@ -15,8 +15,9 @@ public class Background extends JPanel{
   private TopOverWorld tow;
   private BottomOverWorld bow;
   private RndEvent re;
+  private LandMark lm;
   
-  public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow){
+  public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow, LandMark templm){
     
     GamePanel.isMoving = true;
     
@@ -26,6 +27,7 @@ public class Background extends JPanel{
     bow = tempbow;
     ow = tempow;
     gp = tempgp;
+    lm = templm;
     
     imgBackground = new ImageIcon("bkgd.png");
     
@@ -66,7 +68,7 @@ public class Background extends JPanel{
         }
       }
       
-      System.out.println(""+GamePanel.miles);
+      //System.out.println(""+GamePanel.miles);
       
       revalidate();
       repaint();
@@ -77,16 +79,19 @@ public class Background extends JPanel{
     
     //GamePanel.miles = 0;
     //gp.remove(this); //Null pointer exception here : gp.remove(ow);
-    LandMark lm = new LandMark(gp);
+    //LandMark lm = new LandMark(gp);
     GamePanel.isMoving = false;
     GamePanel.totalmiles += GamePanel.miles;
     GamePanel.miles = 0;
     GamePanel.landMarksEncountered++;
     GamePanel.overWorldVisible = false;
     GamePanel.landMarkVisible = true;
+    
+    LandMark lm = new LandMark(gp);
+    gp.add(lm);
     //ow.setVisible(false);
    // gp.removeAll();
-    gp.add(lm);
+    //gp.add(lm);
     gp.revalidate();
     gp.repaint();
     timer.stop();

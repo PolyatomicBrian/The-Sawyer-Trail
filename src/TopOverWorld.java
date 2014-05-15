@@ -25,8 +25,9 @@ public class TopOverWorld extends JPanel{
   
   private OverWorld ow;
   private BottomOverWorld bow;
+  private LandMark lm;
   
-  public TopOverWorld(OverWorld tempow, GamePanel tempgp, BottomOverWorld tempbow/*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
+  public TopOverWorld(OverWorld tempow, GamePanel tempgp, BottomOverWorld tempbow, LandMark templm/*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
     
     setLayout(null);
     
@@ -36,10 +37,11 @@ public class TopOverWorld extends JPanel{
     tow = this;
     ow = tempow;
     bow = tempbow;
+    lm = templm;
     
     playersname = GamePanel.playersname;
     
-    bg = new Background(ow,gp,tow,bow);
+    bg = new Background(ow,gp,tow,bow, lm);
     
     playerHealth = GamePanel.healthPlayer;
     varunHealth = GamePanel.healthVarun;

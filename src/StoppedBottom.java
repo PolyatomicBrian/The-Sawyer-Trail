@@ -1,0 +1,109 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class StoppedBottom extends JPanel{
+  
+  private JButton btnParty = new JButton("Party");
+  private JButton btnSupplies = new JButton("Supplies");
+  private JButton btnStore = new JButton("Wait");
+  private JButton btnLeave = new JButton("Leave");
+  
+  private GamePanel gp;
+  private StoppedTop lmt;
+
+  private Stopped lm;
+  
+  public StoppedBottom(GamePanel tempgp, StoppedTop templmt, Stopped templm){
+    
+    gp = tempgp;
+    lmt = templmt;
+
+    lm = templm;
+    
+    setPreferredSize(new Dimension(500,75));
+    setBackground(Color.BLACK);
+    setLayout(null);
+    
+    btnParty.setBounds(0,0,100,75);
+    btnParty.addActionListener(new HandleBtnParty());
+    add(btnParty);
+    
+    btnSupplies.setBounds(100,0,100,75);
+    btnSupplies.addActionListener(new HandleBtnSupplies());
+    add(btnSupplies);
+    
+    btnStore.setBounds(200,0,100,75);
+    btnStore.addActionListener(new HandleBtnStore());
+    add(btnStore);
+    
+    btnLeave.setBounds(400,0,100,75);
+    btnLeave.addActionListener(new HandleBtnLeave());
+    add(btnLeave);
+    
+  }
+  
+  /*
+  public void handleBooleans(){
+    if (GamePanel.isParty)
+      createParty();
+    else if (GamePanel.isSupplies)
+      createSupplies();
+    else if (GamePanel.isStore)
+      createStore();
+  }
+  
+  public void createParty(){
+    //Creates the Party Panel
+    
+  }
+  
+  public void createSupplies(){
+   //Creates Supplies Panel 
+  }
+  
+  public void createStore(){
+   //Creates Store Panel
+    
+  }
+  */
+  
+  private class HandleBtnParty implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      GamePanel.isParty = true;
+      GamePanel.isSupplies = false;
+      GamePanel.isStore = false;
+      lmt.handleBooleans();
+    }
+  }
+  
+  private class HandleBtnSupplies implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      GamePanel.isParty = false;
+      GamePanel.isSupplies = true;
+      GamePanel.isStore = false;
+      lmt.handleBooleans();
+    }
+  }
+  
+  private class HandleBtnStore implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      GamePanel.isParty = false;
+      GamePanel.isSupplies = false;
+      GamePanel.isStore = true;
+      lmt.handleBooleans();
+    }
+  }
+  
+  private class HandleBtnLeave implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      gp.remove(lm);
+      GamePanel.isMoving = true;
+      GamePanel.overWorldVisible = true;
+      Background.timer.start();
+      gp.revalidate();
+      gp.repaint();
+    }
+  }
+  
+}

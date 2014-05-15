@@ -40,9 +40,10 @@ public class PostSupplySelectionScene extends JPanel{
   private class HandleBtnOK implements ActionListener{
     public void actionPerformed(ActionEvent e){
       gp.remove(psss);
-      //LandMark lm = new LandMark(gp);
-      //gp.add(lm);
+     // LandMark lm = new LandMark(gp);
+     // gp.add(lm);
       OverWorld ow = new OverWorld(gp);
+      GamePanel.overWorldVisible = true;
       gp.add(ow);
       gp.revalidate();
       gp.repaint();

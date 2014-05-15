@@ -224,7 +224,7 @@ public class BottomOverWorld extends JPanel{
     }else if (seeStats){
       createStatsPanel();
     }else if (seeStop){
-      //Stop
+      gotoStoppedPanel();
     }
     revalidate();
     repaint();
@@ -278,6 +278,19 @@ public class BottomOverWorld extends JPanel{
     revalidate();
     repaint();
     
+  }
+  
+  private void gotoStoppedPanel(){
+    GamePanel.isMoving = false;
+    GamePanel.totalmiles += GamePanel.miles;
+    GamePanel.landMarksEncountered++;
+    GamePanel.overWorldVisible = false;
+    GamePanel.stoppedVisible = true;
+    
+    Stopped st = new Stopped(gp);
+    gp.add(st);
+    gp.revalidate();
+    gp.repaint();
   }
 
   
