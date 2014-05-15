@@ -118,7 +118,7 @@ public class BottomOverWorld extends JPanel{
     
     JPanel btnPanel = new JPanel();
     btnPanel.setLayout(new GridLayout(3,1));
-   // btnPanel.setPreferredSize(new Dimension(150,getHeight()));
+    // btnPanel.setPreferredSize(new Dimension(150,getHeight()));
     btnPanel.add(btnHealth);
     btnPanel.add(btnStats);
     btnPanel.add(btnStop);
@@ -179,13 +179,13 @@ public class BottomOverWorld extends JPanel{
     }
   }
   
-  private void updateStats(){
-    lblFuelNum.setText(""+numFuel);
-    lblFoodNum.setText(""+numFood);
-    lblFlashDrivesNum.setText(""+numFlashDrives);
-    lblMoneyNum.setText(""+numMoney);
-    lblTiresNum.setText(""+numTires);
-    lblMufflersNum.setText(""+numMufflers);
+  public void updateStats(){
+    lblFuelNum.setText(""+GamePanel.numFuel);
+    lblFoodNum.setText(""+GamePanel.numFood);
+    lblFlashDrivesNum.setText(""+GamePanel.numFlashDrives);
+    lblMoneyNum.setText(""+GamePanel.numMoney);
+    lblTiresNum.setText(""+GamePanel.numTires);
+    lblMufflersNum.setText(""+GamePanel.numMufflers);
     lblNextLandmarkNum.setText(""+numNextLandMark); 
   }
   
@@ -281,17 +281,19 @@ public class BottomOverWorld extends JPanel{
   }
   
   private void gotoStoppedPanel(){
-    GamePanel.isMoving = false;
-    GamePanel.totalmiles += GamePanel.miles;
-    GamePanel.landMarksEncountered++;
-    GamePanel.overWorldVisible = false;
-    GamePanel.stoppedVisible = true;
-    
-    Stopped st = new Stopped(gp);
-    gp.add(st);
+    if (GamePanel.isMoving){
+      GamePanel.isMoving = false;
+      GamePanel.totalmiles += GamePanel.miles;
+      GamePanel.landMarksEncountered++;
+      GamePanel.overWorldVisible = false;
+      GamePanel.stoppedVisible = true;
+      
+      Stopped st = new Stopped(gp);
+      gp.add(st);
+    }
     gp.revalidate();
     gp.repaint();
   }
-
+  
   
 }

@@ -33,7 +33,7 @@ public class RndEvent extends JPanel{
     
     
     selectRndMsg();
-    add(lblRndMsg, BorderLayout.NORTH);
+    add(lblRndMsg/*, BorderLayout.NORTH*/);
     repaint();
    // tow.repaint();
   //  gp.repaint();

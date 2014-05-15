@@ -31,59 +31,43 @@ public class StoppedTop extends JPanel{
   private JLabel lblSupplyMufflers = new JLabel("Mufflers: " + GamePanel.numMufflers);
   private JButton btnCode = new JButton("Code");
   
-  //Store
-  private JLabel lblStoreBlank = new JLabel("");
-  private JLabel lblStoreBuy = new JLabel("Buy");
-  private JLabel lblStoreSell = new JLabel("Sell");
-  private JLabel lblStoreYouHave = new JLabel("You Have");
+  //Wait
+  private JLabel waitname1 = new JLabel("<html><font color = 'white'>"+GamePanel.playersname+"</font></html>");
+  private JLabel waitname2 = new JLabel("<html><font color = 'white'>Mr. Sawyer</font></html>");
+  private JLabel waitname3 = new JLabel("<html><font color = 'white'>Vikrant</font></html>");
+  private JLabel waitname4 = new JLabel("<html><font color = 'white'>Varun</font></html>");
+  private JLabel waitname5 = new JLabel("<html><font color = 'white'>Brian</font></html>");
   
-  private JLabel lblStoreFuel = new JLabel("Fuel: ");
-  private JButton btnBuyFuel = new JButton("$40");
-  private JButton btnSellFuel = new JButton("$20");
-  private JLabel lblStoreFuelYouHave = new JLabel(""+GamePanel.numFuel);
+  private JLabel waithealth1 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
+  private JLabel waithealth2 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
+  private JLabel waithealth3 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
+  private JLabel waithealth4 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
+  private JLabel waithealth5 = new JLabel("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>");
   
-  private JLabel lblStoreFood = new JLabel("Food: ");
-  private JButton btnBuyFood = new JButton("$20");
-  private JButton btnSellFood = new JButton("$10");
-  private JLabel lblStoreFoodYouHave = new JLabel(""+GamePanel.numFood);
+  private RndEvent re;
   
-  private JLabel lblStoreFlashDrives = new JLabel("Flash Drives: ");
-  private JButton btnBuyFlashDrives = new JButton("$50");
-  private JButton btnSellFlashDrives = new JButton("$25");
-  private JLabel lblStoreFlashDrivesYouHave = new JLabel(""+GamePanel.numFlashDrives);
   
-  private JLabel lblStoreTires = new JLabel("Tires: ");
-  private JButton btnBuyTires = new JButton("$30");
-  private JButton btnSellTires = new JButton("$15");
-  private JLabel lblStoreTiresYouHave = new JLabel(""+GamePanel.numTires);
-  
-  private JLabel lblStoreMufflers = new JLabel("Mufflers: ");
-  private JButton btnBuyMufflers = new JButton("$30");
-  private JButton btnSellMufflers = new JButton("$15");
-  private JLabel lblStoreMufflersYouHave = new JLabel(""+GamePanel.numMufflers);
-  
-  private JLabel lblMoneyYouHave = new JLabel("You have $" + GamePanel.numMoney);
   
   private JPanel panelParty = new JPanel();
-  private JPanel panelNames = new JPanel();
+  private JPanel panelNamesParty = new JPanel();
   private JPanel panelSuppliesAll = new JPanel();
   private JPanel panelSupplies = new JPanel();
-  private JPanel panelStoreAll = new JPanel();
-  private JPanel panelStore = new JPanel();
+  private JPanel panelWaitAll = new JPanel();
+  private JPanel panelWait = new JPanel();
+  private JPanel panelWaitNames = new JPanel();
   
   private JButton btnEat = new JButton("Eat Food");
+  private JButton btnWait = new JButton("Wait");
   
   public StoppedTop(GamePanel tempgp){
     gp = tempgp;
     
-    
     setLayout(null);
     setBackground(Color.BLACK);
     
-    
     createParty();
     createSupplies();
-    createStore();
+    createWait();
     
     handleBooleans();
     
@@ -93,32 +77,29 @@ public class StoppedTop extends JPanel{
     if (GamePanel.isParty){
       partyVis();
       updateTextSupplies();
-      updateTextStore();
       updateTextParty();
     }
     
     else if (GamePanel.isSupplies){
       suppliesVis();
       updateTextSupplies();
-      updateTextStore();
       updateTextParty();
     }
-    else if (GamePanel.isStore){
+    else if (GamePanel.isWait){
       storeVis();
       updateTextSupplies();
-      updateTextStore();
       updateTextParty();
-    }
+    } 
   }
   
   public void createParty(){
     //Creates the Party Panel
-   // resetPanels();
+    // resetPanels();
     
     panelParty.setBackground(Color.BLUE);
     
     panelParty.setLayout(null);
-
+    
     btnEat.setBounds(50,75,100,75);
     btnEat.addActionListener(new HandleBtnEat());
     panelParty.add(btnEat);
@@ -126,25 +107,23 @@ public class StoppedTop extends JPanel{
     lblFood.setBounds(50,175,300,20);
     panelParty.add(lblFood);
     
+    panelNamesParty.setBackground(new Color(22,145,217));
+    panelNamesParty.setLayout(new GridLayout(5,2));
     
-    panelNames.setLayout(new GridLayout(5,2));
+    panelNamesParty.add(name1);
+    panelNamesParty.add(health1);
+    panelNamesParty.add(name2);
+    panelNamesParty.add(health2);
+    panelNamesParty.add(name3);
+    panelNamesParty.add(health3);
+    panelNamesParty.add(name4);
+    panelNamesParty.add(health4);
+    panelNamesParty.add(name5);
+    panelNamesParty.add(health5);
     
     
-    
-    panelNames.add(name1);
-    panelNames.add(health1);
-    panelNames.add(name2);
-    panelNames.add(health2);
-    panelNames.add(name3);
-    panelNames.add(health3);
-    panelNames.add(name4);
-    panelNames.add(health4);
-    panelNames.add(name5);
-    panelNames.add(health5);
-    
-    panelNames.setBackground(new Color(22,145,217));
-    panelNames.setBounds(300,75,200,250);
-    panelParty.add(panelNames);
+    panelNamesParty.setBounds(300,75,200,250);
+    panelParty.add(panelNamesParty);
     
     panelParty.setBounds(0,0,500,425);
     
@@ -156,7 +135,7 @@ public class StoppedTop extends JPanel{
   
   public void createSupplies(){
     //Creates Supplies Panel 
-   // resetPanels();
+    // resetPanels();
     panelSuppliesAll.setBackground(Color.GREEN);
     
     panelSuppliesAll.setLayout(null);
@@ -167,7 +146,6 @@ public class StoppedTop extends JPanel{
     
     
     panelSupplies.setLayout(new GridLayout(6,1));
-    
     
     
     panelSupplies.add(lblSupplyFuel);
@@ -190,8 +168,37 @@ public class StoppedTop extends JPanel{
     repaint();
   }
   
-  public void createStore(){
-
+  public void createWait(){
+    
+    panelWait.setBackground(Color.RED);
+    
+    panelWait.setLayout(null);
+    
+    btnWait.setBounds(50,75,100,75);
+    btnWait.addActionListener(new HandleBtnWait());
+    panelWait.add(btnWait);
+    
+    panelWaitNames.setLayout(new GridLayout(5,2));
+    
+    panelWaitNames.add(waitname1);
+    panelWaitNames.add(waithealth1);
+    panelWaitNames.add(waitname2);
+    panelWaitNames.add(waithealth2);
+    panelWaitNames.add(waitname3);
+    panelWaitNames.add(waithealth3);
+    panelWaitNames.add(waitname4);
+    panelWaitNames.add(waithealth4);
+    panelWaitNames.add(waitname5);
+    panelWaitNames.add(waithealth5);
+    
+    panelWaitNames.setBackground(Color.GRAY);
+    panelWaitNames.setBounds(300,75,200,250);
+    
+    panelWait.add(panelWaitNames);
+    
+    panelWait.setBounds(0,0,500,425);
+    
+    add(panelWait);
     
     revalidate();
     repaint();
@@ -234,17 +241,17 @@ public class StoppedTop extends JPanel{
   public void partyVis(){
     panelParty.setVisible(true);
     panelSuppliesAll.setVisible(false);
-    panelStoreAll.setVisible(false);
+    panelWaitAll.setVisible(false);
   }
   public void suppliesVis(){
     panelParty.setVisible(false);
     panelSuppliesAll.setVisible(true);
-    panelStoreAll.setVisible(false);
+    panelWaitAll.setVisible(false);
   }
   public void storeVis(){
     panelParty.setVisible(false);
     panelSuppliesAll.setVisible(false);
-    panelStoreAll.setVisible(true);
+    panelWaitAll.setVisible(true);
   }
   
   
@@ -273,112 +280,8 @@ public class StoppedTop extends JPanel{
     repaint();
   }
   
-  public void updateTextStore(){
-    lblStoreFuelYouHave.setText(""+GamePanel.numFuel);
-    lblStoreFoodYouHave.setText(""+GamePanel.numFood);
-    lblStoreFlashDrivesYouHave.setText(""+GamePanel.numFlashDrives);
-    lblStoreTiresYouHave.setText(""+GamePanel.numTires);
-    lblStoreMufflersYouHave.setText(""+GamePanel.numMufflers);
-    lblMoneyYouHave.setText("You have $"+GamePanel.numMoney);
-    
-    revalidate();
-    repaint();
-    gp.revalidate();
-    gp.repaint();
-  }
   
-  private class HandleBtnBuyFuel implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numMoney >= 40){
-        GamePanel.numMoney -= 40;
-        GamePanel.numFuel++;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnSellFuel implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numFuel > 0){
-        GamePanel.numFuel--;
-        GamePanel.numMoney += 20;
-      }
-      updateTextStore();
-    }
-  }
   
-  private class HandleBtnBuyFood implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numMoney >= 20){
-        GamePanel.numMoney -= 20;
-        GamePanel.numFood += 50;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnSellFood implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numFood >= 50){
-        GamePanel.numFood -= 50;
-        GamePanel.numMoney += 10;
-      }
-      updateTextStore();
-    }
-  }
-  
-  private class HandleBtnBuyFlashDrives implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numMoney >= 50){
-        GamePanel.numMoney -= 50;
-        GamePanel.numFlashDrives++;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnSellFlashDrives implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numFlashDrives > 0){
-        GamePanel.numFlashDrives--;
-        GamePanel.numMoney += 25;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnBuyTires implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numMoney >= 30){
-        GamePanel.numMoney -= 30;
-        GamePanel.numTires++;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnSellTires implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numTires > 0){
-        GamePanel.numTires--;
-        GamePanel.numMoney += 15;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnBuyMufflers implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numMoney >= 30){
-        GamePanel.numMoney -= 30;
-        GamePanel.numMufflers++;
-      }
-      updateTextStore();
-    }
-  }
-  private class HandleBtnSellMufflers implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      if (GamePanel.numMufflers > 0){
-        GamePanel.numMufflers--;
-        GamePanel.numMoney += 15;
-      }
-      updateTextStore();
-    }
-  }
   
   private class HandleBtnEat implements ActionListener{
     public void actionPerformed(ActionEvent e){
@@ -415,6 +318,25 @@ public class StoppedTop extends JPanel{
         updateTextSupplies();
       }
     }
+  }
+  
+  private class HandleBtnWait implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      doRandomEvent();
+    }
+  }
+  
+  private void doRandomEvent(){
+    //Not showing re
+    System.out.println("RE");
+    re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
+    re.setBounds(200,250,300,20);
+    add(re);
+    revalidate();
+    repaint();
+    gp.revalidate();
+    gp.repaint();
+    
   }
   
   

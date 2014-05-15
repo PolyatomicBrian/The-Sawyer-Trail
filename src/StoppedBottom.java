@@ -49,7 +49,7 @@ public class StoppedBottom extends JPanel{
       createParty();
     else if (GamePanel.isSupplies)
       createSupplies();
-    else if (GamePanel.isStore)
+    else if (GamePanel.isWait)
       createStore();
   }
   
@@ -72,7 +72,7 @@ public class StoppedBottom extends JPanel{
     public void actionPerformed(ActionEvent e){
       GamePanel.isParty = true;
       GamePanel.isSupplies = false;
-      GamePanel.isStore = false;
+      GamePanel.isWait = false;
       lmt.handleBooleans();
     }
   }
@@ -81,7 +81,7 @@ public class StoppedBottom extends JPanel{
     public void actionPerformed(ActionEvent e){
       GamePanel.isParty = false;
       GamePanel.isSupplies = true;
-      GamePanel.isStore = false;
+      GamePanel.isWait = false;
       lmt.handleBooleans();
     }
   }
@@ -90,7 +90,7 @@ public class StoppedBottom extends JPanel{
     public void actionPerformed(ActionEvent e){
       GamePanel.isParty = false;
       GamePanel.isSupplies = false;
-      GamePanel.isStore = true;
+      GamePanel.isWait = true;
       lmt.handleBooleans();
     }
   }

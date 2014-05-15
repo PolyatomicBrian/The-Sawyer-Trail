@@ -4,7 +4,7 @@ import java.awt.*;
 public class Runner{
   
   //CURRENT OBJECTIVE:
-  //ADD STUFF TO "WAIT" SECTION IN StoppedTop CLASS!!!
+  //Get WAIT working in StoppedTop class
   
   public static void main(String[] args){
     

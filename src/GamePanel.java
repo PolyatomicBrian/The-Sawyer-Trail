@@ -24,6 +24,7 @@ public class GamePanel extends JPanel{
   public static boolean isParty = true;
   public static boolean isSupplies = false;
   public static boolean isStore = false;
+  public static boolean isWait = false;
   
   //Misc
   public static String playersname = "Mr. Null";

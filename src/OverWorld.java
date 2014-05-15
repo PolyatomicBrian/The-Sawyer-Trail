@@ -8,6 +8,7 @@ public class OverWorld extends JPanel{
   private LandMark lm;
   private javax.swing.Timer timerCheckVisible;
   private String playersname;
+  private BottomOverWorld bow;
   
   
   public OverWorld(GamePanel tempgp /*LandMark templm, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers*/){
@@ -18,7 +19,7 @@ public class OverWorld extends JPanel{
     
     createLandMarkPanel();
     
-    BottomOverWorld bow = new BottomOverWorld(ow,gp/*, playersname, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers, healthMrSawyer, healthVikrant, healthBrian, healthVarun, healthPlayer*/);
+    bow = new BottomOverWorld(ow,gp/*, playersname, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers, healthMrSawyer, healthVikrant, healthBrian, healthVarun, healthPlayer*/);
     TopOverWorld tow = new TopOverWorld(ow,gp,bow,lm/*, playersname, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers, healthMrSawyer, healthVikrant, healthBrian, healthVarun, healthPlayer*/);
     
     setLayout(new GridLayout(2,1));
@@ -48,6 +49,7 @@ public class OverWorld extends JPanel{
       }else{
         setVisible(false);
       }
+      bow.updateStats();
     }
   }
   
