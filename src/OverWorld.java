@@ -14,7 +14,7 @@ public class OverWorld extends JPanel{
   public OverWorld(GamePanel tempgp /*LandMark templm, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers*/){
     
     gp = tempgp;
-    
+    setBackground(new Color(0xd2b48c));
     timerCheckVisible = new javax.swing.Timer(75, new TimerListener()); //I hate myself for making this timer...
     
     createLandMarkPanel();
@@ -35,10 +35,10 @@ public class OverWorld extends JPanel{
   }
   
   private void createLandMarkPanel(){
-   // LandMark lm2 = new LandMark(gp);
-   // gp.add(lm2);
-       //lm2.setVisible(false);
-   // lm = lm2;
+    // LandMark lm2 = new LandMark(gp);
+    // gp.add(lm2);
+    //lm2.setVisible(false);
+    // lm = lm2;
   }
   
   //This is bad programming. Yuck.

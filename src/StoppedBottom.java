@@ -100,6 +100,7 @@ public class StoppedBottom extends JPanel{
       gp.remove(lm);
       GamePanel.isMoving = true;
       GamePanel.overWorldVisible = true;
+      GamePanel.stoppedVisible = false;
       Background.timer.start();
       gp.revalidate();
       gp.repaint();

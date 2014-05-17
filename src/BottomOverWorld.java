@@ -169,6 +169,7 @@ public class BottomOverWorld extends JPanel{
   private class TimerListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
       if (GamePanel.isMoving){
+        Background.canLoseFuel = true;
         GamePanel.miles++;
         numNextLandMark--;
         updateStats();
@@ -284,7 +285,7 @@ public class BottomOverWorld extends JPanel{
     if (GamePanel.isMoving){
       GamePanel.isMoving = false;
       GamePanel.totalmiles += GamePanel.miles;
-      GamePanel.landMarksEncountered++;
+      //GamePanel.landMarksEncountered++;
       GamePanel.overWorldVisible = false;
       GamePanel.stoppedVisible = true;
       

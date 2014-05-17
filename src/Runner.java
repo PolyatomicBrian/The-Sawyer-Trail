@@ -4,7 +4,7 @@ import java.awt.*;
 public class Runner{
   
   //CURRENT OBJECTIVE:
-  //Get WAIT working in StoppedTop class
+  //Get RndEvent to affect inventory properly.
   
   public static void main(String[] args){
     
@@ -39,15 +39,12 @@ public class Runner{
     
     /*
      OverWorld ow = new OverWorld(gp);
+     GamePanel.overWorldVisible = true;
      gp.add(ow);
      pane.add(gp, BorderLayout.CENTER);
      */
     
-    /*
-     LandMark lm = new LandMark(gp);
-     gp.add(lm);
-     pane.add(gp, BorderLayout.CENTER);
-     */
+     
     
     f.setVisible(true);
     

@@ -6,6 +6,8 @@ public class StoppedTop extends JPanel{
   
   private GamePanel gp;
   private OverWorld ow;
+  private javax.swing.Timer timerDispMsg;
+  private javax.swing.Timer timerRemoveMsg;
   
   //Party
   private JLabel name1 = new JLabel("<html><font color = 'white'>"+GamePanel.playersname+"</font></html>");
@@ -46,8 +48,6 @@ public class StoppedTop extends JPanel{
   
   private RndEvent re;
   
-  
-  
   private JPanel panelParty = new JPanel();
   private JPanel panelNamesParty = new JPanel();
   private JPanel panelSuppliesAll = new JPanel();
@@ -59,11 +59,20 @@ public class StoppedTop extends JPanel{
   private JButton btnEat = new JButton("Eat Food");
   private JButton btnWait = new JButton("Wait");
   
+  private int countDispDelay;
+  private boolean canWait = true;
+  private JLabel lblMustWait = new JLabel("<html><font color = 'white'></html></font>");
+  private String strPeriods = "";
+  
   public StoppedTop(GamePanel tempgp){
     gp = tempgp;
     
     setLayout(null);
     setBackground(Color.BLACK);
+    
+    timerDispMsg = new javax.swing.Timer(200, new TimerDispListener());
+    timerRemoveMsg = new javax.swing.Timer(2000, new TimerRemoveListener());
+    // timerDispMsg.start();
     
     createParty();
     createSupplies();
@@ -196,6 +205,9 @@ public class StoppedTop extends JPanel{
     
     panelWait.add(panelWaitNames);
     
+    lblMustWait.setBounds(50,200,500,20);
+    panelWait.add(lblMustWait);
+    
     panelWait.setBounds(0,0,500,425);
     
     add(panelWait);
@@ -280,6 +292,16 @@ public class StoppedTop extends JPanel{
     repaint();
   }
   
+  public void updateTextWait(){
+    for (int i = 0; i<=countDispDelay; i++){
+      if (i%2 == 0)
+        strPeriods += ".";
+      lblMustWait.setText("<html><font color = 'white'>Waiting" + strPeriods + "</html></font>");
+    }
+    revalidate();
+    repaint();
+  }
+  
   
   
   
@@ -322,21 +344,57 @@ public class StoppedTop extends JPanel{
   
   private class HandleBtnWait implements ActionListener{
     public void actionPerformed(ActionEvent e){
-      doRandomEvent();
+      if (canWait)
+        doRandomEvent();
+    //  else
+    //    mustWait();
     }
   }
   
   private void doRandomEvent(){
     //Not showing re
-    System.out.println("RE");
+
+    canWait = false;
+    timerDispMsg.start();
     re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
-    re.setBounds(200,250,300,20);
-    add(re);
+    
     revalidate();
     repaint();
     gp.revalidate();
     gp.repaint();
     
+  }
+  
+ // private void mustWait(){
+ //   
+ // }
+  
+  private class TimerDispListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      countDispDelay++;
+      if (countDispDelay == 12){
+        gp.add(re, BorderLayout.NORTH);
+        countDispDelay = 0;
+        
+        lblMustWait.setText("<html><font color = 'white'></html></font>");
+        strPeriods = "";
+        
+        timerRemoveMsg.start();
+        gp.revalidate();
+        gp.repaint();
+        timerDispMsg.stop();
+      }
+      if (countDispDelay > 0)
+        updateTextWait();
+    }
+  }
+  
+  private class TimerRemoveListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      canWait = true;
+      gp.remove(re);
+      timerRemoveMsg.stop();
+    }
   }
   
   
