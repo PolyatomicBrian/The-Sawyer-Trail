@@ -344,11 +344,20 @@ public class StoppedTop extends JPanel{
   
   private class HandleBtnWait implements ActionListener{
     public void actionPerformed(ActionEvent e){
-      if (canWait)
+      if (canWait){
         doRandomEvent();
-    //  else
-    //    mustWait();
+        Background.loseHealth();
+        updateWaitStats();
+      }
     }
+  }
+  
+  public void updateWaitStats(){
+     waithealth1.setText("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
+     waithealth2.setText("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
+     waithealth3.setText("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
+     waithealth4.setText("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
+     waithealth5.setText("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>"); 
   }
   
   private void doRandomEvent(){

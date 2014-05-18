@@ -68,6 +68,7 @@ public class Background extends JPanel{
           gotoLandMark();
         }else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
           doRandomEvent();
+          loseHealth();
         }
       }else if (GamePanel.numFuel <= 0 && GamePanel.stoppedVisible == false){
         outofFuelGoToStop();
@@ -78,6 +79,46 @@ public class Background extends JPanel{
       revalidate();
       repaint();
     }
+  }
+  
+  public static void loseHealth(){
+    int healthPlayerLose = (int)(GamePanel.healthPlayer / 4 * Math.random() + 1);
+    int healthMrSawyerLose = (int)(GamePanel.healthMrSawyer / 4 * Math.random() + 1);
+    int healthVikrantLose = (int)(GamePanel.healthVikrant / 4 * Math.random() + 1);
+    int healthVarunLose = (int)(GamePanel.healthVarun / 4 * Math.random() + 1);
+    int healthBrianLose = (int)(GamePanel.healthBrian / 4 * Math.random() + 1);
+    
+    if (GamePanel.healthPlayer - healthPlayerLose <= 0){
+      GamePanel.healthPlayer = 0;
+    }else{
+      GamePanel.healthPlayer -= healthPlayerLose;
+    }
+    
+    if (GamePanel.healthMrSawyer - healthMrSawyerLose <= 0){
+      GamePanel.healthMrSawyer = 0;
+    }else{
+      GamePanel.healthMrSawyer -= healthMrSawyerLose;
+    }
+    
+    if (GamePanel.healthVikrant - healthVikrantLose <= 0){
+      GamePanel.healthVikrant = 0;
+    }else{
+      GamePanel.healthVikrant -= healthVikrantLose;
+    }
+    
+    if (GamePanel.healthVarun - healthVarunLose <= 0){
+      GamePanel.healthVarun = 0;
+    }else{
+      GamePanel.healthVarun -= healthVarunLose;
+    }
+    
+    if (GamePanel.healthBrian - healthBrianLose <= 0){
+      GamePanel.healthBrian = 0;
+    }else{
+      GamePanel.healthBrian -= healthBrianLose;
+    }
+    
+    
   }
   
   public void gotoLandMark(){
@@ -126,7 +167,7 @@ public class Background extends JPanel{
     GamePanel.isMoving = false;
     timerPause.start();
     re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
-    re.setBounds(100,25,300,20);
+    re.setBounds(80,25,350,20);
     add(re);
     timer.stop();
     revalidate();

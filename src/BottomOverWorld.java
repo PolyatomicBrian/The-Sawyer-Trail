@@ -173,6 +173,7 @@ public class BottomOverWorld extends JPanel{
         GamePanel.miles++;
         numNextLandMark--;
         updateStats();
+        updateHealth();
       }
       
       revalidate();
@@ -217,6 +218,29 @@ public class BottomOverWorld extends JPanel{
     }
   }
   
+  public void updateHealth(){
+    if (GamePanel.healthPlayer > 0)
+      lblPlayerHealth.setText("<html><font color='green'>"+GamePanel.healthPlayer+"</font></html>");
+    else
+      lblPlayerHealth.setText("<html><font color='red'>"+GamePanel.healthPlayer+"</font></html>");
+    if (GamePanel.healthMrSawyer > 0)
+      lblMrSawyerHealth.setText("<html><font color='green'>"+GamePanel.healthMrSawyer+"</font></html>");
+    else
+      lblMrSawyerHealth.setText("<html><font color='red'>"+GamePanel.healthMrSawyer+"</font></html>");
+    if (GamePanel.healthVikrant > 0)
+      lblVikrantHealth.setText("<html><font color='green'>"+GamePanel.healthVikrant+"</font></html>");
+    else
+      lblVikrantHealth.setText("<html><font color='red'>"+GamePanel.healthVikrant+"</font></html>");
+    if (GamePanel.healthVarun > 0)
+      lblVarunHealth.setText("<html><font color='green'>"+GamePanel.healthVarun+"</font></html>");
+    else
+      lblVarunHealth.setText("<html><font color='red'>"+GamePanel.healthVarun+"</font></html>");
+    if (GamePanel.healthBrian > 0)
+      lblBrianHealth.setText("<html><font color='green'>"+GamePanel.healthBrian+"</font></html>");
+    else
+      lblBrianHealth.setText("<html><font color='red'>"+GamePanel.healthBrian+"</font></html>");
+  }
+  
   
   
   private void updateHud(){
@@ -236,13 +260,14 @@ public class BottomOverWorld extends JPanel{
     remove(healthPanel);
     remove(statsPanel);
     
-    lblPlayerHealth.setText("<html><font color='green'>"+playerHealth+"</font></html>");
-    lblMrSawyerHealth.setText("<html><font color='green'>"+mrSawyerHealth+"</font></html>");
-    lblVikrantHealth.setText("<html><font color='green'>"+vikrantHealth+"</font></html>");
-    lblVarunHealth.setText("<html><font color='green'>"+varunHealth+"</font></html>");
-    lblBrianHealth.setText("<html><font color='green'>"+brianHealth+"</font></html>");
+    lblPlayerHealth.setText("<html><font color='green'>"+GamePanel.healthPlayer+"</font></html>");
+    lblMrSawyerHealth.setText("<html><font color='green'>"+GamePanel.healthMrSawyer+"</font></html>");
+    lblVikrantHealth.setText("<html><font color='green'>"+GamePanel.healthVikrant+"</font></html>");
+    lblVarunHealth.setText("<html><font color='green'>"+GamePanel.healthVarun+"</font></html>");
+    lblBrianHealth.setText("<html><font color='green'>"+GamePanel.healthBrian+"</font></html>");
     
     healthPanel.setLayout(new GridLayout(5,2));
+    healthPanel.setBackground(new Color(0xd2b48c));
     healthPanel.add(lblPlayerName);
     healthPanel.add(lblPlayerHealth);
     healthPanel.add(lblMrSawyerName);
@@ -269,9 +294,11 @@ public class BottomOverWorld extends JPanel{
     
     statsPanel.setLayout(new GridLayout(7,2));
     for (int i = 0; i<listStatsLabels.size(); i++){
+      listStatsLabels.get(i).setBackground(new Color(0xd2b48c));
       statsPanel.add(listStatsLabels.get(i));
     }
     
+    statsPanel.setBackground(new Color(0xd2b48c));
     
     add(statsPanel, BorderLayout.WEST);
     

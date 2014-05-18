@@ -21,6 +21,10 @@ public class RndEvent extends JPanel{
   private boolean canRndName = true;
   private boolean canRndNum = true;
   private boolean canRndSelectMsg = true;
+  private int rndSupplyNum = (int)(6 * Math.random());
+  private boolean canModifyBad = true;
+  private boolean isNothing = false;
+  private boolean msgSelector = true;
   
   public RndEvent(/*GamePanel tempgp, TopOverWorld temptow,*/ String tempplayersname, int tempPlayerHealth, int tempVarunHealth, int tempBrianHealth, int tempMrSawyerHealth, int tempVikrantHealth){
     
@@ -43,10 +47,11 @@ public class RndEvent extends JPanel{
       canRndSelectMsg = false;
     }
     
-    if (indexMsg >= 15 && indexMsg <= 20)
-      modifySuppliesBad();
+    
+    
     if (indexMsg >= 21)
       modifySuppliesGood();
+    
     
     add(lblRndMsg/*, BorderLayout.NORTH*/);
     repaint();
@@ -89,7 +94,8 @@ public class RndEvent extends JPanel{
     JLabel lbl22 = new JLabel(selectName() + " found " + selectSupplyGood());
     JLabel lbl23 = new JLabel(selectName() + " stumbled upon " + selectSupplyGood());
     JLabel lbl24 = new JLabel(selectName() + " remembered there were " + selectSupplyGood() + " in the trunk.");
-    JLabel lbl25 = new JLabel(selectName() + " pulled " + selectSupplyGood() + " from between the seats.");
+    JLabel lbl25 = new JLabel(selectName() + " pulled " + selectSupplyGood() + " from under the seats.");
+    JLabel lbl26 = new JLabel(selectName() + " had " + selectSupplyGood() + " in their pockets.");
     
     listRndMsg.add(lbl1);
     listRndMsg.add(lbl2);
@@ -107,6 +113,7 @@ public class RndEvent extends JPanel{
     listRndMsg.add(lbl14);
     listRndMsg.add(lbl15);
     
+    
     listRndMsg.add(lbl16);
     listRndMsg.add(lbl17);
     listRndMsg.add(lbl18);
@@ -114,36 +121,40 @@ public class RndEvent extends JPanel{
     listRndMsg.add(lbl20);
     listRndMsg.add(lbl21);
     
+    
     listRndMsg.add(lbl22);
     listRndMsg.add(lbl23);
     listRndMsg.add(lbl24);
     listRndMsg.add(lbl25);
     
+    
   }
   
   public JLabel selectRndMsg(){
-    int numRnd = (int)(listRndMsg.size() * Math.random());
-    lblRndMsg = listRndMsg.get(numRnd);
-    indexMsg = numRnd;
-    lblRndMsg.setHorizontalAlignment(SwingConstants.CENTER);
-    lblRndMsg.setVerticalAlignment(SwingConstants.CENTER);
+    if (msgSelector){
+      msgSelector = false;
+      int numRnd = (int)(listRndMsg.size() * Math.random());
+      lblRndMsg = listRndMsg.get(numRnd);
+      indexMsg = numRnd;
+      lblRndMsg.setHorizontalAlignment(SwingConstants.CENTER);
+      lblRndMsg.setVerticalAlignment(SwingConstants.CENTER);
+      return lblRndMsg;
+    }
     return lblRndMsg;
-    
   }
   
   public String selectNumSupply(int maxNum){
     int numRnd = 0;
+    
+    if (maxNum == 0)
+      maxNum = 50;
+    
     if (canRndNum){
-      
-      
-      if (maxNum == 0)
-        maxNum = 40;
       
       numRnd = (int)((maxNum / 2) * Math.random() + 1);
       
       
       supplyNum = numRnd;
-      System.out.println("# = " + numRnd);
       canRndNum = false;
       
     }
@@ -151,100 +162,121 @@ public class RndEvent extends JPanel{
   }
   
   public String selectSupply(){
-    int numRnd = 0;
+    
+    //Selected Supply is not being removed.
     
     if (canRndName){
-      numRnd = (int)(7 * Math.random());
-      
-      
+      int numRnd = (int)(6 * Math.random());
       
       if (GamePanel.numFuel <= 0 && GamePanel.numFood <= 0 && GamePanel.numFlashDrives <= 0 && GamePanel.numMoney <= 0 && GamePanel.numTires <= 0 && GamePanel.numMufflers <= 0){
-        
+        canRndName = false;
+        isNothing = true;
         return "nothing";
       }
       
       if (numRnd == 0 && GamePanel.numFuel > 0){
         supplyName = " fuel";
         selectNumSupply(GamePanel.numFuel);
-       // return selectNumSupply(GamePanel.numFuel) + supplyName;
+        canRndName = false;
+        return supplyNum + supplyName;
+        // return selectNumSupply(GamePanel.numFuel) + supplyName;
       }
       else if (numRnd == 1 && GamePanel.numFood > 0){
         supplyName = " food";
         selectNumSupply(GamePanel.numFood);
-       // return selectNumSupply(GamePanel.numFood) + supplyName;
+        canRndName = false;
+        return supplyNum + supplyName;
+        // return selectNumSupply(GamePanel.numFood) + supplyName;
       }
       else if (numRnd == 2 && GamePanel.numFlashDrives > 0){
         supplyName = " flash drives";
         selectNumSupply(GamePanel.numFlashDrives);
-     //   return selectNumSupply(GamePanel.numFlashDrives) + supplyName;
+        canRndName = false;
+        return supplyNum + supplyName;
+        //   return selectNumSupply(GamePanel.numFlashDrives) + supplyName;
       }
       else if (numRnd == 3 && GamePanel.numMoney > 0){
         supplyName = " money";
         selectNumSupply(GamePanel.numMoney);
-     //   return selectNumSupply(GamePanel.numMoney) + supplyName;
+        canRndName = false;
+        return supplyNum + supplyName;
+        //   return selectNumSupply(GamePanel.numMoney) + supplyName;
       }
       else if (numRnd == 4 && GamePanel.numTires > 0){
         supplyName = " tires";
         selectNumSupply(GamePanel.numTires);
-      //  return selectNumSupply(GamePanel.numTires) + supplyName;
+        canRndName = false;
+        return supplyNum + supplyName;
+        //  return selectNumSupply(GamePanel.numTires) + supplyName;
       }
       else if (numRnd == 5 && GamePanel.numMufflers > 0){
         supplyName = " mufflers";
         selectNumSupply(GamePanel.numMufflers);
+        canRndName = false;
+        return supplyNum + supplyName;
         //return selectNumSupply(GamePanel.numMufflers) + supplyName;
       }
       else{
-        selectSupply();
+        return selectSupply();
       }
     }
     canRndName = false;
-    return supplyNum + supplyName;
+    
+    if (canModifyBad){
+      modifySuppliesBad();
+      canModifyBad = false;
+    }
+    if (!isNothing)
+      return supplyNum + supplyName;
+    else
+      return " nothing";
   }
   
   
+  
+  
   public String selectSupplyGood(){
-    int numRnd = 0;
+    int numRnd = rndSupplyNum;
     
-    if (canRndName){
-      numRnd = (int)(7 * Math.random());
-      
-      
-      
-      if (numRnd == 0){
-        supplyName = " fuel";
-        selectNumSupply(GamePanel.numFuel);
-        //return selectNumSupply(GamePanel.numFuel) + supplyName;
-      }
-      else if (numRnd == 1){
-        supplyName = " food";
-        selectNumSupply(GamePanel.numFood);
-        //return selectNumSupply(GamePanel.numFood) + supplyName;
-      }
-      else if (numRnd == 2){
-        supplyName = " flash drives";
-        selectNumSupply(GamePanel.numFlashDrives);
-       // return selectNumSupply(GamePanel.numFlashDrives) + supplyName;
-      }
-      else if (numRnd == 3){
-        supplyName = " money";
-        selectNumSupply(GamePanel.numMoney);
-       // return selectNumSupply(GamePanel.numMoney) + supplyName;
-      }
-      else if (numRnd == 4){
-        supplyName = " tires";
-        selectNumSupply(GamePanel.numTires);
-      //  return selectNumSupply(GamePanel.numTires) + supplyName;
-      }
-      else if (numRnd == 5){
-        supplyName = " mufflers";
-        selectNumSupply(GamePanel.numMufflers);
-      //  return selectNumSupply(GamePanel.numMufflers) + supplyName;
-      }
-      else{
-        selectSupplyGood();
-      }
+    if (GamePanel.numFuel <= 0){
+      numRnd = (int)(3 * Math.random());
     }
-    canRndName = false;
+    
+    if (numRnd == 0){
+      supplyName = " fuel";
+      selectNumSupply(GamePanel.numFuel);
+      //return selectNumSupply(GamePanel.numFuel) + supplyName;
+    }
+    else if (numRnd == 1){
+      supplyName = " food";
+      selectNumSupply(GamePanel.numFood);
+      //return selectNumSupply(GamePanel.numFood) + supplyName;
+    }
+    else if (numRnd == 2){
+      supplyName = " flash drives";
+      selectNumSupply(GamePanel.numFlashDrives);
+      // return selectNumSupply(GamePanel.numFlashDrives) + supplyName;
+    }
+    else if (numRnd == 3){
+      supplyName = " money";
+      selectNumSupply(GamePanel.numMoney);
+      // return selectNumSupply(GamePanel.numMoney) + supplyName;
+    }
+    else if (numRnd == 4){
+      supplyName = " tires";
+      selectNumSupply(GamePanel.numTires);
+      //  return selectNumSupply(GamePanel.numTires) + supplyName;
+    }
+    else if (numRnd == 5){
+      supplyName = " mufflers";
+      selectNumSupply(GamePanel.numMufflers);
+      //  return selectNumSupply(GamePanel.numMufflers) + supplyName;
+    }
+    else{
+      return selectSupplyGood();
+    }
+    
+    
     return supplyNum + supplyName;
   }
   
@@ -278,36 +310,37 @@ public class RndEvent extends JPanel{
   }
   
   private void modifySuppliesBad(){
-    if (supplyName.equals(" fuel"))
-      GamePanel.numFuel -= supplyNum;
-    else if (supplyName.equals(" food"))
-      GamePanel.numFood -= supplyNum;
-    else if (supplyName.equals(" flash drives"))
-      GamePanel.numFlashDrives -= supplyNum;
-    else if (supplyName.equals(" money"))
-      GamePanel.numMoney -= supplyNum;
-    else if (supplyName.equals(" tires"))
-      GamePanel.numTires -= supplyNum;
-    else if (supplyName.equals(" mufflers"))
-      GamePanel.numMufflers -= supplyNum;
+    if (indexMsg >= 16 && indexMsg <= 21){
+      if (supplyName.equals(" fuel"))
+        GamePanel.numFuel -= supplyNum;
+      else if (supplyName.equals(" food"))
+        GamePanel.numFood -= supplyNum;
+      else if (supplyName.equals(" flash drives"))
+        GamePanel.numFlashDrives -= supplyNum;
+      else if (supplyName.equals(" money"))
+        GamePanel.numMoney -= supplyNum;
+      else if (supplyName.equals(" tires"))
+        GamePanel.numTires -= supplyNum;
+      else if (supplyName.equals(" mufflers"))
+        GamePanel.numMufflers -= supplyNum;
+    }
   }
   
   private void modifySuppliesGood(){
-    try{
-      if (supplyName.equals(" fuel"))
-        GamePanel.numFuel += supplyNum;
-      else if (supplyName.equals(" food"))
-        GamePanel.numFood += supplyNum;
-      else if (supplyName.equals(" flash drives"))
-        GamePanel.numFlashDrives += supplyNum;
-      else if (supplyName.equals(" money"))
-        GamePanel.numMoney += supplyNum;
-      else if (supplyName.equals(" tires"))
-        GamePanel.numTires += supplyNum;
-      else if (supplyName.equals(" mufflers"))
-        GamePanel.numMufflers += supplyNum;
-    }catch(NullPointerException error){
-    }
+    
+    if (supplyName.equals(" fuel"))
+      GamePanel.numFuel += supplyNum;
+    else if (supplyName.equals(" food"))
+      GamePanel.numFood += supplyNum;
+    else if (supplyName.equals(" flash drives"))
+      GamePanel.numFlashDrives += supplyNum;
+    else if (supplyName.equals(" money"))
+      GamePanel.numMoney += supplyNum;
+    else if (supplyName.equals(" tires"))
+      GamePanel.numTires += supplyNum;
+    else if (supplyName.equals(" mufflers"))
+      GamePanel.numMufflers += supplyNum;
+    
   }
   
   public int msgWidth(){

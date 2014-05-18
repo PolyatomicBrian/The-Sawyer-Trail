@@ -43,8 +43,8 @@ public class LandMarkTop extends JPanel{
   private JLabel lblStoreFuelYouHave = new JLabel(""+GamePanel.numFuel);
   
   private JLabel lblStoreFood = new JLabel("Food: ");
-  private JButton btnBuyFood = new JButton("$20 (Buys 50)");
-  private JButton btnSellFood = new JButton("$10 (Sells 50)");
+  private JButton btnBuyFood = new JButton("$20");
+  private JButton btnSellFood = new JButton("$10");
   private JLabel lblStoreFoodYouHave = new JLabel(""+GamePanel.numFood);
   
   private JLabel lblStoreFlashDrives = new JLabel("Flash Drives: ");

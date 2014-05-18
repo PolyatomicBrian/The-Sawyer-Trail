@@ -97,6 +97,8 @@ public class StoppedBottom extends JPanel{
   
   private class HandleBtnLeave implements ActionListener{
     public void actionPerformed(ActionEvent e){
+      if (GamePanel.numFuel <= 0)
+        return;
       gp.remove(lm);
       GamePanel.isMoving = true;
       GamePanel.overWorldVisible = true;
