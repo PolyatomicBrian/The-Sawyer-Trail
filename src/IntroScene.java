@@ -27,7 +27,11 @@ public class IntroScene extends JPanel{
     lblIntro.setBounds(150,25,500,20);
     add(lblIntro);
     
+<<<<<<< HEAD
     btnSkip.setBounds(350,400,80,30);
+=======
+    btnSkip.setBounds(350,350,100,75);
+>>>>>>> d406192eb08678d25030ea7932d5e731df566c35
     btnSkip.addActionListener(new HandleBtnSkip());
     add(btnSkip);
     

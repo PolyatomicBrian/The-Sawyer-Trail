@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 public class RndEvent extends JPanel{
   
+<<<<<<< HEAD
   //Problem in method SelectedSupply()
   
+=======
+>>>>>>> d406192eb08678d25030ea7932d5e731df566c35
   private TopOverWorld tow;
   private GamePanel gp;
   private JLabel lblRndMsg = new JLabel("<html><font color = 'white'>Temp</font></html>");
@@ -42,8 +45,22 @@ public class RndEvent extends JPanel{
     mrSawyerHealth = tempMrSawyerHealth;
     vikrantHealth = tempVikrantHealth;
     fillArray();
+<<<<<<< HEAD
+=======
     
     
+    if (canRndSelectMsg){
+      selectRndMsg();
+      canRndSelectMsg = false;
+    }
+    
+    
+>>>>>>> d406192eb08678d25030ea7932d5e731df566c35
+    
+    if (indexMsg >= 21)
+      modifySuppliesGood();
+    
+<<<<<<< HEAD
     if (canRndSelectMsg){
       selectRndMsg();
       canRndSelectMsg = false;
@@ -54,6 +71,8 @@ public class RndEvent extends JPanel{
     if (indexMsg >= 21)
       modifySuppliesGood();
     
+=======
+>>>>>>> d406192eb08678d25030ea7932d5e731df566c35
     
     add(lblRndMsg/*, BorderLayout.NORTH*/);
     repaint();
@@ -147,6 +166,7 @@ public class RndEvent extends JPanel{
   
   public String selectNumSupply(int maxNum){
     int numRnd = 0;
+<<<<<<< HEAD
     
     if (maxNum == 0)
       maxNum = 50;
@@ -387,9 +407,25 @@ public class RndEvent extends JPanel{
     }
     
     return selectName();
+=======
     
+    if (maxNum == 0)
+      maxNum = 50;
+>>>>>>> d406192eb08678d25030ea7932d5e731df566c35
+    
+    if (canRndNum){
+      
+      numRnd = (int)((maxNum / 2) * Math.random() + 1);
+      
+      
+      supplyNum = numRnd;
+      canRndNum = false;
+      
+    }
+    return ""+numRnd;
   }
   
+<<<<<<< HEAD
   private void modifySuppliesBad(){
     //  if (indexMsg >= 15 && indexMsg <= 20){
     if (supplyName.equals(" fuel"))
@@ -405,6 +441,171 @@ public class RndEvent extends JPanel{
     else if (supplyName.equals(" mufflers"))
       GamePanel.numMufflers -= supplyNum;
     //   }
+=======
+  public String selectSupply(){
+    
+    //Selected Supply is not being removed.
+    
+    if (canRndName){
+      int numRnd = (int)(6 * Math.random());
+      
+      if (GamePanel.numFuel <= 0 && GamePanel.numFood <= 0 && GamePanel.numFlashDrives <= 0 && GamePanel.numMoney <= 0 && GamePanel.numTires <= 0 && GamePanel.numMufflers <= 0){
+        canRndName = false;
+        isNothing = true;
+        return "nothing";
+      }
+      
+      if (numRnd == 0 && GamePanel.numFuel > 0){
+        supplyName = " fuel";
+        selectNumSupply(GamePanel.numFuel);
+        canRndName = false;
+        return supplyNum + supplyName;
+        // return selectNumSupply(GamePanel.numFuel) + supplyName;
+      }
+      else if (numRnd == 1 && GamePanel.numFood > 0){
+        supplyName = " food";
+        selectNumSupply(GamePanel.numFood);
+        canRndName = false;
+        return supplyNum + supplyName;
+        // return selectNumSupply(GamePanel.numFood) + supplyName;
+      }
+      else if (numRnd == 2 && GamePanel.numFlashDrives > 0){
+        supplyName = " flash drives";
+        selectNumSupply(GamePanel.numFlashDrives);
+        canRndName = false;
+        return supplyNum + supplyName;
+        //   return selectNumSupply(GamePanel.numFlashDrives) + supplyName;
+      }
+      else if (numRnd == 3 && GamePanel.numMoney > 0){
+        supplyName = " money";
+        selectNumSupply(GamePanel.numMoney);
+        canRndName = false;
+        return supplyNum + supplyName;
+        //   return selectNumSupply(GamePanel.numMoney) + supplyName;
+      }
+      else if (numRnd == 4 && GamePanel.numTires > 0){
+        supplyName = " tires";
+        selectNumSupply(GamePanel.numTires);
+        canRndName = false;
+        return supplyNum + supplyName;
+        //  return selectNumSupply(GamePanel.numTires) + supplyName;
+      }
+      else if (numRnd == 5 && GamePanel.numMufflers > 0){
+        supplyName = " mufflers";
+        selectNumSupply(GamePanel.numMufflers);
+        canRndName = false;
+        return supplyNum + supplyName;
+        //return selectNumSupply(GamePanel.numMufflers) + supplyName;
+      }
+      else{
+        return selectSupply();
+      }
+    }
+    canRndName = false;
+    
+    if (canModifyBad){
+      modifySuppliesBad();
+      canModifyBad = false;
+    }
+    if (!isNothing)
+      return supplyNum + supplyName;
+    else
+      return " nothing";
+  }
+  
+  
+  
+  
+  public String selectSupplyGood(){
+    int numRnd = rndSupplyNum;
+    
+    if (GamePanel.numFuel <= 0){
+      numRnd = (int)(3 * Math.random());
+    }
+    
+    if (numRnd == 0){
+      supplyName = " fuel";
+      selectNumSupply(GamePanel.numFuel);
+      //return selectNumSupply(GamePanel.numFuel) + supplyName;
+    }
+    else if (numRnd == 1){
+      supplyName = " food";
+      selectNumSupply(GamePanel.numFood);
+      //return selectNumSupply(GamePanel.numFood) + supplyName;
+    }
+    else if (numRnd == 2){
+      supplyName = " flash drives";
+      selectNumSupply(GamePanel.numFlashDrives);
+      // return selectNumSupply(GamePanel.numFlashDrives) + supplyName;
+    }
+    else if (numRnd == 3){
+      supplyName = " money";
+      selectNumSupply(GamePanel.numMoney);
+      // return selectNumSupply(GamePanel.numMoney) + supplyName;
+    }
+    else if (numRnd == 4){
+      supplyName = " tires";
+      selectNumSupply(GamePanel.numTires);
+      //  return selectNumSupply(GamePanel.numTires) + supplyName;
+    }
+    else if (numRnd == 5){
+      supplyName = " mufflers";
+      selectNumSupply(GamePanel.numMufflers);
+      //  return selectNumSupply(GamePanel.numMufflers) + supplyName;
+    }
+    else{
+      return selectSupplyGood();
+    }
+    
+    
+    return supplyNum + supplyName;
+  }
+  
+  public String selectName(){
+    
+    int numRnd = (int)(5 * Math.random());
+    
+    if (numRnd == 0 && playerHealth > 0){
+      
+      return playersname;
+    }
+    if (numRnd == 1 && varunHealth > 0){
+      
+      return "Varun";
+    }
+    if (numRnd == 2 && brianHealth > 0){
+      
+      return "Brian";
+    }
+    if (numRnd == 3 && mrSawyerHealth > 0){
+      
+      return "Mr. Sawyer";
+    }
+    if (numRnd == 4 && vikrantHealth > 0){
+      
+      return "Vikrant";
+    }
+    
+    return selectName();
+    
+  }
+  
+  private void modifySuppliesBad(){
+    if (indexMsg >= 16 && indexMsg <= 21){
+      if (supplyName.equals(" fuel"))
+        GamePanel.numFuel -= supplyNum;
+      else if (supplyName.equals(" food"))
+        GamePanel.numFood -= supplyNum;
+      else if (supplyName.equals(" flash drives"))
+        GamePanel.numFlashDrives -= supplyNum;
+      else if (supplyName.equals(" money"))
+        GamePanel.numMoney -= supplyNum;
+      else if (supplyName.equals(" tires"))
+        GamePanel.numTires -= supplyNum;
+      else if (supplyName.equals(" mufflers"))
+        GamePanel.numMufflers -= supplyNum;
+    }
+>>>>>>> d406192eb08678d25030ea7932d5e731df566c35
   }
   
   private void modifySuppliesGood(){
