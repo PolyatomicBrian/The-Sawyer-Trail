@@ -5,10 +5,11 @@ import java.awt.event.*;
 public class PostSupplySelectionScene extends JPanel{
   
   private JButton btnOK = new JButton("OK");
-  private JLabel lblTimeToGo = new JLabel("<html><font color = 'white'>It's time to go!</font></html>");
+  
   private GamePanel gp;
+  private JLabel lblTimeToGo = new JLabel("<html><font color = 'white'>It's time to go!</font></html>");
   private PostSupplySelectionScene psss;
-  private int numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers;
+//  private int numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers;
   private String playersname;
   
   public PostSupplySelectionScene(GamePanel tempgp, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, String tempplayersname){
@@ -16,12 +17,14 @@ public class PostSupplySelectionScene extends JPanel{
     gp = tempgp;
     playersname = tempplayersname;
     psss = this;
-    numFuel = tempnumFuel;
-    numFood = tempnumFood;
-    numFlashDrives = tempnumFlashDrives;
-    numMoney = tempnumMoney;
-    numTires = tempnumTires;
-    numMufflers = tempnumMufflers;
+    GamePanel.numFuel = tempnumFuel;
+    GamePanel.numFood = tempnumFood;
+    GamePanel.numFlashDrives = tempnumFlashDrives;
+    GamePanel.numMoney = tempnumMoney;
+    GamePanel.numTires = tempnumTires;
+    GamePanel.numMufflers = tempnumMufflers;
+    GamePanel.playersname = playersname;
+    
     
     setLayout(null);
     setBackground(Color.DARK_GRAY);
@@ -37,7 +40,10 @@ public class PostSupplySelectionScene extends JPanel{
   private class HandleBtnOK implements ActionListener{
     public void actionPerformed(ActionEvent e){
       gp.remove(psss);
-      OverWorld ow = new OverWorld(gp, playersname, numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers);
+     // LandMark lm = new LandMark(gp);
+     // gp.add(lm);
+      OverWorld ow = new OverWorld(gp);
+      GamePanel.overWorldVisible = true;
       gp.add(ow);
       gp.revalidate();
       gp.repaint();

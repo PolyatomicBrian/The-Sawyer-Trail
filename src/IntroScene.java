@@ -6,6 +6,7 @@ public class IntroScene extends JPanel{
   
   private javax.swing.Timer timer;
   private JLabel lblIntro = new JLabel("Welcome to The Sawyer Trail!");
+  private JButton btnSkip = new JButton("Skip");
   private TextField txtName = new TextField();
   private JButton btnNameEntered = new JButton("I have entered my name.");
   private String playersName;
@@ -26,6 +27,10 @@ public class IntroScene extends JPanel{
     lblIntro.setBounds(150,25,500,20);
     add(lblIntro);
     
+    btnSkip.setBounds(350,400,80,30);
+    btnSkip.addActionListener(new HandleBtnSkip());
+    add(btnSkip);
+    
     timer = new javax.swing.Timer(2100, new TimerListener());
     
     is = this; //Reference to IntroScene.
@@ -38,7 +43,7 @@ public class IntroScene extends JPanel{
       count++;
       if (count == 1){
         lblIntro.setBounds(125,25,500,20);
-        lblIntro.setText("It's finally time for Penn State's Hack-A-Thon!");
+        lblIntro.setText("It's finally time for UPenn's Hack-A-Thon!");
       }else if (count == 2){
         lblIntro.setBounds(100,25,500,20);
         lblIntro.setText("You are to journey with the following people to Penn State:");
@@ -73,7 +78,7 @@ public class IntroScene extends JPanel{
       timer.stop();
       txtName.setBounds(100,300,300,40);
       is.add(txtName);
-      btnNameEntered.setBounds(105,350,300,40);
+      btnNameEntered.setBounds(100,350,300,40);
       btnNameEntered.addActionListener(new HandleButtonNameEntered());
       is.add(btnNameEntered);
       is.repaint();
@@ -87,10 +92,23 @@ public class IntroScene extends JPanel{
       gp.add(ss);
       gp.revalidate();
       gp.repaint();
-     
+      
     }
   }
-    
+  
+  private class HandleBtnSkip implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      playersName = "Skipper";
+      timer.stop();
+      
+      gp.remove(is);
+      SupplySelection ss = new SupplySelection(gp, playersName);
+      gp.add(ss);
+      gp.revalidate();
+      gp.repaint();
+    }
+  }
+  
   private class HandleButtonNameEntered implements ActionListener{
     public void actionPerformed(ActionEvent e){
       playersName = txtName.getText();
