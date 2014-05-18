@@ -6,6 +6,7 @@ public class IntroScene extends JPanel{
   
   private javax.swing.Timer timer;
   private JLabel lblIntro = new JLabel("Welcome to The Sawyer Trail!");
+  private JButton btnSkip = new JButton("Skip");
   private TextField txtName = new TextField();
   private JButton btnNameEntered = new JButton("I have entered my name.");
   private String playersName;
@@ -25,6 +26,10 @@ public class IntroScene extends JPanel{
     
     lblIntro.setBounds(150,25,500,20);
     add(lblIntro);
+    
+    btnSkip.setBounds(350,350,100,75);
+    btnSkip.addActionListener(new HandleBtnSkip());
+    add(btnSkip);
     
     timer = new javax.swing.Timer(2100, new TimerListener());
     
@@ -87,10 +92,23 @@ public class IntroScene extends JPanel{
       gp.add(ss);
       gp.revalidate();
       gp.repaint();
-     
+      
     }
   }
-    
+  
+  private class HandleBtnSkip implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      playersName = "Skipper";
+      timer.stop();
+      
+      gp.remove(is);
+      SupplySelection ss = new SupplySelection(gp, playersName);
+      gp.add(ss);
+      gp.revalidate();
+      gp.repaint();
+    }
+  }
+  
   private class HandleButtonNameEntered implements ActionListener{
     public void actionPerformed(ActionEvent e){
       playersName = txtName.getText();
