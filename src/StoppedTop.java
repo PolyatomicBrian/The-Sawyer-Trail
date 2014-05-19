@@ -72,7 +72,6 @@ public class StoppedTop extends JPanel{
     
     timerDispMsg = new javax.swing.Timer(200, new TimerDispListener());
     timerRemoveMsg = new javax.swing.Timer(2000, new TimerRemoveListener());
-    // timerDispMsg.start();
     
     createParty();
     createSupplies();
@@ -103,7 +102,6 @@ public class StoppedTop extends JPanel{
   
   public void createParty(){
     //Creates the Party Panel
-    // resetPanels();
     
     panelParty.setBackground(Color.BLUE);
     
@@ -144,7 +142,7 @@ public class StoppedTop extends JPanel{
   
   public void createSupplies(){
     //Creates Supplies Panel 
-    // resetPanels();
+
     panelSuppliesAll.setBackground(Color.GREEN);
     
     panelSuppliesAll.setLayout(null);
@@ -348,6 +346,7 @@ public class StoppedTop extends JPanel{
         doRandomEvent();
         Background.loseHealth();
         updateWaitStats();
+        updateTextParty();
       }
     }
   }
@@ -361,7 +360,6 @@ public class StoppedTop extends JPanel{
   }
   
   private void doRandomEvent(){
-    //Not showing re
 
     canWait = false;
     timerDispMsg.start();
@@ -374,9 +372,6 @@ public class StoppedTop extends JPanel{
     
   }
   
- // private void mustWait(){
- //   
- // }
   
   private class TimerDispListener implements ActionListener{
     public void actionPerformed(ActionEvent e){

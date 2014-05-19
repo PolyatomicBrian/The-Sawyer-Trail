@@ -9,7 +9,6 @@ public class PostSupplySelectionScene extends JPanel{
   private GamePanel gp;
   private JLabel lblTimeToGo = new JLabel("<html><font color = 'white'>It's time to go!</font></html>");
   private PostSupplySelectionScene psss;
-//  private int numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers;
   private String playersname;
   
   public PostSupplySelectionScene(GamePanel tempgp, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, String tempplayersname){
@@ -40,8 +39,6 @@ public class PostSupplySelectionScene extends JPanel{
   private class HandleBtnOK implements ActionListener{
     public void actionPerformed(ActionEvent e){
       gp.remove(psss);
-     // LandMark lm = new LandMark(gp);
-     // gp.add(lm);
       OverWorld ow = new OverWorld(gp);
       GamePanel.overWorldVisible = true;
       gp.add(ow);

@@ -4,8 +4,6 @@ import java.awt.event.*;
 
 public class Stopped extends JPanel{
   
- // private StoppedTop lmt;
-//  private StoppedBottom lmb;
   private GamePanel gp;
   
   private Stopped lm;
@@ -25,7 +23,7 @@ public class Stopped extends JPanel{
     add(lmt, BorderLayout.CENTER);
     add(lmb, BorderLayout.SOUTH);
     
-    timerStoppedVisible = new javax.swing.Timer(75, new StoppedTimer()); // So sad...
+    timerStoppedVisible = new javax.swing.Timer(75, new StoppedTimer());
     
     timerStoppedVisible.start();
     
@@ -33,8 +31,6 @@ public class Stopped extends JPanel{
   }
   
   
-  
-  //This is bad programming. Yuck.
   private class StoppedTimer implements ActionListener{
     public void actionPerformed(ActionEvent e){
       if (GamePanel.overWorldVisible == false && GamePanel.stoppedVisible){

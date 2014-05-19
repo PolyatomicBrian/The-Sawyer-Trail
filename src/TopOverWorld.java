@@ -20,19 +20,16 @@ public class TopOverWorld extends JPanel{
   private int varunHealth;
   private int brianHealth;  
   
-  //private RndEvent re; 
   private Background bg;
   
   private OverWorld ow;
   private BottomOverWorld bow;
   private LandMark lm;
   
-  public TopOverWorld(OverWorld tempow, GamePanel tempgp, BottomOverWorld tempbow, LandMark templm/*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
+  public TopOverWorld(OverWorld tempow, GamePanel tempgp, BottomOverWorld tempbow, LandMark templm){
     
     setLayout(null);
-    
-     
-    
+
     gp = tempgp;
     tow = this;
     ow = tempow;
@@ -50,12 +47,6 @@ public class TopOverWorld extends JPanel{
     brianHealth = GamePanel.healthBrian;
     
     setBackground(Color.BLACK);
-    
-    //  re = new RndEvent(gp,tow,playersname,playerHealth,varunHealth,brianHealth,mrSawyerHealth,vikrantHealth);
-    //   re.setBounds(100, 25, 300, 20/*re.msgWidth(), re.msgHeight()*/);
-    //  add(re);
-    
-    
     
     bg.setBounds(0,0,500,500);
     add(bg);

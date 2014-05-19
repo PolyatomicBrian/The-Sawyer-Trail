@@ -37,15 +37,6 @@ public class Background extends JPanel{
     
     timerPause = new javax.swing.Timer(2500, new TimerPause());
     
-    
-    
-    /*
-     re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
-     re.setBounds(100,25,300,20);
-     add(re);
-     */
-    
-    
     objBus.setBounds(300,100, objBus.busWidth(), objBus.busHeight());
     add(objBus);
     
@@ -73,8 +64,6 @@ public class Background extends JPanel{
       }else if (GamePanel.numFuel <= 0 && GamePanel.stoppedVisible == false){
         outofFuelGoToStop();
       }
-      
-      //System.out.println(""+GamePanel.miles);
       
       revalidate();
       repaint();
@@ -123,9 +112,6 @@ public class Background extends JPanel{
   
   public void gotoLandMark(){
     
-    //GamePanel.miles = 0;
-    //gp.remove(this); //Null pointer exception here : gp.remove(ow);
-    //LandMark lm = new LandMark(gp);
     GamePanel.isMoving = false;
     GamePanel.totalmiles += GamePanel.miles;
     GamePanel.miles = 0;
@@ -135,9 +121,6 @@ public class Background extends JPanel{
     
     LandMark lm = new LandMark(gp);
     gp.add(lm);
-    //ow.setVisible(false);
-    // gp.removeAll();
-    //gp.add(lm);
     gp.revalidate();
     gp.repaint();
     timer.stop();
@@ -147,7 +130,6 @@ public class Background extends JPanel{
   private void outofFuelGoToStop(){
     GamePanel.isMoving = false;
     GamePanel.totalmiles += GamePanel.miles;
-    //GamePanel.landMarksEncountered++;
     GamePanel.overWorldVisible = false;
     GamePanel.stoppedVisible = true;
     
@@ -163,7 +145,6 @@ public class Background extends JPanel{
   }
   
   private void doRandomEvent(){
-    
     GamePanel.isMoving = false;
     timerPause.start();
     re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
@@ -172,8 +153,8 @@ public class Background extends JPanel{
     timer.stop();
     revalidate();
     repaint();
-    
   }
+  
   
   private class TimerPause implements ActionListener{
     public void actionPerformed(ActionEvent e){

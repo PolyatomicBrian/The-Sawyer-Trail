@@ -1,0 +1,3 @@
+Interval between landmarks: 4620px
+
+Assuming 5 landmarks + UPenn, total width: 27720px

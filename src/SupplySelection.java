@@ -8,7 +8,7 @@ public class SupplySelection extends JPanel{
   private GamePanel gp;
   private SupplySelection ss;
   private String playersName;
-  private int numSupplies = 25;
+  private int numSupplies = 15;
   private int numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers;
   private JLabel lblText = new JLabel("Pick the supplies you want to gather. Items remaining: " + numSupplies);
   private JLabel lblError = new JLabel("");
@@ -198,7 +198,7 @@ public class SupplySelection extends JPanel{
     }
     
     public void actionPerformed(ActionEvent e){
-      if (numSupplies < 25){
+      if (numSupplies < 15){
         if (btnNum == 1 && numFuel > 0){
           numFuel -= 4;
           numSupplies++;

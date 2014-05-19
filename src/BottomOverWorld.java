@@ -68,7 +68,7 @@ public class BottomOverWorld extends JPanel{
   private JPanel healthPanel = new JPanel();
   private JPanel statsPanel = new JPanel();
   
-  public BottomOverWorld(OverWorld tempow, GamePanel tempgp /*TopOverWorld temptow*//*, String tempplayersname, int tempnumFuel, int tempnumFood, int tempnumFlashDrives, int tempnumMoney, int tempnumTires, int tempnumMufflers, int tempMrSawyerHealth, int tempVikrantHealth, int tempVarunHealth, int  tempBrianHealth, int tempPlayerHealth*/){
+  public BottomOverWorld(OverWorld tempow, GamePanel tempgp){
     
     ow = tempow;
     gp = tempgp;
@@ -84,14 +84,6 @@ public class BottomOverWorld extends JPanel{
     numMoney = GamePanel.numMoney;
     numTires = GamePanel.numTires;
     numMufflers = GamePanel.numMufflers;
-    
-    /*
-     playerHealth = GamePanel.healthPlayer;
-     mrSawyerHealth = GamePanel.healthMrSawyer;
-     vikrantHealth = GamePanel.healthVikrant;
-     varunHealth = GamePanel.healthVarun;
-     brianHealth = GamePanel.healthBrian;
-     */
     
     bow = this;
     
@@ -118,7 +110,6 @@ public class BottomOverWorld extends JPanel{
     
     JPanel btnPanel = new JPanel();
     btnPanel.setLayout(new GridLayout(3,1));
-    // btnPanel.setPreferredSize(new Dimension(150,getHeight()));
     btnPanel.add(btnHealth);
     btnPanel.add(btnStats);
     btnPanel.add(btnStop);
@@ -165,7 +156,7 @@ public class BottomOverWorld extends JPanel{
   }
   
   
-  //Gets distance traveled.
+  //Collects the distance.
   private class TimerListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
       if (GamePanel.isMoving){
@@ -312,7 +303,6 @@ public class BottomOverWorld extends JPanel{
     if (GamePanel.isMoving){
       GamePanel.isMoving = false;
       GamePanel.totalmiles += GamePanel.miles;
-      //GamePanel.landMarksEncountered++;
       GamePanel.overWorldVisible = false;
       GamePanel.stoppedVisible = true;
       

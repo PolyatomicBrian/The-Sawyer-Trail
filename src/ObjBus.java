@@ -1,14 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class ObjBus extends JPanel{
+public class ObjBus extends JLabel{
   
   private ImageIcon frameOne;
   private ImageIcon frameTwo;
+  private boolean isOne = true;
+  private boolean isTwo = false;
+  
+  private javax.swing.Timer timer;
   
   public ObjBus(){
-    frameOne = new ImageIcon("imgBus.png");
-    //set frameTwo image
+    frameOne = new ImageIcon("imgBus1.png");
+    frameTwo = new ImageIcon("imgBus2.png");
+    
+    timer = new javax.swing.Timer(600, new TimerListener());
+    timer.start();
     
   }
   
@@ -16,7 +24,10 @@ public class ObjBus extends JPanel{
     super.paintComponent(g);
     int x = (getWidth() - frameOne.getIconWidth())/2;
     int y = (getHeight() - frameOne.getIconHeight())/2;
-    frameOne.paintIcon(this,g,x,y);
+    if (isOne)
+      frameOne.paintIcon(this,g,x,y);
+    else if (isTwo)
+      frameTwo.paintIcon(this,g,x,y);
   }
   
   public int busWidth(){
@@ -26,4 +37,17 @@ public class ObjBus extends JPanel{
   public int busHeight(){
     return frameOne.getIconHeight();
   }
+  
+  private class TimerListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if (isOne){
+        isOne = false;
+        isTwo = true;
+      }else if (isTwo){
+        isOne = true;
+        isTwo = false;
+      }
+    }
+  }
+  
 }

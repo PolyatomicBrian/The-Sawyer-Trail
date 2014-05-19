@@ -4,8 +4,6 @@ import java.awt.event.*;
 
 public class LandMark extends JPanel{
   
- // private LandMarkTop lmt;
-//  private LandMarkBottom lmb;
   private GamePanel gp;
   
   private LandMark lm;
@@ -25,7 +23,7 @@ public class LandMark extends JPanel{
     add(lmt, BorderLayout.CENTER);
     add(lmb, BorderLayout.SOUTH);
     
-    timerLandMarkVisible = new javax.swing.Timer(75, new LandMarkTimer()); // So sad...
+    timerLandMarkVisible = new javax.swing.Timer(75, new LandMarkTimer());
     
     timerLandMarkVisible.start();
     
@@ -34,7 +32,6 @@ public class LandMark extends JPanel{
   
   
   
-  //This is bad programming. Yuck.
   private class LandMarkTimer implements ActionListener{
     public void actionPerformed(ActionEvent e){
       if (GamePanel.overWorldVisible == false && GamePanel.landMarkVisible){

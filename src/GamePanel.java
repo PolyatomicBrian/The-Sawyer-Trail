@@ -36,6 +36,7 @@ public class GamePanel extends JPanel{
   public static boolean overWorldVisible = false;
   public static boolean landMarkVisible = false;
   public static boolean stoppedVisible = false;
+  private static int msgNum = 0;
   
   
   public GamePanel(){

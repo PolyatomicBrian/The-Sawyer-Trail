@@ -46,7 +46,7 @@ public class IntroScene extends JPanel{
         lblIntro.setText("It's finally time for UPenn's Hack-A-Thon!");
       }else if (count == 2){
         lblIntro.setBounds(100,25,500,20);
-        lblIntro.setText("You are to journey with the following people to Penn State:");
+        lblIntro.setText("You are to journey with the following people to the university:");
       }else if (count == 3){
         lblIntro.setBounds(225,25,500,20);
         lblIntro.setText("Varun");

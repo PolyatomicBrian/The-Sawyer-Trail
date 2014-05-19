@@ -113,7 +113,6 @@ public class LandMarkTop extends JPanel{
   
   public void createParty(){
     //Creates the Party Panel
-   // resetPanels();
     
     panelParty.setBackground(Color.BLUE);
     
@@ -156,7 +155,7 @@ public class LandMarkTop extends JPanel{
   
   public void createSupplies(){
     //Creates Supplies Panel 
-   // resetPanels();
+    
     panelSuppliesAll.setBackground(Color.GREEN);
     
     panelSuppliesAll.setLayout(null);
@@ -192,12 +191,12 @@ public class LandMarkTop extends JPanel{
   
   public void createStore(){
     //Creates Store Panel
-  //  resetPanels();
+    
     panelStoreAll.setBackground(Color.YELLOW);
     
     panelStoreAll.setLayout(null);
     
-    panelStore.setLayout(new GridLayout(6,4,10,5));
+    panelStore.setLayout(new GridLayout(6,4,20,5));
     
     panelStore.add(lblStoreBlank);
     panelStore.add(lblStoreBuy);

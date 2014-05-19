@@ -3,8 +3,14 @@ import java.awt.*;
 
 public class Runner{
   
-  //CURRENT OBJECTIVE:
-  //Get RndEvent to affect inventory properly.
+  /*REMAINING OBJECTIVES:
+   * Add ending cutscene.
+   * Add art.
+   * Add music.
+   * Debug more and more and more.
+   * Make code look nicer.
+   */
+  
   
   public static void main(String[] args){
     
@@ -19,32 +25,10 @@ public class Runner{
     GamePanel gp = new GamePanel();
     
     
-     MainMenu mm = new MainMenu(gp);
-     
-     gp.add(mm);
-     pane.add(gp, BorderLayout.CENTER);
-     
+    MainMenu mm = new MainMenu(gp);
     
-    
-    
-    /*
-    //****Below is for testing purposes.
-    SupplySelection ss = new SupplySelection(gp,"carrot");
-    
-    gp.add(ss);
+    gp.add(mm);
     pane.add(gp, BorderLayout.CENTER);
-    */
-    
-    
-    
-    /*
-     OverWorld ow = new OverWorld(gp);
-     GamePanel.overWorldVisible = true;
-     gp.add(ow);
-     pane.add(gp, BorderLayout.CENTER);
-     */
-    
-     
     
     f.setVisible(true);
     

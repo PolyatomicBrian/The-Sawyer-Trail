@@ -43,31 +43,6 @@ public class StoppedBottom extends JPanel{
     
   }
   
-  /*
-  public void handleBooleans(){
-    if (GamePanel.isParty)
-      createParty();
-    else if (GamePanel.isSupplies)
-      createSupplies();
-    else if (GamePanel.isWait)
-      createStore();
-  }
-  
-  public void createParty(){
-    //Creates the Party Panel
-    
-  }
-  
-  public void createSupplies(){
-   //Creates Supplies Panel 
-  }
-  
-  public void createStore(){
-   //Creates Store Panel
-    
-  }
-  */
-  
   private class HandleBtnParty implements ActionListener{
     public void actionPerformed(ActionEvent e){
       GamePanel.isParty = true;

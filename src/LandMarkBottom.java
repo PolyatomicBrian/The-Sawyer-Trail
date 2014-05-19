@@ -43,31 +43,6 @@ public class LandMarkBottom extends JPanel{
     
   }
   
-  /*
-  public void handleBooleans(){
-    if (GamePanel.isParty)
-      createParty();
-    else if (GamePanel.isSupplies)
-      createSupplies();
-    else if (GamePanel.isStore)
-      createStore();
-  }
-  
-  public void createParty(){
-    //Creates the Party Panel
-    
-  }
-  
-  public void createSupplies(){
-   //Creates Supplies Panel 
-  }
-  
-  public void createStore(){
-   //Creates Store Panel
-    
-  }
-  */
-  
   private class HandleBtnParty implements ActionListener{
     public void actionPerformed(ActionEvent e){
       GamePanel.isParty = true;
@@ -97,12 +72,8 @@ public class LandMarkBottom extends JPanel{
   
   private class HandleBtnLeave implements ActionListener{
     public void actionPerformed(ActionEvent e){
-      //gp.removeAll();
-     // gp.add(ow);
-      //OverWorld owE = new OverWorld(gp);
-      //gp.add(owE);
+
       BottomOverWorld.numNextLandMark = 200;
-      //ow.setVisible(true);
       gp.remove(lm);
       GamePanel.isMoving = true;
       GamePanel.overWorldVisible = true;
