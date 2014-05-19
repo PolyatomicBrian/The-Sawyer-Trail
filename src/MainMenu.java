@@ -8,6 +8,7 @@ public class MainMenu extends JPanel{
   private JLabel lblTitle = new JLabel("<html><font color='white'>The Sawyer Trail</font></html>");
   private GamePanel gp;
   private MainMenu mm;
+  
   //Create font object
   
   public MainMenu(GamePanel tempgp){
@@ -16,6 +17,9 @@ public class MainMenu extends JPanel{
     setBackground(Color.BLACK);
     setPreferredSize(new Dimension(500,500));
     setLayout(null);
+    
+    btnStart.setFont(GamePanel.fontType32);
+    btnQuit.setFont(GamePanel.fontType32);
     
     btnStart.addActionListener(new StartGame());
     btnQuit.addActionListener(new QuitGame());
@@ -30,8 +34,8 @@ public class MainMenu extends JPanel{
     btnQuit.setBackground(Color.WHITE);
     add(btnQuit);
     
-    
-    lblTitle.setBounds(190,25,500,25);
+    lblTitle.setFont(GamePanel.fontType32);
+    lblTitle.setBounds(140,25,500,60);
     //Change font
     //Change font size
     add(lblTitle);

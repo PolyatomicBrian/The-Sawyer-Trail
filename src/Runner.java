@@ -4,7 +4,8 @@ import java.awt.*;
 public class Runner{
   
   /*REMAINING OBJECTIVES:
-   * Add ending cutscene.
+   * Add fonts.
+   * Add instructions.
    * Add art.
    * Add music.
    * Debug more and more and more.
@@ -22,6 +23,7 @@ public class Runner{
     Container pane = f.getContentPane();
     f.setLayout(new BorderLayout());
     
+    
     GamePanel gp = new GamePanel();
     
     
@@ -29,6 +31,12 @@ public class Runner{
     
     gp.add(mm);
     pane.add(gp, BorderLayout.CENTER);
+    
+    /*
+    EndingScene es = new EndingScene(gp);
+    gp.add(es);
+    pane.add(gp);
+    */
     
     f.setVisible(true);
     

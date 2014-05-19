@@ -26,6 +26,11 @@ public class GamePanel extends JPanel{
   public static boolean isStore = false;
   public static boolean isWait = false;
   
+  //Font
+  public static Font fontType32 = new Font("Lucida Sans Typewriter", Font.PLAIN, 32);
+  public static Font fontType16 = new Font("Lucida Sans Typewriter", Font.PLAIN, 16);
+  
+  
   //Misc
   public static String playersname = "Mr. Null";
   public static int miles;

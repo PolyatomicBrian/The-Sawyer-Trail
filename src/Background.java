@@ -17,6 +17,7 @@ public class Background extends JPanel{
   private RndEvent re;
   private LandMark lm;
   public static boolean canLoseFuel = false;
+  private boolean isEndScene = false;
   
   public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow, LandMark templm){
     
@@ -52,17 +53,24 @@ public class Background extends JPanel{
     public void actionPerformed(ActionEvent e){
       if (GamePanel.isMoving && GamePanel.numFuel > 0){
         i+=6; //Speed of background moving.
-        if (GamePanel.miles % 25 == 0 && GamePanel.miles != 0){
-          loseFuel();
+        
+        if (!isEndScene){
+          if (GamePanel.landMarksEncountered == 6){
+            gotoEndingScene();
+            isEndScene = true;
+          }
+          if (GamePanel.miles % 25 == 0 && GamePanel.miles != 0){
+            loseFuel();
+          }
+          if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0){
+            gotoLandMark();
+          }else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
+            doRandomEvent();
+            loseHealth();
+          }
+        }else if (GamePanel.numFuel <= 0 && GamePanel.stoppedVisible == false){
+          outofFuelGoToStop();
         }
-        if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0){
-          gotoLandMark();
-        }else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
-          doRandomEvent();
-          loseHealth();
-        }
-      }else if (GamePanel.numFuel <= 0 && GamePanel.stoppedVisible == false){
-        outofFuelGoToStop();
       }
       
       revalidate();
@@ -108,6 +116,16 @@ public class Background extends JPanel{
     }
     
     
+  }
+  
+  public void gotoEndingScene(){
+    timer.stop();
+    
+    gp.removeAll();
+    EndingScene go = new EndingScene(gp);
+    gp.add(go);
+    gp.revalidate();
+    gp.repaint(); 
   }
   
   public void gotoLandMark(){

@@ -252,6 +252,8 @@ public class LandMarkTop extends JPanel{
     
     panelStoreAll.setBounds(0,0,500,425);
     
+    panelStoreAll.setVisible(false);
+    
     add(panelStoreAll);
     
     revalidate();

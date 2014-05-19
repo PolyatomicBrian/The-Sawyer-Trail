@@ -326,7 +326,7 @@ public class StoppedTop extends JPanel{
         GamePanel.numFood--;
       }
       
-      
+      updateWaitStats();
       updateTextParty();
     }
   }

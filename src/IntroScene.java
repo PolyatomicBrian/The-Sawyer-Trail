@@ -17,7 +17,7 @@ public class IntroScene extends JPanel{
   
   public IntroScene(GamePanel tempgp){
     lblIntro.setForeground(Color.WHITE);
-    
+    lblIntro.setFont(GamePanel.fontType16);
     gp = tempgp; //Reference to GamePanel.
     
     setBackground(Color.GRAY);
@@ -45,7 +45,7 @@ public class IntroScene extends JPanel{
         lblIntro.setBounds(125,25,500,20);
         lblIntro.setText("It's finally time for UPenn's Hack-A-Thon!");
       }else if (count == 2){
-        lblIntro.setBounds(100,25,500,20);
+        lblIntro.setBounds(50,25,500,20);
         lblIntro.setText("You are to journey with the following people to the university:");
       }else if (count == 3){
         lblIntro.setBounds(225,25,500,20);
