@@ -24,7 +24,7 @@ public class IntroScene extends JPanel{
     setPreferredSize(new Dimension(500,500));
     setLayout(null);
     
-    lblIntro.setBounds(150,25,500,20);
+    lblIntro.setBounds(110,25,500,80);
     add(lblIntro);
     
     btnSkip.setBounds(350,400,80,30);
@@ -42,33 +42,33 @@ public class IntroScene extends JPanel{
     public void actionPerformed(ActionEvent e){
       count++;
       if (count == 1){
-        lblIntro.setBounds(125,25,500,20);
-        lblIntro.setText("It's finally time for UPenn's Hack-A-Thon!");
+        lblIntro.setBounds(90,25,500,80);
+        lblIntro.setText("<html>It's finally time for UPenn's<br><center>Hack-A-Thon!</center></html>");
       }else if (count == 2){
-        lblIntro.setBounds(50,25,500,20);
-        lblIntro.setText("You are to journey with the following people to the university:");
+        lblIntro.setBounds(60,25,500,80);
+        lblIntro.setText("<html>You are to journey with the following<br><center>people to the university:</center></html>");
       }else if (count == 3){
-        lblIntro.setBounds(225,25,500,20);
+        lblIntro.setBounds(225,25,500,80);
         lblIntro.setText("Varun");
         //Show image of Varun
       }else if (count == 4){
         lblIntro.setText("Brian");
         //Show image of Brian
       }else if (count == 5){
-        lblIntro.setBounds(205,25,500,20);
+        lblIntro.setBounds(205,25,500,80);
         lblIntro.setText("Mr. Sawyer");
         //Show image of Mr. Sawyer
       }else if (count == 6){
-        lblIntro.setBounds(175,25,500,20);
+        lblIntro.setBounds(145,25,500,80);
         lblIntro.setText("And of course, Vikrant.");
         //Show image of Vikrant
       }else if (count == 7){
-        lblIntro.setBounds(175,25,500,20);
+        lblIntro.setBounds(155,25,500,80);
         lblIntro.setText("What is your name?");
         enterName();
       }else if (count == 8){
-        lblIntro.setBounds(100,25,500,20);
-        lblIntro.setText("Well, " + playersName + ", why don't you go get some supplies?");
+        lblIntro.setBounds(105,25,500,80);
+        lblIntro.setText("<html>Well, " + playersName + ", why don't you<br><center>go get some supplies?</center></html>");
       }else if (count >= 10){
         gotoSupplySelection();
       }

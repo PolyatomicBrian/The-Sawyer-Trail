@@ -12,7 +12,7 @@ public class GamePanel extends JPanel{
   public static int numMoney;
   public static int numTires;
   public static int numMufflers;
-    
+  
   //Health
   public static int healthPlayer = 100;
   public static int healthMrSawyer = 100;
@@ -52,4 +52,21 @@ public class GamePanel extends JPanel{
     
     
   }
+  
+  public static void isGameOver(){
+    if (GamePanel.healthMrSawyer <= 0){
+      if (GamePanel.healthVikrant <= 0){
+        if (GamePanel.healthVarun <= 0){
+          if (GamePanel.healthBrian <= 0){
+            gp.removeAll();
+            GameOver go = new GameOver(gp);
+            gp.add(go);
+            gp.revalidate();
+            gp.repaint();
+          }
+        }
+      }
+    }
+  }
+  
 }

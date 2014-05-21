@@ -4,6 +4,7 @@ import java.awt.*;
 public class Runner{
   
   /*REMAINING OBJECTIVES:
+   * Get GameOver "play again" working properly. (Timer, etc)
    * Add fonts.
    * Add instructions.
    * Add art.

@@ -35,7 +35,7 @@ public class MainMenu extends JPanel{
     add(btnQuit);
     
     lblTitle.setFont(GamePanel.fontType32);
-    lblTitle.setBounds(140,25,500,60);
+    lblTitle.setBounds(100,25,500,60);
     //Change font
     //Change font size
     add(lblTitle);

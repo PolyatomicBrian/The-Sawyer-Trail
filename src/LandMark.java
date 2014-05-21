@@ -43,6 +43,7 @@ public class LandMark extends JPanel{
       }else{
         setVisible(false);
       }
+      GamePanel.isGameOver();
     }
     
   }

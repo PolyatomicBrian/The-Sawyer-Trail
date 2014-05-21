@@ -42,6 +42,7 @@ public class Stopped extends JPanel{
       }else{
         setVisible(false);
       }
+      GamePanel.isGameOver();
     }
     
   }
