@@ -34,7 +34,7 @@ public class StoppedTop extends JPanel{
   private JLabel lblSupplyMoney = new JLabel("Money: " + GamePanel.numMoney);
   private JLabel lblSupplyTires = new JLabel("Tires: " + GamePanel.numTires);
   private JLabel lblSupplyMufflers = new JLabel("Mufflers: " + GamePanel.numMufflers);
-  private JButton btnCode = new JButton("Code");
+  private MyJButton btnCode = new MyJButton("Code");
   
   //Wait
   private JLabel waitname1 = new JLabel("<html><font color = 'white'>"+GamePanel.playersname+"</font></html>");
@@ -59,8 +59,8 @@ public class StoppedTop extends JPanel{
   private JPanel panelWait = new JPanel();
   private JPanel panelWaitNames = new JPanel();
   
-  private JButton btnEat = new JButton("Eat Food");
-  private JButton btnWait = new JButton("Wait");
+  private MyJButton btnEat = new MyJButton("Eat Food");
+  private MyJButton btnWait = new MyJButton("Wait");
   
   private int countDispDelay;
   private boolean canWait = true;

@@ -6,9 +6,9 @@ public class IntroScene extends JPanel{
   
   private javax.swing.Timer timer;
   private JLabel lblIntro = new JLabel("Welcome to The Sawyer Trail!");
-  private JButton btnSkip = new JButton("Done");
+  private MyJButton btnSkip = new MyJButton("Done");
   private TextField txtName = new TextField();
-  private JButton btnNameEntered = new JButton("I have entered my name.");
+  private MyJButton btnNameEntered = new MyJButton("I have entered my name.");
   private String playersName;
   private GamePanel gp;
   private IntroScene is;
@@ -19,7 +19,10 @@ public class IntroScene extends JPanel{
   
   private JLabel lblImage = new JLabel();
   private ImageIcon imgUPenn = new ImageIcon("upenn.png");
-  
+  private ImageIcon imgSawyer = new ImageIcon("imgSawyer.png");
+  private ImageIcon imgVikrant = new ImageIcon("imgVikrant.png");
+  private ImageIcon imgVarun = new ImageIcon("imgVarun.png");
+  private ImageIcon imgBrian = new ImageIcon("imgBrian.png");
   
   public IntroScene(GamePanel tempgp){
     lblIntro.setForeground(Color.WHITE);
@@ -87,7 +90,7 @@ public class IntroScene extends JPanel{
       if (count == 1){
         lblIntro.setBounds(90,25,500,80);
         lblIntro.setText("<html>It's finally time for UPenn's<br><center>Hack-A-Thon!</center></html>");
-       // lblImage = new JLabel(imgUPenn);
+        // lblImage = new JLabel(imgUPenn);
         lblImage.setIcon(imgUPenn);
       }else if (count == 2){
         lblIntro.setBounds(60,25,500,80);
@@ -95,21 +98,27 @@ public class IntroScene extends JPanel{
       }else if (count == 3){
         lblIntro.setBounds(225,25,500,80);
         lblIntro.setText("Varun");
+        lblImage.setIcon(imgVarun);
         //Show image of Varun
       }else if (count == 4){
         lblIntro.setText("Brian");
+        lblImage.setIcon(imgBrian);
         //Show image of Brian
       }else if (count == 5){
         lblIntro.setBounds(205,25,500,80);
         lblIntro.setText("Mr. Sawyer");
+        lblImage.setIcon(imgSawyer);
         //Show image of Mr. Sawyer
       }else if (count == 6){
         lblIntro.setBounds(145,25,500,80);
         lblIntro.setText("And of course, Vikrant.");
+        lblImage.setIcon(imgVikrant);
         //Show image of Vikrant
       }else if (count == 7){
         lblIntro.setBounds(155,25,500,80);
         lblIntro.setText("What is your name?");
+        lblImage.setBounds(999,999,0,0);
+        lblImage.setIcon(null);
         enterName();
       }else if (count >= 8){
         lblIntro.setBounds(105,25,500,80);

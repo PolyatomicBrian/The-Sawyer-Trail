@@ -12,7 +12,7 @@ public class SupplySelection extends JPanel{
   private int numFuel, numFood, numFlashDrives, numMoney, numTires, numMufflers;
   private JLabel lblText = new JLabel("Pick the supplies you want to gather. Items remaining: " + numSupplies);
   private JLabel lblError = new JLabel("");
-  private JButton btnDone = new JButton("Done");
+  private MyJButton btnDone = new MyJButton("Done");
   private ArrayList<JButton> listSupplyButtons = new ArrayList<JButton>();
   private ArrayList<JLabel> listSupplyLabelsNames = new ArrayList<JLabel>();
   private ArrayList<JLabel> listSupplyLabelsAmounts = new ArrayList<JLabel>();

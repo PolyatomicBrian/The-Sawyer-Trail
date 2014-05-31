@@ -5,9 +5,9 @@ import java.util.*;
 
 public class BottomOverWorld extends JPanel{
   
-  private JButton btnHealth = new JButton("Health");
-  private JButton btnStats = new JButton("Stats");
-  private JButton btnStop = new JButton("Stop");
+  private MyJButton btnHealth = new MyJButton("Health");
+  private MyJButton btnStats = new MyJButton("Stats");
+  private MyJButton btnStop = new MyJButton("Stop");
   private GamePanel gp;
   private String playersname = GamePanel.playersname;
   private javax.swing.Timer timer;

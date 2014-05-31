@@ -3,8 +3,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class MainMenu extends JPanel{
-  private JButton btnStart = new JButton("START");
-  private JButton btnQuit = new JButton("QUIT");
+  private MyJButton btnStart = new MyJButton("START");
+  private MyJButton btnQuit = new MyJButton("QUIT");
   private JLabel lblTitle = new JLabel("<html><font color='white'>The Sawyer Trail</font></html>");
   private GamePanel gp;
   private MainMenu mm;

@@ -6,7 +6,7 @@ public class EndingScene extends JPanel{
   
   private javax.swing.Timer timer;
   private JLabel lblOutro = new JLabel("You have made it to the Hack-A-Thon!");
-  private JButton btnSkip = new JButton("Skip");
+  private MyJButton btnSkip = new MyJButton("Skip");
   private GamePanel gp;
   private EndingScene es;
   private int count = 0;

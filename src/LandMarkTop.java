@@ -32,7 +32,7 @@ public class LandMarkTop extends JPanel{
   private JLabel lblSupplyMoney = new JLabel("Money: " + GamePanel.numMoney);
   private JLabel lblSupplyTires = new JLabel("Tires: " + GamePanel.numTires);
   private JLabel lblSupplyMufflers = new JLabel("Mufflers: " + GamePanel.numMufflers);
-  private JButton btnCode = new JButton("Code");
+  private MyJButton btnCode = new MyJButton("Code");
   
   //Store
   private JLabel lblStoreBlank = new JLabel("");
@@ -41,28 +41,28 @@ public class LandMarkTop extends JPanel{
   private JLabel lblStoreYouHave = new JLabel("You Have");
   
   private JLabel lblStoreFuel = new JLabel("Fuel: ");
-  private JButton btnBuyFuel = new JButton("$40");
-  private JButton btnSellFuel = new JButton("$20");
+  private MyJButton btnBuyFuel = new MyJButton("$40");
+  private MyJButton btnSellFuel = new MyJButton("$20");
   private JLabel lblStoreFuelYouHave = new JLabel(""+GamePanel.numFuel);
   
   private JLabel lblStoreFood = new JLabel("Food:");
-  private JButton btnBuyFood = new JButton("$20");
-  private JButton btnSellFood = new JButton("$10");
+  private MyJButton btnBuyFood = new MyJButton("$20");
+  private MyJButton btnSellFood = new MyJButton("$10");
   private JLabel lblStoreFoodYouHave = new JLabel(""+GamePanel.numFood);
   
   private JLabel lblStoreFlashDrives = new JLabel("Flash Drives:");
-  private JButton btnBuyFlashDrives = new JButton("$50");
-  private JButton btnSellFlashDrives = new JButton("$25");
+  private MyJButton btnBuyFlashDrives = new MyJButton("$50");
+  private MyJButton btnSellFlashDrives = new MyJButton("$25");
   private JLabel lblStoreFlashDrivesYouHave = new JLabel(""+GamePanel.numFlashDrives);
   
   private JLabel lblStoreTires = new JLabel("Tires: ");
-  private JButton btnBuyTires = new JButton("$30");
-  private JButton btnSellTires = new JButton("$15");
+  private MyJButton btnBuyTires = new MyJButton("$30");
+  private MyJButton btnSellTires = new MyJButton("$15");
   private JLabel lblStoreTiresYouHave = new JLabel(""+GamePanel.numTires);
   
   private JLabel lblStoreMufflers = new JLabel("Mufflers: ");
-  private JButton btnBuyMufflers = new JButton("$30");
-  private JButton btnSellMufflers = new JButton("$15");
+  private MyJButton btnBuyMufflers = new MyJButton("$30");
+  private MyJButton btnSellMufflers = new MyJButton("$15");
   private JLabel lblStoreMufflersYouHave = new JLabel(""+GamePanel.numMufflers);
   
   private JLabel lblMoneyYouHave = new JLabel("You have $" + GamePanel.numMoney);
@@ -74,7 +74,7 @@ public class LandMarkTop extends JPanel{
   private JPanel panelStoreAll = new JPanel();
   private JPanel panelStore = new JPanel();
   
-  private JButton btnEat = new JButton("Eat");
+  private MyJButton btnEat = new MyJButton("Eat");
   
   public LandMarkTop(GamePanel tempgp){
     gp = tempgp;

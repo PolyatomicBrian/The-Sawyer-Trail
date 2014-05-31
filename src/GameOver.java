@@ -20,30 +20,35 @@ public class GameOver extends JPanel{
     lblGameOver.setVerticalAlignment(SwingConstants.CENTER);
     add(lblGameOver);
     
-    JButton btnRestart = new JButton("Quit");
-    btnRestart.addActionListener(new HandleBtnRestart());
-    add(btnRestart,BorderLayout.SOUTH);
+    addBtnRestart();
     
     gp = tempgp;
   }
   
   public void restartGame(){
     /*
-    resetStats();
-    
-    gp.removeAll();
-    
-    MainMenu mm = new MainMenu(gp);
-    
-    gp.add(mm);
-    
-    revalidate();
-    repaint();
-    
-    gp.revalidate();
-    gp.repaint(); 
-    */
+     resetStats();
+     
+     gp.removeAll();
+     
+     MainMenu mm = new MainMenu(gp);
+     
+     gp.add(mm);
+     
+     revalidate();
+     repaint();
+     
+     gp.revalidate();
+     gp.repaint(); 
+     */
     System.exit(0);
+  }
+  
+  private void addBtnRestart(){
+    MyJButton btnRestart = new MyJButton("Quit");
+    btnRestart.addActionListener(new HandleBtnRestart());
+    btnRestart.setPreferredSize(new Dimension(500,100));
+    add(btnRestart,BorderLayout.SOUTH); 
   }
   
   private void resetStats(){
@@ -73,7 +78,7 @@ public class GameOver extends JPanel{
     GamePanel.overWorldVisible = false;
     GamePanel.landMarkVisible = false;
     GamePanel.stoppedVisible = false;
-
+    
   }
   
   private class HandleBtnRestart implements ActionListener{

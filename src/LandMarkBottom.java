@@ -4,10 +4,10 @@ import java.awt.event.*;
 
 public class LandMarkBottom extends JPanel{
   
-  private JButton btnParty = new JButton("Party");
-  private JButton btnSupplies = new JButton("Supplies");
-  private JButton btnStore = new JButton("Store");
-  private JButton btnLeave = new JButton("Leave");
+  private MyJButton btnParty = new MyJButton("Party");
+  private MyJButton btnSupplies = new MyJButton("Supplies");
+  private MyJButton btnStore = new MyJButton("Store");
+  private MyJButton btnLeave = new MyJButton("Leave");
   
   private GamePanel gp;
   private LandMarkTop lmt;
