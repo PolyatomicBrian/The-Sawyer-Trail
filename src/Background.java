@@ -70,7 +70,7 @@ public class Background extends JPanel{
         i+=6; //Speed of background moving.
         
         if (!isEndScene){
-          if (GamePanel.landMarksEncountered == 5 && GamePanel.miles % 200 == 0){
+          if (GamePanel.landMarksEncountered == 5 && BottomOverWorld.numNextLandMark == 0){
             gotoEndingScene();
             isEndScene = true;
             return;
