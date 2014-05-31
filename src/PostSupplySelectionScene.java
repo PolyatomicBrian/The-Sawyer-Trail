@@ -36,7 +36,8 @@ public class PostSupplySelectionScene extends JPanel{
      add(btnOK);
      */
     
-    lblTimeToGo.setBounds(140,25,500,20);
+    lblTimeToGo.setBounds(225,25,500,20);
+    lblTimeToGo.setFont(GamePanel.fontType16);
     add(lblTimeToGo);
     
     timer = new javax.swing.Timer(2100, new TimerListener());
