@@ -54,15 +54,17 @@ public class GamePanel extends JPanel{
   }
   
   public static void isGameOver(){
-    if (GamePanel.healthMrSawyer <= 0){
-      if (GamePanel.healthVikrant <= 0){
-        if (GamePanel.healthVarun <= 0){
-          if (GamePanel.healthBrian <= 0){
-            gp.removeAll();
-            GameOver go = new GameOver(gp);
-            gp.add(go);
-            gp.revalidate();
-            gp.repaint();
+    if (GamePanel.healthPlayer <= 0){
+      if (GamePanel.healthMrSawyer <= 0){
+        if (GamePanel.healthVikrant <= 0){
+          if (GamePanel.healthVarun <= 0){
+            if (GamePanel.healthBrian <= 0){
+              gp.removeAll();
+              GameOver go = new GameOver(gp, 0);
+              gp.add(go);
+              gp.revalidate();
+              gp.repaint();
+            }
           }
         }
       }

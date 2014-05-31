@@ -77,15 +77,15 @@ public class RndEvent extends JPanel{
     JLabel lbl5 = new JLabel(selectName() + " is deep in thought.");
     JLabel lbl6 = new JLabel(selectName() + " sneezed.");
     JLabel lbl7 = new JLabel(selectName() + " coughed.");
-    JLabel lbl8 = new JLabel(selectName() + " screamed the word \"Octopus\".");
+    JLabel lbl8 = new JLabel(selectName() + " screamed the word \""+randomWord()+"\".");
     JLabel lbl9 = new JLabel(selectName() + " looked at their cell phone.");
     JLabel lbl10 = new JLabel(selectName() + " scratched their arm.");
     JLabel lbl11 = new JLabel(selectName() + " began to pick at a scab on their leg.");
     JLabel lbl12 = new JLabel(selectName() + " tied their shoelaces.");
     JLabel lbl13 = new JLabel(selectName() + "'s stomach growled.");
-    JLabel lbl14 = new JLabel(selectName() + " mentioned something about Bob Saget.");
+    JLabel lbl14 = new JLabel(selectName() + " mentioned something about "+randomWord()+".");
     JLabel lbl15 = new JLabel(selectName() + " belched.");
-    JLabel lbl16 = new JLabel("Brian wished he brought peaches with him.");
+    JLabel lbl16 = new JLabel(selectName() + " rambled on about " + randomWord()+".");
     
     
     //Game affecting
@@ -143,6 +143,7 @@ public class RndEvent extends JPanel{
   }
   
   public JLabel selectRndMsg(){
+
     if (msgSelector){
       msgSelector = false;
       int numRnd = (int)(listRndMsg.size() * Math.random());
@@ -152,6 +153,7 @@ public class RndEvent extends JPanel{
       lblRndMsg.setVerticalAlignment(SwingConstants.CENTER);
       return lblRndMsg;
     }
+
     return lblRndMsg;
   }
   
@@ -248,7 +250,26 @@ public class RndEvent extends JPanel{
   
   
   
-  
+  public String randomWord(){
+    int numRnd = (int)(5 * Math.random());
+    String rndWord = "Cat";
+    
+    if (numRnd == 0)
+      rndWord = "Octopus";
+    else if (numRnd == 1)
+      rndWord = "Bob Saget";
+    else if (numRnd == 2)
+      rndWord = "Carrot";
+    else if (numRnd == 3)
+      rndWord = "Computer";
+    else if (numRnd == 4)
+      rndWord = "Java";
+    else if (numRnd == 5)
+      rndWord = "Snoo";
+    
+    return rndWord;
+    
+  }
   
   public String selectSupplyGood(){
     int numRnd = rndSupplyNum;

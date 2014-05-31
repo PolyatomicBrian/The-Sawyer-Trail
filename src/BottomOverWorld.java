@@ -39,7 +39,7 @@ public class BottomOverWorld extends JPanel{
   private boolean seeStats = false;
   private boolean seeStop = false;
   private JLabel lblPlayerName = new JLabel(playersname);
-  private JLabel lblMrSawyerName = new JLabel("Mr. Sawyer        ");
+  private JLabel lblMrSawyerName = new JLabel("Mr. Sawyer                   ");
   private JLabel lblVikrantName = new JLabel("Vikrant");
   private JLabel lblVarunName = new JLabel("Varun");
   private JLabel lblBrianName = new JLabel("Brian");
@@ -55,7 +55,7 @@ public class BottomOverWorld extends JPanel{
   private JLabel lblMoneyName = new JLabel("Money: ");
   private JLabel lblTiresName = new JLabel("Tires: ");
   private JLabel lblMufflersName = new JLabel("Mufflers: ");
-  private JLabel lblNextLandmarkName = new JLabel("Next Landmark:       ");
+  private JLabel lblNextLandmarkName = new JLabel("Next Landmark:         ");
   private JLabel lblFuelNum = new JLabel();
   private JLabel lblFoodNum = new JLabel();
   private JLabel lblFlashDrivesNum = new JLabel();

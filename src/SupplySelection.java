@@ -23,9 +23,10 @@ public class SupplySelection extends JPanel{
   public SupplySelection(GamePanel tempgp, String tempplayersName){
     
     setLayout(null);
+    setBackground(new Color(242,249,44));
     
     gp = tempgp; //Reference to GamePanel.
-    playersName = tempplayersName;
+    playersName = GamePanel.playersname;
     
     lblText.setBounds(35,60,500,20);
     add(lblText);

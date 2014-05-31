@@ -39,9 +39,9 @@ public class Background extends JPanel{
     timerPause = new javax.swing.Timer(2500, new TimerPause());
     
     /*
-    addKeyListener(new HandleKeys());
-    setFocusable(true);
-    */
+     addKeyListener(new HandleKeys());
+     setFocusable(true);
+     */
     
     objBus.setBounds(300,100, objBus.busWidth(), objBus.busHeight());
     add(objBus);
@@ -55,13 +55,13 @@ public class Background extends JPanel{
   }
   
   /*
-  private class HandleKeys extends KeyListener{
-    public void keyPressed(KeyEvent e){
-      if (e.VK_SPACE == getKeyCode()){
-        timer.setDelay(2);
-      }
-    }
-  }*/
+   private class HandleKeys extends KeyListener{
+   public void keyPressed(KeyEvent e){
+   if (e.getKeyCode() == ){
+   timer.setDelay(2);
+   }
+   }
+   }*/
   
   
   private class TimerListener implements ActionListener{
@@ -70,25 +70,27 @@ public class Background extends JPanel{
         i+=6; //Speed of background moving.
         
         if (!isEndScene){
-          if (GamePanel.landMarksEncountered == 6){
+          if (GamePanel.landMarksEncountered == 5 && GamePanel.miles % 200 == 0){
             gotoEndingScene();
             isEndScene = true;
+            return;
           }
-          if (GamePanel.miles % 25 == 0 && GamePanel.miles != 0){
+          if (GamePanel.miles % 25 == 0 && GamePanel.miles != 0 && !isEndScene){
             loseFuel();
           }
-          if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0){
+          if(GamePanel.miles % 200 == 0 && GamePanel.miles != 0 && !isEndScene){
             gotoLandMark();
           }
-          else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0){
+          else if(GamePanel.miles % 50 == 0 && GamePanel.miles != 0 && !isEndScene){
             doRandomEvent();
             loseHealth();
           }
         }
-        else if (GamePanel.numFuel <= 0 && GamePanel.stoppedVisible == false){
-          outofFuelGoToStop();
-        }
       }
+      else if (GamePanel.numFuel <= 0 && GamePanel.stoppedVisible == false){
+        outofFuelGoToStop();
+      }
+      
       
       GamePanel.isGameOver();
       
@@ -99,13 +101,13 @@ public class Background extends JPanel{
   
   public static void loseHealth(){
     /*
-    int healthPlayerLose = (int)(GamePanel.healthPlayer / 4 * Math.random() + 1);
-    int healthMrSawyerLose = (int)(GamePanel.healthMrSawyer / 4 * Math.random() + 1);
-    int healthVikrantLose = (int)(GamePanel.healthVikrant / 4 * Math.random() + 1);
-    int healthVarunLose = (int)(GamePanel.healthVarun / 4 * Math.random() + 1);
-    int healthBrianLose = (int)(GamePanel.healthBrian / 4 * Math.random() + 1);
-    */
-   
+     int healthPlayerLose = (int)(GamePanel.healthPlayer / 4 * Math.random() + 1);
+     int healthMrSawyerLose = (int)(GamePanel.healthMrSawyer / 4 * Math.random() + 1);
+     int healthVikrantLose = (int)(GamePanel.healthVikrant / 4 * Math.random() + 1);
+     int healthVarunLose = (int)(GamePanel.healthVarun / 4 * Math.random() + 1);
+     int healthBrianLose = (int)(GamePanel.healthBrian / 4 * Math.random() + 1);
+     */
+    
     int healthPlayerLose = (int)(21 * Math.random() + 5);
     int healthMrSawyerLose = (int)(21 * Math.random() + 5);
     int healthVikrantLose = (int)(21 * Math.random() + 5);

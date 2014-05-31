@@ -5,18 +5,22 @@ import java.awt.event.*;
 public class GameOver extends JPanel{
   
   private GamePanel gp;
+  private JLabel lblGameOver = new JLabel("");
   
-  public GameOver(GamePanel tempgp){
+  public GameOver(GamePanel tempgp, int tempisDead){
     setBackground(Color.BLACK);
     setLayout(new BorderLayout());
     
-    JLabel lblGameOver = new JLabel("<html><font color='white'>Game Over</font></html>");
+    if (tempisDead != 0)
+      lblGameOver.setText("<html><font color='white'>Game Over</font></html>");
+    else
+      lblGameOver.setText("<html><font color='white'>Everyone starved. Game Over.</font></html>");
     //lblGameOver.setBounds(200,150,300,20);
     lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
     lblGameOver.setVerticalAlignment(SwingConstants.CENTER);
     add(lblGameOver);
     
-    JButton btnRestart = new JButton("Play again?");
+    JButton btnRestart = new JButton("Quit");
     btnRestart.addActionListener(new HandleBtnRestart());
     add(btnRestart,BorderLayout.SOUTH);
     
@@ -24,6 +28,7 @@ public class GameOver extends JPanel{
   }
   
   public void restartGame(){
+    /*
     resetStats();
     
     gp.removeAll();
@@ -37,6 +42,8 @@ public class GameOver extends JPanel{
     
     gp.revalidate();
     gp.repaint(); 
+    */
+    System.exit(0);
   }
   
   private void resetStats(){

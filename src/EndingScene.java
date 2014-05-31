@@ -81,7 +81,7 @@ public class EndingScene extends JPanel{
     timer.stop();
     
     gp.remove(es);
-    GameOver go = new GameOver(gp);
+    GameOver go = new GameOver(gp, 1);
     gp.add(go);
     gp.revalidate();
     gp.repaint();

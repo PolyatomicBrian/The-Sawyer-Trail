@@ -22,6 +22,9 @@ public class LandMarkTop extends JPanel{
   
   private  JLabel lblFood = new JLabel("<html><font color = 'white'>Food remaining: "+GamePanel.numFood+"</font></html>");
   
+  private ImageIcon imgCampfire;
+  private JLabel lblCampfire;
+  
   //Supplies
   private JLabel lblSupplyFuel = new JLabel("Fuel: " + GamePanel.numFuel);
   private JLabel lblSupplyFood = new JLabel("Food: " + GamePanel.numFood);
@@ -42,12 +45,12 @@ public class LandMarkTop extends JPanel{
   private JButton btnSellFuel = new JButton("$20");
   private JLabel lblStoreFuelYouHave = new JLabel(""+GamePanel.numFuel);
   
-  private JLabel lblStoreFood = new JLabel("Food: ");
+  private JLabel lblStoreFood = new JLabel("Food:");
   private JButton btnBuyFood = new JButton("$20");
   private JButton btnSellFood = new JButton("$10");
   private JLabel lblStoreFoodYouHave = new JLabel(""+GamePanel.numFood);
   
-  private JLabel lblStoreFlashDrives = new JLabel("Flash Drives: ");
+  private JLabel lblStoreFlashDrives = new JLabel("Flash Drives:");
   private JButton btnBuyFlashDrives = new JButton("$50");
   private JButton btnSellFlashDrives = new JButton("$25");
   private JLabel lblStoreFlashDrivesYouHave = new JLabel(""+GamePanel.numFlashDrives);
@@ -122,6 +125,11 @@ public class LandMarkTop extends JPanel{
     btnEat.addActionListener(new HandleBtnEat());
     panelParty.add(btnEat);
     
+    imgCampfire = new ImageIcon("campfire.png");
+    lblCampfire = new JLabel(imgCampfire);
+    lblCampfire.setBounds(50,225,100,100);
+    panelParty.add(lblCampfire);
+    
     lblFood.setBounds(50,175,300,20);
     panelParty.add(lblFood);
     
@@ -176,7 +184,7 @@ public class LandMarkTop extends JPanel{
     panelSupplies.add(lblSupplyTires);
     panelSupplies.add(lblSupplyMufflers);
     
-    panelSupplies.setBackground(Color.WHITE);
+    panelSupplies.setBackground(new Color(255,102,0));
     panelSupplies.setBounds(300,75,200,250);
     
     panelSuppliesAll.add(panelSupplies);
@@ -196,7 +204,7 @@ public class LandMarkTop extends JPanel{
     
     panelStoreAll.setLayout(null);
     
-    panelStore.setLayout(new GridLayout(6,4,20,5));
+    panelStore.setLayout(new GridLayout(6,4,5,5));
     
     panelStore.add(lblStoreBlank);
     panelStore.add(lblStoreBuy);
@@ -349,6 +357,12 @@ public class LandMarkTop extends JPanel{
     gp.revalidate();
     gp.repaint();
   }
+  
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    imgCampfire.paintIcon(this,g,50,200);
+  }
+  
   
   private class HandleBtnBuyFuel implements ActionListener{
     public void actionPerformed(ActionEvent e){

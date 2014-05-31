@@ -4,9 +4,7 @@ import java.awt.*;
 public class Runner{
   
   /*REMAINING OBJECTIVES:
-   * Get GameOver "play again" working properly. (Timer, etc)
    * Add fonts.
-   * Add instructions.
    * Add art.
    * Add music.
    * Debug more and more and more.
@@ -21,6 +19,7 @@ public class Runner{
     f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     f.setSize(500,500);
     f.setResizable(false);
+    f.setLocationRelativeTo(null);
     Container pane = f.getContentPane();
     f.setLayout(new BorderLayout());
     

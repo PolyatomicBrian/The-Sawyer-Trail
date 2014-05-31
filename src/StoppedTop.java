@@ -24,6 +24,9 @@ public class StoppedTop extends JPanel{
   
   private  JLabel lblFood = new JLabel("<html><font color = 'white'>Food remaining: "+GamePanel.numFood+"</font></html>");
   
+  private ImageIcon imgCampfire;
+  private JLabel lblCampfire;
+  
   //Supplies
   private JLabel lblSupplyFuel = new JLabel("Fuel: " + GamePanel.numFuel);
   private JLabel lblSupplyFood = new JLabel("Food: " + GamePanel.numFood);
@@ -114,6 +117,11 @@ public class StoppedTop extends JPanel{
     lblFood.setBounds(50,175,300,20);
     panelParty.add(lblFood);
     
+    imgCampfire = new ImageIcon("campfire.png");
+    lblCampfire = new JLabel(imgCampfire);
+    lblCampfire.setBounds(50,225,100,100);
+    panelParty.add(lblCampfire);
+    
     panelNamesParty.setBackground(new Color(22,145,217));
     panelNamesParty.setLayout(new GridLayout(5,2));
     
@@ -142,7 +150,7 @@ public class StoppedTop extends JPanel{
   
   public void createSupplies(){
     //Creates Supplies Panel 
-
+    
     panelSuppliesAll.setBackground(Color.GREEN);
     
     panelSuppliesAll.setLayout(null);
@@ -162,7 +170,7 @@ public class StoppedTop extends JPanel{
     panelSupplies.add(lblSupplyTires);
     panelSupplies.add(lblSupplyMufflers);
     
-    panelSupplies.setBackground(Color.WHITE);
+    panelSupplies.setBackground(new Color(255,102,0));
     panelSupplies.setBounds(300,75,200,250);
     
     panelSuppliesAll.add(panelSupplies);
@@ -198,7 +206,8 @@ public class StoppedTop extends JPanel{
     panelWaitNames.add(waitname5);
     panelWaitNames.add(waithealth5);
     
-    panelWaitNames.setBackground(Color.GRAY);
+    panelWaitNames.setBackground(new Color(79,213,214));
+    //panelWaitNames.setBackground(Color.
     panelWaitNames.setBounds(300,75,200,250);
     
     panelWait.add(panelWaitNames);
@@ -352,15 +361,15 @@ public class StoppedTop extends JPanel{
   }
   
   public void updateWaitStats(){
-     waithealth1.setText("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
-     waithealth2.setText("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
-     waithealth3.setText("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
-     waithealth4.setText("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
-     waithealth5.setText("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>"); 
+    waithealth1.setText("<html><font color = 'green'>"+""+GamePanel.healthPlayer+"</font></html>");
+    waithealth2.setText("<html><font color = 'green'>"+""+GamePanel.healthMrSawyer+"</font></html>");
+    waithealth3.setText("<html><font color = 'green'>"+""+GamePanel.healthVikrant+"</font></html>");
+    waithealth4.setText("<html><font color = 'green'>"+""+GamePanel.healthVarun+"</font></html>");
+    waithealth5.setText("<html><font color = 'green'>"+""+GamePanel.healthBrian+"</font></html>"); 
   }
   
   private void doRandomEvent(){
-
+    
     canWait = false;
     timerDispMsg.start();
     re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
@@ -370,6 +379,11 @@ public class StoppedTop extends JPanel{
     gp.revalidate();
     gp.repaint();
     
+  }
+  
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    imgCampfire.paintIcon(this,g,50,200);
   }
   
   
