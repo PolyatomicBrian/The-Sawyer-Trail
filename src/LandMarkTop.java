@@ -5,7 +5,6 @@ import java.awt.event.*;
 public class LandMarkTop extends JPanel{
   
   private GamePanel gp;
-  private OverWorld ow;
   
   //Party
   private JLabel name1 = new JLabel("<html><font color = 'white'>"+GamePanel.playersname+"</font></html>");

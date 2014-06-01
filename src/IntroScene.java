@@ -108,6 +108,7 @@ public class IntroScene extends JPanel{
         lblIntro.setBounds(205,25,500,80);
         lblIntro.setText("Mr. Sawyer");
         lblImage.setIcon(imgSawyer);
+        lblImage.setBounds(175,150,200,200);
         //Show image of Mr. Sawyer
       }else if (count == 6){
         lblIntro.setBounds(145,25,500,80);
@@ -145,16 +146,6 @@ public class IntroScene extends JPanel{
       is.repaint();
     }
     
-    public void gotoSupplySelection(){
-      timer.stop();
-      
-      gp.remove(is);
-      SupplySelection ss = new SupplySelection(gp, playersName);
-      gp.add(ss);
-      gp.revalidate();
-      gp.repaint();
-      
-    }
   }
   
   private class HandleBtnSkip implements ActionListener{

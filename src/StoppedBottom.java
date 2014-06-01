@@ -31,6 +31,7 @@ public class StoppedBottom extends JPanel{
     
     btnSupplies.setBounds(100,0,100,75);
     btnSupplies.addActionListener(new HandleBtnSupplies());
+    btnSupplies.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 14));
     add(btnSupplies);
     
     btnStore.setBounds(200,0,100,75);

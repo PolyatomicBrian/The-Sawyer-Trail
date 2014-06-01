@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 public class PostSupplySelectionScene extends JPanel{
   
-  private MyJButton btnOK = new MyJButton("OK");
   private javax.swing.Timer timer;
   
   private GamePanel gp;
@@ -36,7 +35,7 @@ public class PostSupplySelectionScene extends JPanel{
      add(btnOK);
      */
     
-    lblTimeToGo.setBounds(225,25,500,20);
+    lblTimeToGo.setBounds(180,25,500,20);
     lblTimeToGo.setFont(GamePanel.fontType16);
     add(lblTimeToGo);
     
@@ -59,17 +58,6 @@ public class PostSupplySelectionScene extends JPanel{
       gp.revalidate();
       gp.repaint();
       timer.stop();
-    }
-  }
-  
-  private class HandleBtnOK implements ActionListener{
-    public void actionPerformed(ActionEvent e){
-      gp.remove(psss);
-      OverWorld ow = new OverWorld(gp);
-      GamePanel.overWorldVisible = true;
-      gp.add(ow);
-      gp.revalidate();
-      gp.repaint();
     }
   }
   

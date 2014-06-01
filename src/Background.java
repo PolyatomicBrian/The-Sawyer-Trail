@@ -11,11 +11,7 @@ public class Background extends JPanel{
   private int i = 0;
   private ObjBus objBus = new ObjBus();
   private GamePanel gp;
-  private OverWorld ow;
-  private TopOverWorld tow;
-  private BottomOverWorld bow;
   private RndEvent re;
-  private LandMark lm;
   public static boolean canLoseFuel = false;
   private boolean isEndScene = false;
   
@@ -25,11 +21,7 @@ public class Background extends JPanel{
     
     setLayout(null);
     
-    tow = temptow;
-    bow = tempbow;
-    ow = tempow;
     gp = tempgp;
-    lm = templm;
     
     imgBackground = new ImageIcon("bkgd.png");
     
@@ -195,7 +187,7 @@ public class Background extends JPanel{
     GamePanel.isMoving = false;
     timerPause.start();
     re = new RndEvent(GamePanel.playersname, GamePanel.healthPlayer, GamePanel.healthVarun, GamePanel.healthBrian, GamePanel.healthMrSawyer, GamePanel.healthVikrant);
-    re.setBounds(80,25,350,20);
+    re.setBounds(50,25,400,20);
     add(re);
     timer.stop();
     revalidate();

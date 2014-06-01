@@ -7,7 +7,6 @@ public class OverWorld extends JPanel{
   private OverWorld ow;
   private LandMark lm;
   private javax.swing.Timer timerCheckVisible;
-  private String playersname;
   private BottomOverWorld bow;
   
   

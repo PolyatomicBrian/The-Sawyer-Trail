@@ -32,9 +32,6 @@ public class BottomOverWorld extends JPanel{
   private int brianHealth = GamePanel.healthBrian;
   
   
-  private BottomOverWorld bow;
-  private OverWorld ow;
-  
   private boolean seeHealth = true;
   private boolean seeStats = false;
   private boolean seeStop = false;
@@ -70,9 +67,7 @@ public class BottomOverWorld extends JPanel{
   
   public BottomOverWorld(OverWorld tempow, GamePanel tempgp){
     
-    ow = tempow;
     gp = tempgp;
-    bow = this;
     playersname = GamePanel.playersname;
     
     timer = new javax.swing.Timer(200, new TimerListener());
@@ -84,8 +79,6 @@ public class BottomOverWorld extends JPanel{
     numMoney = GamePanel.numMoney;
     numTires = GamePanel.numTires;
     numMufflers = GamePanel.numMufflers;
-    
-    bow = this;
     
     lblPlayerName.setText(GamePanel.playersname);
     lblFuelNum.setText(""+numFuel);

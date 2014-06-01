@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 public class GameOver extends JPanel{
   
-  private GamePanel gp;
   private JLabel lblGameOver = new JLabel("");
   
   public GameOver(GamePanel tempgp, int tempisDead){
@@ -22,7 +21,6 @@ public class GameOver extends JPanel{
     
     addBtnRestart();
     
-    gp = tempgp;
   }
   
   public void restartGame(){
@@ -51,35 +49,6 @@ public class GameOver extends JPanel{
     add(btnRestart,BorderLayout.SOUTH); 
   }
   
-  private void resetStats(){
-    GamePanel.numFuel = 0;
-    GamePanel.numFood = 0;
-    GamePanel.numFlashDrives = 0;
-    GamePanel.numMoney = 0;
-    GamePanel.numTires = 0;
-    GamePanel.numMufflers = 0;
-    
-    GamePanel.healthPlayer = 100;
-    GamePanel.healthMrSawyer = 100;
-    GamePanel.healthVikrant = 100;
-    GamePanel.healthVarun = 100;
-    GamePanel.healthBrian = 100;
-    
-    GamePanel.isParty = true;
-    GamePanel.isSupplies = false;
-    GamePanel.isStore = false;
-    GamePanel.isWait = false;
-    
-    GamePanel.playersname = "Mr. Null";
-    GamePanel.miles = 0;
-    GamePanel.totalmiles = 0;
-    GamePanel.isMoving = false;
-    GamePanel.landMarksEncountered = 0;
-    GamePanel.overWorldVisible = false;
-    GamePanel.landMarkVisible = false;
-    GamePanel.stoppedVisible = false;
-    
-  }
   
   private class HandleBtnRestart implements ActionListener{
     public void actionPerformed(ActionEvent e){

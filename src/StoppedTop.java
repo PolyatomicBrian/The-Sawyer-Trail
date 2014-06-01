@@ -5,7 +5,6 @@ import java.awt.event.*;
 public class StoppedTop extends JPanel{
   
   private GamePanel gp;
-  private OverWorld ow;
   private javax.swing.Timer timerDispMsg;
   private javax.swing.Timer timerRemoveMsg;
   
@@ -59,7 +58,7 @@ public class StoppedTop extends JPanel{
   private JPanel panelWait = new JPanel();
   private JPanel panelWaitNames = new JPanel();
   
-  private MyJButton btnEat = new MyJButton("Eat Food");
+  private MyJButton btnEat = new MyJButton("Eat");
   private MyJButton btnWait = new MyJButton("Wait");
   
   private int countDispDelay;
@@ -68,6 +67,7 @@ public class StoppedTop extends JPanel{
   private String strPeriods = "";
   
   public StoppedTop(GamePanel tempgp){
+    
     gp = tempgp;
     
     setLayout(null);

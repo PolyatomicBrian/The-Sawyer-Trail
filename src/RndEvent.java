@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 public class RndEvent extends JPanel{
   
-  
-  private TopOverWorld tow;
-  private GamePanel gp;
   private JLabel lblRndMsg = new JLabel("<html><font color = 'white'>Temp</font></html>");
   private ArrayList<JLabel> listRndMsg = new ArrayList<JLabel>();
   private String playersname;
@@ -19,12 +16,11 @@ public class RndEvent extends JPanel{
   private int supplyNum;
   private String supplyName;
   private int indexMsg;
-  private boolean canRndName = true;
+
   private boolean canRndNum = true;
   private boolean canRndSelectMsg = true;
   private int rndSupplyNum = (int)(6 * Math.random());
-  private boolean canModifyBad = true;
-  private boolean isNothing = false;
+
   private boolean msgSelector = true;
   
   public RndEvent(String tempplayersname, int tempPlayerHealth, int tempVarunHealth, int tempBrianHealth, int tempMrSawyerHealth, int tempVikrantHealth){
@@ -32,6 +28,7 @@ public class RndEvent extends JPanel{
     playersname = tempplayersname;
     
     setLayout(new BorderLayout());
+    setBackground(Color.WHITE);
     
     playerHealth = tempPlayerHealth;
     varunHealth = tempVarunHealth;
@@ -45,6 +42,7 @@ public class RndEvent extends JPanel{
       if (GamePanel.healthVikrant > 0){
         
         lblRndMsg.setText("Vikrant has died of dysentery.");
+        //lblRndMsg.setText("Mr. Sawyer mentioned something about Bob Saget.");
         lblRndMsg.setHorizontalAlignment(SwingConstants.CENTER);
         lblRndMsg.setVerticalAlignment(SwingConstants.CENTER);
         
@@ -60,6 +58,7 @@ public class RndEvent extends JPanel{
     if (indexMsg >= 15)
       modifySuppliesGood();
     
+    lblRndMsg.setFont(new Font("Lucida Sans Typewriter", Font.PLAIN, 14));
     
     add(lblRndMsg);
     repaint();

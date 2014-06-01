@@ -47,12 +47,12 @@ public class MainMenu extends JPanel{
   private class StartGame implements ActionListener{
     public void actionPerformed(ActionEvent e){
       
-     gp.remove(mm);
-     IntroScene is = new IntroScene(gp);
-     gp.add(is);
-     
-     gp.revalidate(); //Mandatory whenever calling the remove method. Recalculates the layout.
-     gp.repaint();
+      gp.remove(mm);
+      IntroScene is = new IntroScene(gp);
+      gp.add(is);
+      
+      gp.revalidate(); //Mandatory whenever calling the remove method. Recalculates the layout.
+      gp.repaint();
     }
   }
   
