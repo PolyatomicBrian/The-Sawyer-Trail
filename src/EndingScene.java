@@ -24,6 +24,7 @@ public class EndingScene extends JPanel{
     //lblOutro.setBounds(150,25,500,20);
     lblOutro.setHorizontalAlignment(SwingConstants.CENTER);
     lblOutro.setVerticalAlignment(SwingConstants.CENTER);
+    lblOutro.setFont(GamePanel.fontType16);
     add(lblOutro, BorderLayout.CENTER);
     
     //btnSkip.setBounds(350,400,80,30);

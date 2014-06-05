@@ -14,12 +14,18 @@ public class Background extends JPanel{
   private RndEvent re;
   public static boolean canLoseFuel = false;
   private boolean isEndScene = false;
+  private ObjLandMark olm;
+  public static int bkgdX;
   
   public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow, LandMark templm){
     
     GamePanel.isMoving = true;
     
     setLayout(null);
+    
+    olm = new ObjLandMark();
+    
+    add(olm);
     
     gp = tempgp;
     
@@ -83,11 +89,17 @@ public class Background extends JPanel{
         outofFuelGoToStop();
       }
       
+      bkgdX = -imgBackground.getIconWidth()+500+i+400;
+      olm.setBounds(bkgdX,0,400,400);
       
       GamePanel.isGameOver();
       
+      olm.repaint();
+      
       revalidate();
       repaint();
+      
+      //System.out.println(-imgBackground.getIconWidth()+500+i);
     }
   }
   
@@ -157,6 +169,8 @@ public class Background extends JPanel{
     GamePanel.landMarksEncountered++;
     GamePanel.overWorldVisible = false;
     GamePanel.landMarkVisible = true;
+    
+    i = 0;
     
     LandMark lm = new LandMark(gp);
     gp.add(lm);

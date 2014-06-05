@@ -28,6 +28,7 @@ public class GamePanel extends JPanel{
   
   //Font
   public static Font fontType32 = new Font("Lucida Sans Typewriter", Font.PLAIN, 32);
+  public static Font fontType14 = new Font("Lucida Sans Typewriter", Font.PLAIN, 14);
   public static Font fontType16 = new Font("Lucida Sans Typewriter", Font.PLAIN, 16);
   
   

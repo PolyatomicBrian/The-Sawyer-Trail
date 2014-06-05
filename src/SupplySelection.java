@@ -29,9 +29,11 @@ public class SupplySelection extends JPanel{
     playersName = GamePanel.playersname;
     
     lblText.setBounds(35,60,500,20);
+    lblText.setFont(GamePanel.fontType14);
     add(lblText);
     
     lblError.setBounds(195,400,500,20);
+    lblError.setFont(GamePanel.fontType14);
     add(lblError);
     
     btnDone.setBounds(390,400,80,30);

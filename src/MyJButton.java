@@ -15,7 +15,7 @@ public class MyJButton extends JButton{
   
   private void setColorAndFont(){
     setBackground(Color.WHITE);
-    setFont(GamePanel.fontType16); 
+    setFont(GamePanel.fontType14); 
   }
   
 }

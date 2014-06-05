@@ -44,7 +44,7 @@ public class IntroScene extends JPanel{
     add(btnSkip);
     
     
-    area.setFont(GamePanel.fontType16);
+    area.setFont(GamePanel.fontType14);
     area.setEditable(false);
     area.setWrapStyleWord(true);
     area.setLineWrap(true);

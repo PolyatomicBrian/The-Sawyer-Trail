@@ -10,10 +10,14 @@ public class GameOver extends JPanel{
     setBackground(Color.BLACK);
     setLayout(new BorderLayout());
     
-    if (tempisDead != 0)
+    if (tempisDead != 0){
       lblGameOver.setText("<html><font color='white'>Game Over</font></html>");
-    else
+      lblGameOver.setFont(GamePanel.fontType16);
+    }
+    else{
       lblGameOver.setText("<html><font color='white'>Everyone starved. Game Over.</font></html>");
+      lblGameOver.setFont(GamePanel.fontType16);
+    }
     //lblGameOver.setBounds(200,150,300,20);
     lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
     lblGameOver.setVerticalAlignment(SwingConstants.CENTER);
