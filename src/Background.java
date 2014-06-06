@@ -8,7 +8,7 @@ public class Background extends JPanel{
   private ImageIcon imgBackground;
   public static javax.swing.Timer timer;
   private javax.swing.Timer timerPause;
-  private int i = 0;
+  public static int i = 0;
   private ObjBus objBus = new ObjBus();
   private GamePanel gp;
   private RndEvent re;
@@ -16,6 +16,13 @@ public class Background extends JPanel{
   private boolean isEndScene = false;
   private ObjLandMark olm;
   public static int bkgdX;
+  
+  private ImageIcon imgLM1 = new ImageIcon("imgLM1.png");
+  private ImageIcon imgLM2 = new ImageIcon("imgLM2.png");
+  private ImageIcon imgLM3 = new ImageIcon("imgLM3.png");
+  private ImageIcon imgLM4 = new ImageIcon("imgLM4.png");
+  private ImageIcon imgLM5 = new ImageIcon("imgLM5.png");
+  private ImageIcon imgLM6 = new ImageIcon("imgLM6.png");
   
   public Background(OverWorld tempow, GamePanel tempgp, TopOverWorld temptow, BottomOverWorld tempbow, LandMark templm){
     
@@ -49,6 +56,26 @@ public class Background extends JPanel{
   public void paintComponent(Graphics g){
     super.paintComponent(g);
     imgBackground.paintIcon(this,g,-imgBackground.getIconWidth()+500+i,0);
+    
+    if (GamePanel.landMarksEncountered == 0){
+      //lm1
+      imgLM1.paintIcon(this,g,-imgBackground.getIconWidth()+500+i+975,0);
+    }else if (GamePanel.landMarksEncountered == 1){
+      //lm2
+      imgLM2.paintIcon(this,g,-imgBackground.getIconWidth()+500+i+975,0);
+    }else if (GamePanel.landMarksEncountered == 2){
+      //lm3
+      imgLM3.paintIcon(this,g,-imgBackground.getIconWidth()+500+i+975,0);
+    }else if (GamePanel.landMarksEncountered == 3){
+      //lm4
+      imgLM4.paintIcon(this,g,-imgBackground.getIconWidth()+500+i+975,50);
+    }else if (GamePanel.landMarksEncountered == 4){
+      //lm5
+      imgLM5.paintIcon(this,g,-imgBackground.getIconWidth()+500+i+975,0);
+    }else{
+      //lm6
+      imgLM6.paintIcon(this,g,-imgBackground.getIconWidth()+500+i+1000,0);
+    }
     
   }
   
@@ -89,8 +116,10 @@ public class Background extends JPanel{
         outofFuelGoToStop();
       }
       
-      bkgdX = -imgBackground.getIconWidth()+500+i+400;
-      olm.setBounds(bkgdX,0,400,400);
+      
+      
+      bkgdX = -imgBackground.getIconWidth()+500+i+600;
+      //olm.setBounds(bkgdX,0,400,400);
       
       GamePanel.isGameOver();
       
@@ -219,6 +248,8 @@ public class Background extends JPanel{
       revalidate();
       repaint();
       timerPause.stop();
+      
+      
     }
   }
 }
